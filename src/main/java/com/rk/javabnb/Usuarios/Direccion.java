@@ -14,4 +14,13 @@ public class Direccion implements Serializable {
         this.numero = numero;
         this.cp = cp;
     }
+
+    public String getCalle() {return calle;}
+    public String getCiudad() {return ciudad;}
+    public int getNumero() {return numero;}
+    public int getCp() {return cp;}
+    public void setCalle(String calle) {this.calle = calle;}
+    public void setCiudad(String ciudad) {this.ciudad = ciudad;}
+    public void setCp(int cp) {this.cp = cp;}
+    public void setNumero(int numero) {this.numero = numero;}
 }

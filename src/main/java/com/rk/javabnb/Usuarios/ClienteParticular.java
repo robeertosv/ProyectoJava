@@ -10,6 +10,15 @@ public class ClienteParticular extends Cliente implements Serializable {
         this.isVIP = false;
     }
 
+    public TarjetaCredito getTarjeta() {return tarjeta;}
+    public boolean isVIP() {return isVIP;}
+    public void setTarjeta(TarjetaCredito tarjeta) {this.tarjeta = tarjeta;}
+
+    public void hacerVIP(){
+
+        this.isVIP = true;
+    }
+
     public void buscarInmuebles(){}
 
     public void getReservas(){}

@@ -14,7 +14,7 @@ public class Inmueble implements Serializable {
 
     public Inmueble(String titulo, char tipo, String[] servicios, int precio, String[] fotografias, Direccion direccion, DatosInmueble datos){
         this.titulo = titulo;
-        this.tipo = tipo;
+        this.tipo = tipo; //hola amor
         this.servicios = servicios;
         this.precio = precio;
         this.fotografias = fotografias;
