@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="" />
+    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/usuarios.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Cliente.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,16 +28,21 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2eqrnsWOLFh7jRxIyhuWjSSVtAQ" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.JavaBnB.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "67",
@@ -64,6 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712643119291</updated>
       <workItem from="1712643120409" duration="703000" />
+      <workItem from="1712651243935" duration="602000" />
     </task>
     <servers />
   </component>

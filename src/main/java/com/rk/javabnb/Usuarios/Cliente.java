@@ -7,8 +7,8 @@ public class Cliente {
     private String nombre;
     private int tfno;
 
-
-    public void register(String clave, String DNI, String email, String nombre, int tfno) {
+    public Cliente(){}
+    public void register(String nombre, String email, String clave, String DNI, int tfno) {
         //COMPROBAR SI YA EXISTE
 
         this.clave = clave;
