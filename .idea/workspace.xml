@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="add files">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/ClienteParticular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/ClienteParticular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/DatosInmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/DatosInmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Direccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/TarjetaCredito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/TarjetaCredito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/db.ser" beforeDir="false" />
-    </list>
+    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="add files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
