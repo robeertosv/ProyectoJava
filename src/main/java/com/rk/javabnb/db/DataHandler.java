@@ -11,6 +11,10 @@ public class DataHandler {
     private ArrayList<Inmueble> inmuebles = new ArrayList<Inmueble>();
 
     public DataHandler() {
+        try{
+
+        }
+
         //CARGAR EN LOS ARRAYLIST CORRESPONDIENTES LOS ARCHIVOS APROPIADOS (SI EXISTEN)
     }
 
