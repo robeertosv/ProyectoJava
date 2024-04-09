@@ -14,7 +14,7 @@ public class JavaBnB implements Serializable {
         roberto.registrar("Roberto Seco", "resvolkava@gmail.com", "robertoPass", "09854422A", 640721423);
         clientes.add(roberto);
 
-        FileOutputStream fos = new FileOutputStream("./db/usuarios.dat");
+        FileOutputStream fos = new FileOutputStream("usuarios.dat"); // TODO: Hacer que se pueda guardar en un directorio bien
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(clientes);
         oos.close();
