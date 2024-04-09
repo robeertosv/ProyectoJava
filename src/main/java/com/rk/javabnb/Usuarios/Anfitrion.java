@@ -8,7 +8,8 @@ public class Anfitrion extends Cliente implements Serializable {
     private LocalDate fechaRegistro;
     private boolean superAnfitrion;
 
-    public Anfitrion() {
+    public Anfitrion(String clave, String DNI, String email, String nombre, int tfno) {
+        super(clave, DNI, email, nombre, tfno);;
         this.fechaRegistro = LocalDate.now();
         this.superAnfitrion = false;
     }
