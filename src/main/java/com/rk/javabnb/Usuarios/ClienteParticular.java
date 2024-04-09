@@ -6,7 +6,8 @@ public class ClienteParticular extends Cliente implements Serializable {
     public boolean isVIP;
     private TarjetaCredito tarjeta;
 
-    public ClienteParticular() {
+    public ClienteParticular(String clave, String DNI, String email, String nombre, int tfno) {
+        super(clave, DNI, email, nombre, tfno);
         this.isVIP = false;
     }
 
