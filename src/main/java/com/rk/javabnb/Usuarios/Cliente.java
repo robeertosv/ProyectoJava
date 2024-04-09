@@ -8,8 +8,6 @@ public class Cliente implements Serializable {
     private String email;
     private String nombre;
     private int tfno;
-
-
     public void registrar(String clave, String DNI, String email, String nombre, int tfno) {
         //COMPROBAR SI YA EXISTE con un if de email? y es el constructor, hace falta llamar el metodo registrar?
 
