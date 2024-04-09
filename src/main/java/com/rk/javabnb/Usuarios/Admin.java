@@ -5,6 +5,7 @@
 package com.rk.javabnb.Usuarios;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Admin implements Serializable{
     private String clave;
@@ -41,4 +42,8 @@ public class Admin implements Serializable{
         this.clave = nuevaClave;
 
     }
+
+    //public ArrayList<Inmueble> getInmuebles() {}
+    public void getReservas(){} //Y SI HACEMOS UNA CLASE RESERVA?
+    //public ArrayList<Cliente> getClientes(){}
 }

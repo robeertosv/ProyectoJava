@@ -1,6 +1,8 @@
 package com.rk.javabnb.Usuarios;
 
-public class Cliente {
+import java.io.Serializable;
+
+public class Cliente implements Serializable {
     private String clave;
     private String DNI;
     private String email;
@@ -8,8 +10,8 @@ public class Cliente {
     private int tfno;
 
 
-    public void register(String clave, String DNI, String email, String nombre, int tfno) {
-        //COMPROBAR SI YA EXISTE
+    public void registrar(String clave, String DNI, String email, String nombre, int tfno) {
+        //COMPROBAR SI YA EXISTE con un if de email? y es el constructor, hace falta llamar el metodo registrar?
 
         this.clave = clave;
         this.DNI = DNI;
@@ -21,4 +23,7 @@ public class Cliente {
     public void login(String email, String clave) {
         //SetLoginState
     }
+
+    public void modificarDatos(){}
+
 }
