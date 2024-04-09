@@ -4,7 +4,9 @@
 
 package com.rk.javabnb.Usuarios;
 
-public class Admin {
+import java.io.Serializable;
+
+public class Admin implements Serializable{
     private String clave;
     private static final String correo = "admin@javabnb.com";
 

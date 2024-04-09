@@ -1,0 +1,13 @@
+{
+    "usuarios": [
+        {
+            "type": "admin",
+            "correo": "admin@javabnb.com",
+            "pass": "roberto"
+        }, {
+            "type": "cliente_particular",
+            "nombre": "Juan"
+        }
+
+    ]
+}
