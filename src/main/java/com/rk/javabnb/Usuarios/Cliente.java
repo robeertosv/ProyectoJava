@@ -49,10 +49,13 @@ public class Cliente extends Component implements Serializable {
     }
 
     public void login(String email, String clave) {
-        //SetLoginState
+        //Cuando arranque la app hay que mirar si existe SID.dat y se cargará la app siendo el usuario loggeado el que tenga el correo que aparece en ese archivo
+        if(email == this.email && clave == this.clave) {
+            handler.actualizarSID(email);
+        }
     }
 
     public void modificarDatos(){}
 
-    public String getEmail() {return email;}
+    public String getEmail() {return this.email;}
 }

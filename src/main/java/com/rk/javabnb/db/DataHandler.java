@@ -12,6 +12,8 @@ public class DataHandler {
     private ArrayList<Direccion> direcciones = new ArrayList<Direccion>();
     private ArrayList<Inmueble> inmuebles = new ArrayList<Inmueble>();
 
+    private String sessionID;
+
     public DataHandler() {
         try{
             FileOutputStream fileOutputStream = new FileOutputStream("clientes.dat");
@@ -51,6 +53,7 @@ public class DataHandler {
         }
     }
 
+
     public void actualizarClientes(Cliente cliente){
         clientes.add(cliente);
         try{
@@ -64,6 +67,18 @@ public class DataHandler {
         }
     }
 
+    public void actualizarSID(String SID) {
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream("sid.dat");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(SID);
+            fileOutputStream.close();
+            objectOutputStream.close();
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
+        }
+
+    }
     public void actualizarAnfitriones(Anfitrion anfitrion){
         anfitriones.add(anfitrion);
         try{
