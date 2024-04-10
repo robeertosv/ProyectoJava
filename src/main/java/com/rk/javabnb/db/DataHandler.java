@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 
+//TODO! LOS ARCHIVOS .DAT TIENEN QUE SER DIFERENTES PARA CADA ARRAY LIST!!!
 public class DataHandler {
     private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     private ArrayList<Anfitrion> anfitriones = new ArrayList<Anfitrion>();
@@ -52,8 +53,6 @@ public class DataHandler {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
         }
     }
-
-
     public void actualizarClientes(Cliente cliente){
         clientes.add(cliente);
         try{
@@ -63,7 +62,7 @@ public class DataHandler {
             fileOutputStream.close();
             objectOutputStream.close();
         }catch(IOException e){
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno ID: CANNOT_RETRIEVE_CLIENT_DB");
         }
     }
 
@@ -75,7 +74,7 @@ public class DataHandler {
             fileOutputStream.close();
             objectOutputStream.close();
         }catch(IOException e){
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno ERROR_SESSION_ID");
         }
 
     }
@@ -88,7 +87,7 @@ public class DataHandler {
             fileOutputStream.close();
             objectOutputStream.close();
         }catch(IOException e){
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno\nERROR_UPDATE_HOST");
         }
     }
 
@@ -101,7 +100,7 @@ public class DataHandler {
             fileOutputStream.close();
             objectOutputStream.close();
         }catch(IOException e){
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno\nERROR_UPDATE_DIR");
         }
     }
 
@@ -114,7 +113,7 @@ public class DataHandler {
             fileOutputStream.close();
             objectOutputStream.close();
         }catch(IOException e){
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno\nERROR_UPDATE_HOUSE");
         }
     }
 
