@@ -23,7 +23,7 @@ public class Cliente extends Component implements Serializable {
 
     public boolean registrar(String clave, String DNI, String email, String nombre, int tfno) {
         for(Cliente c : this.clientes) {
-            if(c.email == email){
+            if(c.email.equals(email)){
                 System.out.println("El email ya existe");
                 //El usuario final no tiene acceso a los logs, por lo que se deberá mostrar por consola
                 JOptionPane.showMessageDialog(this, "Ese correo ya está en uso", "Error de registro", JOptionPane.WARNING_MESSAGE);
@@ -50,7 +50,7 @@ public class Cliente extends Component implements Serializable {
 
     public void login(String email, String clave) {
         //Cuando arranque la app hay que mirar si existe SID.dat y se cargará la app siendo el usuario loggeado el que tenga el correo que aparece en ese archivo
-        if(email == this.email && clave == this.clave) {
+        if(email.equals(this.email) && clave.equals(this.clave)) {
             handler.actualizarSID(email);
         }
     }
