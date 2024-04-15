@@ -1,4 +1,6 @@
-package com.rk.javabnb.Usuarios;
+package com.rk.javabnb.Inmuebles;
+
+import com.rk.javabnb.db.DataHandler;
 
 import java.io.Serializable;
 
@@ -7,12 +9,15 @@ public class Direccion implements Serializable {
     private String ciudad;
     private int cp;
     private int numero;
+    private DataHandler dataHandler;
 
-    public Direccion(String ciudad, String calle, int numero, int cp) {
+    public Direccion(String ciudad, String calle, int numero, int cp, DataHandler dataHandler) {
         this.ciudad = ciudad;
         this.calle = calle;
         this.numero = numero;
         this.cp = cp;
+        this.dataHandler = dataHandler;
+        dataHandler.actualizarDirecciones(this);
     }
 
     public String getCalle() {return calle;}

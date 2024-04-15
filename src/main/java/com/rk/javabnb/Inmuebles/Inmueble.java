@@ -1,4 +1,4 @@
-package com.rk.javabnb.Usuarios;
+package com.rk.javabnb.Inmuebles;
 
 import java.io.Serializable;
 
