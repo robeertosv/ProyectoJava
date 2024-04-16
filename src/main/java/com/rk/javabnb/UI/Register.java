@@ -1,4 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package com.rk.javabnb.UI;
+
+/**
+ *
+ * @author Roberto
+ */
 public class Register extends javax.swing.JFrame {
 
     /**
@@ -16,255 +25,217 @@ public class Register extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
-        buttonGroup4 = new javax.swing.ButtonGroup();
-        NorthPanel = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        SouthPanel = new javax.swing.JPanel();
-        cancelBtn = new javax.swing.JButton();
-        continueBtn = new javax.swing.JButton();
-        WestPanel = new javax.swing.JPanel();
-        EastPanel = new javax.swing.JPanel();
-        CenterPanel = new javax.swing.JPanel();
+        backgroundPanel = new javax.swing.JPanel();
+        headerPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel4 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        formPanel = new javax.swing.JPanel();
+        leftFormPanel = new javax.swing.JPanel();
+        nameInput = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        emailInput = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        passInput = new javax.swing.JPasswordField();
+        jLabel7 = new javax.swing.JLabel();
+        dniInput = new javax.swing.JFormattedTextField();
+        jLabel8 = new javax.swing.JLabel();
+        dniInput1 = new javax.swing.JFormattedTextField();
+        jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Registrarse");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMinimumSize(new java.awt.Dimension(800, 400));
-        setPreferredSize(new java.awt.Dimension(800, 400));
+        setForeground(java.awt.Color.white);
+        setMinimumSize(new java.awt.Dimension(800, 800));
+        setPreferredSize(new java.awt.Dimension(800, 800));
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        NorthPanel.setBackground(new java.awt.Color(255, 255, 255));
+        backgroundPanel.setBackground(new java.awt.Color(255, 255, 255));
+        backgroundPanel.setMinimumSize(new java.awt.Dimension(800, 800));
+        backgroundPanel.setLayout(new java.awt.BorderLayout());
 
-        jLabel7.setFont(new java.awt.Font("Montserrat", 0, 36)); // NOI18N
-        jLabel7.setText("¡Crea tu cuenta!");
+        headerPanel.setBackground(new java.awt.Color(255, 255, 255));
+        headerPanel.setMinimumSize(new java.awt.Dimension(100, 100));
+        headerPanel.setPreferredSize(new java.awt.Dimension(800, 125));
+        headerPanel.setLayout(new java.awt.GridBagLayout());
 
-        jLabel8.setBackground(new java.awt.Color(242, 0, 0));
-        jLabel8.setText("LOGO AQUI");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/rk/javabnb/resources/small_logo.png"))); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(200, 75));
+        headerPanel.add(jLabel1, new java.awt.GridBagConstraints());
 
-        javax.swing.GroupLayout NorthPanelLayout = new javax.swing.GroupLayout(NorthPanel);
-        NorthPanel.setLayout(NorthPanelLayout);
-        NorthPanelLayout.setHorizontalGroup(
-            NorthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NorthPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        NorthPanelLayout.setVerticalGroup(
-            NorthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-            .addGroup(NorthPanelLayout.createSequentialGroup()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabel2.setFont(new java.awt.Font("Mars", 1, 24)); // NOI18N
+        jLabel2.setText("Registro");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(15, 0, 0, 0);
+        headerPanel.add(jLabel2, gridBagConstraints);
 
-        getContentPane().add(NorthPanel, java.awt.BorderLayout.PAGE_START);
-        NorthPanel.getAccessibleContext().setAccessibleName("NorthPanel");
+        backgroundPanel.add(headerPanel, java.awt.BorderLayout.PAGE_START);
 
-        SouthPanel.setBackground(new java.awt.Color(255, 255, 255));
+        formPanel.setBackground(new java.awt.Color(255, 255, 255));
+        formPanel.setLayout(new java.awt.GridBagLayout());
 
-        cancelBtn.setLabel("Cancelar");
-        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelBtnActionPerformed(evt);
-            }
-        });
+        leftFormPanel.setBackground(new java.awt.Color(255, 255, 255));
+        leftFormPanel.setPreferredSize(new java.awt.Dimension(300, 600));
+        leftFormPanel.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.ipadx = 166;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 28, 0, 42);
+        leftFormPanel.add(nameInput, gridBagConstraints);
 
-        continueBtn.setText("Continuar");
-        continueBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                continueBtnActionPerformed(evt);
-            }
-        });
+        jLabel3.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
+        jLabel3.setText("Nombre:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(26, 28, 0, 0);
+        leftFormPanel.add(jLabel3, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.ipadx = 166;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 28, 0, 42);
+        leftFormPanel.add(emailInput, gridBagConstraints);
 
-        javax.swing.GroupLayout SouthPanelLayout = new javax.swing.GroupLayout(SouthPanel);
-        SouthPanel.setLayout(SouthPanelLayout);
-        SouthPanelLayout.setHorizontalGroup(
-            SouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SouthPanelLayout.createSequentialGroup()
-                .addContainerGap(573, Short.MAX_VALUE)
-                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(continueBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13))
-        );
-        SouthPanelLayout.setVerticalGroup(
-            SouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SouthPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(SouthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(continueBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
+        jLabel5.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
+        jLabel5.setText("Email:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(26, 28, 0, 0);
+        leftFormPanel.add(jLabel5, gridBagConstraints);
 
-        cancelBtn.getAccessibleContext().setAccessibleName("Registrar");
+        jLabel6.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
+        jLabel6.setText("Contraseña:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(26, 28, 0, 0);
+        leftFormPanel.add(jLabel6, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.ipadx = 166;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 28, 0, 42);
+        leftFormPanel.add(passInput, gridBagConstraints);
 
-        getContentPane().add(SouthPanel, java.awt.BorderLayout.PAGE_END);
-        SouthPanel.getAccessibleContext().setAccessibleName("SouthPanel");
+        jLabel7.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
+        jLabel7.setText("DNI:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(26, 28, 0, 0);
+        leftFormPanel.add(jLabel7, gridBagConstraints);
 
-        WestPanel.setBackground(new java.awt.Color(255, 255, 255));
+        try {
+            dniInput.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.ipadx = 166;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 28, 0, 42);
+        leftFormPanel.add(dniInput, gridBagConstraints);
 
-        javax.swing.GroupLayout WestPanelLayout = new javax.swing.GroupLayout(WestPanel);
-        WestPanel.setLayout(WestPanelLayout);
-        WestPanelLayout.setHorizontalGroup(
-            WestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        WestPanelLayout.setVerticalGroup(
-            WestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-        );
+        jLabel8.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
+        jLabel8.setText("Teléfono:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(26, 28, 0, 0);
+        leftFormPanel.add(jLabel8, gridBagConstraints);
 
-        getContentPane().add(WestPanel, java.awt.BorderLayout.LINE_END);
-        WestPanel.getAccessibleContext().setAccessibleName("WestPanel");
+        try {
+            dniInput1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.ipadx = 166;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 28, 0, 42);
+        leftFormPanel.add(dniInput1, gridBagConstraints);
 
-        EastPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
+        jLabel9.setText("Tipo:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(26, 28, 0, 0);
+        leftFormPanel.add(jLabel9, gridBagConstraints);
 
-        javax.swing.GroupLayout EastPanelLayout = new javax.swing.GroupLayout(EastPanel);
-        EastPanel.setLayout(EastPanelLayout);
-        EastPanelLayout.setHorizontalGroup(
-            EastPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        EastPanelLayout.setVerticalGroup(
-            EastPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
-        );
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente Particular", "Anfitrión" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.ipadx = 106;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 28, 0, 42);
+        leftFormPanel.add(jComboBox1, gridBagConstraints);
 
-        getContentPane().add(EastPanel, java.awt.BorderLayout.LINE_START);
-        EastPanel.getAccessibleContext().setAccessibleName("EastPanel");
+        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jCheckBox1.setText("He leído y acepto los Términos y Condiciones");
+        jCheckBox1.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.ipadx = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 28, 0, 42);
+        leftFormPanel.add(jCheckBox1, gridBagConstraints);
 
-        CenterPanel.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Montserrat", 3, 18)); // NOI18N
+        jButton1.setText("Registrarse");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(25, 10, 0, 10);
+        leftFormPanel.add(jButton1, gridBagConstraints);
 
-        jLabel1.setText("Email:");
+        formPanel.add(leftFormPanel, new java.awt.GridBagConstraints());
 
-        jLabel3.setText("Contraseña:");
+        backgroundPanel.add(formPanel, java.awt.BorderLayout.CENTER);
 
-        jPasswordField1.setText("example");
-
-        jLabel4.setText("DNI:");
-
-        jFormattedTextField1.setText("00000000A");
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Nombre:");
-
-        jTextField1.setText("John Doe");
-
-        jLabel6.setText("Teléfono:");
-
-        jTextField2.setText("000000000");
-
-        jTextField3.setText("example@example.com");
-
-        jLabel2.setText("Tipo:");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente", "Anfitrion" }));
-
-        javax.swing.GroupLayout CenterPanelLayout = new javax.swing.GroupLayout(CenterPanel);
-        CenterPanel.setLayout(CenterPanelLayout);
-        CenterPanelLayout.setHorizontalGroup(
-            CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CenterPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CenterPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                .addComponent(jFormattedTextField1))))
-                    .addComponent(jLabel6))
-                .addGap(31, 31, 31)
-                .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(CenterPanelLayout.createSequentialGroup()
-                        .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3))
-                        .addGap(12, 12, 12)
-                        .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPasswordField1)
-                            .addComponent(jTextField1)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(167, Short.MAX_VALUE))
-        );
-        CenterPanelLayout.setVerticalGroup(
-            CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CenterPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CenterPanelLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(CenterPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(CenterPanel, java.awt.BorderLayout.CENTER);
-        CenterPanel.getAccessibleContext().setAccessibleName("CenterPanel");
-        CenterPanel.getAccessibleContext().setAccessibleDescription("");
+        getContentPane().add(backgroundPanel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cancelBtnActionPerformed
-
-    private void continueBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continueBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_continueBtnActionPerformed
-
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,30 +273,25 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel CenterPanel;
-    private javax.swing.JPanel EastPanel;
-    private javax.swing.JPanel NorthPanel;
-    private javax.swing.JPanel SouthPanel;
-    private javax.swing.JPanel WestPanel;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.JButton cancelBtn;
-    private javax.swing.JButton continueBtn;
+    private javax.swing.JPanel backgroundPanel;
+    private javax.swing.JFormattedTextField dniInput;
+    private javax.swing.JFormattedTextField dniInput1;
+    private javax.swing.JTextField emailInput;
+    private javax.swing.JPanel formPanel;
+    private javax.swing.JPanel headerPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel leftFormPanel;
+    private javax.swing.JTextField nameInput;
+    private javax.swing.JPasswordField passInput;
     // End of variables declaration//GEN-END:variables
 }

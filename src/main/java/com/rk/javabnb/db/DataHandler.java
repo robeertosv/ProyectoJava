@@ -3,7 +3,7 @@ package com.rk.javabnb.db;
 import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.Usuarios.Cliente;
 
-import javax.swing.*;
+//import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 
