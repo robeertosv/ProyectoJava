@@ -14,7 +14,7 @@ import java.util.Map;
 *   - Con un solo archivo se pueden guardar todos los elementos de la base de datos, excepto el admin, que por seguridad, debería ir en otro archivo
 */
 public class Database implements Serializable{
-    private static ArrayList<Cliente> clientes = new ArrayList<>();
+    private static ArrayList<ClienteParticular> clientes = new ArrayList<>();
     private static ArrayList<Anfitrion> anfitriones = new ArrayList<>();
     private static Admin admin;
     private static ArrayList<TarjetaCredito> tarjetas = new ArrayList<>();
@@ -65,12 +65,12 @@ public class Database implements Serializable{
         }
     }
 
-    public static void addCliente(Cliente cliente) {
+    public static void addCliente(ClienteParticular cliente) {
         Database.clientes.add(cliente);
     }
 
     public static void addAnfitrion(Anfitrion anf) {
-        Database.clientes.add(anf);
+        Database.anfitriones.add(anf);
     }
 
     public static void addCard(TarjetaCredito t) {
@@ -81,7 +81,21 @@ public class Database implements Serializable{
         Database.admin = a;
     }
 
-    public static ArrayList<Cliente> getClientes() {
+    public static ArrayList<ClienteParticular> getClientes() {
         return Database.clientes;
+    }
+    public static ArrayList<Anfitrion> getAnfitriones() { return Database.anfitriones; }
+
+    public static ArrayList<Cliente> getPersonas() {
+        ArrayList<Cliente> temp = new ArrayList<>();
+
+        for(ClienteParticular c : Database.clientes) {
+            temp.add(c);
+        }
+        for(Anfitrion a : Database.anfitriones) {
+            temp.add(a);
+        }
+
+        return temp;
     }
 }

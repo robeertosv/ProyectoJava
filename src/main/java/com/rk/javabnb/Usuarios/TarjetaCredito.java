@@ -1,5 +1,7 @@
 package com.rk.javabnb.Usuarios;
 
+import com.rk.javabnb.db.Database;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -12,6 +14,7 @@ public class TarjetaCredito implements Serializable {
         this.caducidad = caducidad;
         this.numero = numero;
         this.titular = titular;
+        Database.addCard(this);
     }
 
     public LocalDate getCaducidad() {return caducidad;}

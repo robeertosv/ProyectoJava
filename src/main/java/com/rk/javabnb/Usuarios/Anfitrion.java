@@ -2,6 +2,7 @@ package com.rk.javabnb.Usuarios;
 
 import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.db.DataHandler;
+import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
 import java.io.FileOutputStream;
@@ -16,11 +17,14 @@ public class Anfitrion extends Cliente implements Serializable {
     private LocalDate fechaRegistro;
     private boolean superAnfitrion;
 
-    public Anfitrion(String clave, String DNI, String email, String nombre, int tfno, ArrayList<Cliente> clientes) {
-        super(clave, DNI, email, nombre, tfno, clientes);
+    public Anfitrion(String clave, String DNI, String email, String nombre, int tfno)  {
+        super(clave, DNI, email, nombre, tfno);
         this.fechaRegistro = LocalDate.now();
         this.superAnfitrion = false;
-        //anadir readObject
+        postConstructor();
+    }
+    public void postConstructor() {
+        if (super.isNoExiste()) Database.addAnfitrion(this);
     }
 
     public void crearInmueble(Inmueble inmueble) {

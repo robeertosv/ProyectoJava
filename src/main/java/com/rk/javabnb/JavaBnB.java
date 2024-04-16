@@ -48,15 +48,14 @@ public class JavaBnB implements Serializable {
     public static void main(String[] args) {
         Database db = new Database();
 
-        /*ClienteParticular luis = new ClienteParticular("sd", "780A", "re.com", "LUIS", 980, db.getClientes());
-        ClienteParticular roberto = new ClienteParticular("clabve", "098547422A", "resvolkava@gmail.com", "Roberto", 640721423, db.getClientes());
-        Anfitrion katia = new Anfitrion("clave", "Z48540189A", "katia@katia.com", "Katia", 680997055, db.getClientes());
+        ClienteParticular luis = new ClienteParticular("sd", "780A", "re.com", "LUIS", 980);
+        ClienteParticular roberto = new ClienteParticular("clabve", "098547422A", "resvolkava@gmail.com", "Roberto", 640721423);
+        Anfitrion katia = new Anfitrion("clave", "Z48540189A", "katia@katia.com", "Katia", 680997055);
         TarjetaCredito card = new TarjetaCredito(LocalDate.now(), 874, "Roberto");
+        ClienteParticular roberto2 = new ClienteParticular("clabve", "098547422A", "resvolkava@gmail.com", "Roberto", 640721423);
 
-        db.addCard(card); db.addCliente(roberto); db.addAnfitrion(katia); db.addCliente(luis);
-        db.save();*/
 
-        for(Cliente c : Database.getClientes()){
+        for(ClienteParticular c : Database.getClientes()){
             System.out.println(c.getName());
         }
 
