@@ -4,13 +4,14 @@ import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.db.DataHandler;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class ClienteParticular extends Cliente implements Serializable {
     public boolean isVIP;
     private TarjetaCredito tarjeta;
 
-    public ClienteParticular(String clave, String DNI, String email, String nombre, int tfno, DataHandler dataHandler) {
-        super(clave, DNI, email, nombre, tfno, dataHandler);
+    public ClienteParticular(String clave, String DNI, String email, String nombre, int tfno, ArrayList<Cliente> clientes ) {
+        super(clave, DNI, email, nombre, tfno, clientes);
         this.isVIP = false;
     }
 

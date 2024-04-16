@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="cambios en constructor del cliente y la clase de DataHabdler">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="empezndo a cambiar la logico de handler, por ahora sin borrar nada de lo que ya esta escrito">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/clientes.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/inmuebles.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Direccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Anfitrion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Anfitrion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/ClienteParticular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/ClienteParticular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/DatosInmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/DatosInmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Direccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Inmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DataHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios.dat" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +96,8 @@
       <workItem from="1712643120409" duration="703000" />
       <workItem from="1712666533197" duration="1121000" />
       <workItem from="1712687517779" duration="2043000" />
-      <workItem from="1713205295680" duration="2056000" />
+      <workItem from="1713205295680" duration="2180000" />
+      <workItem from="1713248083850" duration="4422000" />
     </task>
     <task id="LOCAL-00001" summary="add files">
       <option name="closed" value="true" />
@@ -161,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712673495221</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="empezndo a cambiar la logico de handler, por ahora sin borrar nada de lo que ya esta escrito">
+      <option name="closed" value="true" />
+      <created>1713215831539</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713215831539</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +181,7 @@
     <MESSAGE value="Arreglar fallos de compilación" />
     <MESSAGE value="add files" />
     <MESSAGE value="cambios en constructor del cliente y la clase de DataHabdler" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios en constructor del cliente y la clase de DataHabdler" />
+    <MESSAGE value="empezndo a cambiar la logico de handler, por ahora sin borrar nada de lo que ya esta escrito" />
+    <option name="LAST_COMMIT_MESSAGE" value="empezndo a cambiar la logico de handler, por ahora sin borrar nada de lo que ya esta escrito" />
   </component>
 </project>

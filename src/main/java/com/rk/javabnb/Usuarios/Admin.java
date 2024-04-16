@@ -4,6 +4,8 @@
 
 package com.rk.javabnb.Usuarios;
 
+import com.rk.javabnb.Inmuebles.Inmueble;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -43,7 +45,14 @@ public class Admin implements Serializable{
 
     }
 
-    //public ArrayList<Inmueble> getInmuebles() {}
-    public void getReservas(){} //Y SI HACEMOS UNA CLASE RESERVA?
-    //public ArrayList<Cliente> getClientes(){}
+    public ArrayList<Inmueble> getInmuebles(ArrayList<Inmueble> inmuebles) {
+        return inmuebles;
+    }
+
+    //public void getReservas(){} //Y SI HACEMOS UNA CLASE RESERVA?
+
+    public ArrayList<Cliente> getClientes(ArrayList<Cliente> clientes){
+        return clientes;
+        //hacer que se visualicen bonito?
+    }
 }

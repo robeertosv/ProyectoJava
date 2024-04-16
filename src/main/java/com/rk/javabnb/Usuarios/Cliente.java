@@ -14,15 +14,12 @@ public class Cliente extends Component implements Serializable {
     private String nombre;
     private int tfno;
 
-    DataHandler handler = new DataHandler();
-    ArrayList<Cliente> clientes = handler.getClientes();
-
-    public Cliente(String clave, String DNI, String email, String nombre, int tfno){
+    public Cliente(String clave, String DNI, String email, String nombre, int tfno, ArrayList<Cliente> clientes){
 
     }
 
-    public boolean registrar(String clave, String DNI, String email, String nombre, int tfno) {
-        for(Cliente c : this.clientes) {
+    public boolean registrar(String clave, String DNI, String email, String nombre, int tfno, ArrayList<Cliente> clientes) {
+        for(Cliente c : clientes) {
             if(c.email.equals(email)){
                 System.out.println("El email ya existe");
                 //El usuario final no tiene acceso a los logs, por lo que se deberá mostrar por consola
@@ -41,7 +38,6 @@ public class Cliente extends Component implements Serializable {
                 this.email = email;
                 this.nombre = nombre;
                 this.tfno = tfno;
-                handler.actualizarClientes(this); //Hacer que esto no de error
             }
         }
 
@@ -51,7 +47,6 @@ public class Cliente extends Component implements Serializable {
     public void login(String email, String clave) {
         //Cuando arranque la app hay que mirar si existe SID.dat y se cargará la app siendo el usuario loggeado el que tenga el correo que aparece en ese archivo
         if(email.equals(this.email) && clave.equals(this.clave)) {
-            handler.actualizarSID(email);
         }
     }
 

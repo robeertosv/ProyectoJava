@@ -9,15 +9,12 @@ public class Direccion implements Serializable {
     private String ciudad;
     private int cp;
     private int numero;
-    private DataHandler dataHandler;
 
-    public Direccion(String ciudad, String calle, int numero, int cp, DataHandler dataHandler) {
+    public Direccion(String ciudad, String calle, int numero, int cp) {
         this.ciudad = ciudad;
         this.calle = calle;
         this.numero = numero;
         this.cp = cp;
-        this.dataHandler = dataHandler;
-        dataHandler.actualizarDirecciones(this);
     }
 
     public String getCalle() {return calle;}
