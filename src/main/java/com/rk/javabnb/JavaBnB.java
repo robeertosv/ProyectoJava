@@ -5,15 +5,18 @@ import com.rk.javabnb.Inmuebles.Direccion;
 import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.Usuarios.*;
 import com.rk.javabnb.db.DataHandler;
+import com.rk.javabnb.db.Database;
+import com.rk.javabnb.Usuarios.ClienteParticular;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JavaBnB implements Serializable {
 
-    public static void main(String[] args) throws IOException {
-        DataHandler dataHandler = new DataHandler();
+    /*public static void main(String[] args) throws IOException {
+        /*DataHandler dataHandler = new DataHandler();
         ArrayList<Cliente> clientes = dataHandler.leerClientes();
         ArrayList<Inmueble> inmuebles = dataHandler.leerInmuebles();
 
@@ -40,6 +43,23 @@ public class JavaBnB implements Serializable {
 
         for(Cliente c: clientesLeidos){
             System.out.println(c.getEmail());
-        }*/
+        }
+    }*/
+    public static void main(String[] args) {
+        Database db = new Database();
+
+        /*ClienteParticular luis = new ClienteParticular("sd", "780A", "re.com", "LUIS", 980, db.getClientes());
+        ClienteParticular roberto = new ClienteParticular("clabve", "098547422A", "resvolkava@gmail.com", "Roberto", 640721423, db.getClientes());
+        Anfitrion katia = new Anfitrion("clave", "Z48540189A", "katia@katia.com", "Katia", 680997055, db.getClientes());
+        TarjetaCredito card = new TarjetaCredito(LocalDate.now(), 874, "Roberto");
+
+        db.addCard(card); db.addCliente(roberto); db.addAnfitrion(katia); db.addCliente(luis);
+        db.save();*/
+
+        for(Cliente c : Database.getClientes()){
+            System.out.println(c.getName());
+        }
+
+
     }
 }

@@ -7,9 +7,14 @@ import com.rk.javabnb.Usuarios.Cliente;
 import java.io.*;
 import java.util.ArrayList;
 
-//ODO! LOS ARCHIVOS .DAT TIENEN QUE SER DIFERENTES PARA CADA ARRAY LIST!!!
+//TODO! LOS ARCHIVOS .DAT TIENEN QUE SER DIFERENTES PARA CADA ARRAY LIST!!!
 public class DataHandler {
     private String sessionID;
+
+
+    public DataHandler() {
+
+    }
 
     public ArrayList<Cliente> leerClientes() {
         ArrayList<Cliente> clientes = new ArrayList<>();
@@ -81,5 +86,8 @@ public class DataHandler {
 
     }
 
+    public String getSID() {
+        return this.sessionID;
+    }
 
 }

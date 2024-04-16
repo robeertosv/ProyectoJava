@@ -7,7 +7,7 @@ import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cliente extends Component implements Serializable {
+public class Cliente implements Serializable{
     private String clave;
     private String DNI;
     private String email;
@@ -15,7 +15,12 @@ public class Cliente extends Component implements Serializable {
     private int tfno;
 
     public Cliente(String clave, String DNI, String email, String nombre, int tfno, ArrayList<Cliente> clientes){
-        for(Cliente c : clientes) {
+        this.clave = clave;
+        this.DNI = DNI;
+        this.email = email;
+        this.nombre = nombre;
+        this.tfno = tfno;
+        /*for(Cliente c : clientes) {
             if(c.email.equals(email)){
                 System.out.println("El email ya existe");
                 //El usuario final no tiene acceso a los logs, por lo que se deberá mostrar por consola
@@ -34,7 +39,7 @@ public class Cliente extends Component implements Serializable {
                 this.tfno = tfno;
                 clientes.add(c);
             }
-        }
+        }*/
     }
 
     public void login(String email, String clave) {
@@ -46,5 +51,6 @@ public class Cliente extends Component implements Serializable {
     public void modificarDatos(){}
 
     public String getEmail() {return this.email;}
+    public String getName() { return this.nombre; }
 
 }
