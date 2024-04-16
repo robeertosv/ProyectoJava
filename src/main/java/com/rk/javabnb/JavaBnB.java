@@ -21,7 +21,7 @@ public class JavaBnB implements Serializable {
         Cliente roberto = new Cliente("74hGdnfj3", "12345678G", "resvolkava@gmail.com", "Roberto Seco", 640721423, clientes);
         Direccion d1 = new Direccion("Madrid","Calle Alcalá",5,28803);
         DatosInmueble di1 = new DatosInmueble(2,4,3,6);
-        Inmueble inmueble1 = new Inmueble ("SolMar",'C', {"800 m de la playa","aire acondicionado","cocina equipada"},120, {"foto playa","foto cocina", "foto dormitorio..."},d1,di1);
+        //Inmueble inmueble1 = new Inmueble ("SolMar",'C', new String[],120, {"foto playa","foto cocina", "foto dormitorio..."},d1,di1);
 
 
     }
