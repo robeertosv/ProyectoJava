@@ -16,7 +16,7 @@ public class Admin implements Serializable{
     public Admin() {
     }
 
-    public static String getCorreo() {
+    public static String getEmail() {
         return correo;
     }
 
@@ -55,4 +55,5 @@ public class Admin implements Serializable{
         return clientes;
         //hacer que se visualicen bonito?
     }
+
 }

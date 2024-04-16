@@ -14,6 +14,7 @@ import java.util.Map;
 *   - Con un solo archivo se pueden guardar todos los elementos de la base de datos, excepto el admin, que por seguridad, debería ir en otro archivo
 */
 public class Database implements Serializable{
+    private static ArrayList currentUser = new ArrayList();
     private static ArrayList<ClienteParticular> clientes = new ArrayList<>();
     private static ArrayList<Anfitrion> anfitriones = new ArrayList<>();
     private static Admin admin;
@@ -39,11 +40,22 @@ public class Database implements Serializable{
             fis = new FileInputStream("admin.dat");
             ois = new ObjectInputStream(fis);
             Database.admin = (Admin) ois.readObject();
+            ois.close();
+            fis.close();
+
+            fis = new FileInputStream("currentUser.dat");
+            ois = new ObjectInputStream(fis);
+            Database.currentUser = (ArrayList) ois.readObject();
+            ois.close();
+            fis.close();
+
+
+
         }catch (Exception e) {
             System.err.println(e);
         }
     }
-    public void save() {
+    public static void save() {
         try{
             datos.put("clientes", Database.getClientes());
             datos.put("tarjetas", Database.tarjetas);
@@ -57,6 +69,12 @@ public class Database implements Serializable{
             fos = new FileOutputStream("admin.dat");
             oos = new ObjectOutputStream(fos);
             oos.writeObject(Database.admin);
+            oos.close();
+            fos.close();
+
+            fos = new FileOutputStream("currentUser.dat");
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(Database.currentUser);
             oos.close();
             fos.close();
 
@@ -85,7 +103,11 @@ public class Database implements Serializable{
         return Database.clientes;
     }
     public static ArrayList<Anfitrion> getAnfitriones() { return Database.anfitriones; }
+    public static void setCurrentUser(ArrayList c) {
+        Database.currentUser = c;
+    }
 
+    public static ArrayList getCurrentUser() { return Database.currentUser; }
     public static ArrayList<Cliente> getPersonas() {
         ArrayList<Cliente> temp = new ArrayList<>();
 

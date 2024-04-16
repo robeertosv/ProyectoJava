@@ -1,12 +1,18 @@
 package com.rk.javabnb.UI;
 
 import javax.swing.*;
+
+import com.rk.javabnb.Usuarios.Cliente;
+import com.rk.javabnb.db.Database;
+
+import java.util.ArrayList;
+
 public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
     }
-    @SuppressWarnings("unchecked")
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
@@ -16,7 +22,7 @@ public class Login extends javax.swing.JFrame {
         formContainer = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         noTienesCuenta = new javax.swing.JLabel();
         loginBtn = new javax.swing.JButton();
@@ -49,10 +55,10 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Montserrat", 2, 18)); // NOI18N
         jLabel2.setText("Password");
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField1.setText("example@emample.com");
+        email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        email.setText("");
 
-        password.setText("jPasswordField1");
+        password.setText("");
 
         noTienesCuenta.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
         noTienesCuenta.setText("¿No tienes cuenta?");
@@ -88,7 +94,7 @@ public class Login extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(registerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
                         .addComponent(password)
-                        .addComponent(jTextField1)))
+                        .addComponent(email)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         formContainerLayout.setVerticalGroup(
@@ -97,7 +103,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(jLabel1)
                 .addGap(6, 6, 6)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addGap(6, 6, 6)
@@ -127,8 +133,8 @@ public class Login extends javax.swing.JFrame {
         LoginCenterPanel.setPreferredSize(new java.awt.Dimension(200, 100));
         LoginCenterPanel.setLayout(new java.awt.GridBagLayout());
 
-        getImagen();
-        logoDiv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/rk/javabnb/resources/small_logo.png"))); // NOI18N
+        ImageIcon logo = new ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\com\\rk\\javabnb\\resources\\small_logo.png");
+        logoDiv.setIcon(logo); // NOI18N
         LoginCenterPanel.add(logoDiv, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -168,61 +174,64 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_loginBtnActionPerformed
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        //Login logic
+        // ¿Existe el usuario con ese nombre?
+
+        //Está loggeado?
+        if(Database.getCurrentUser().size() > 0) {
+            //MANDAR A PANTALLA PRINCIPAL
+            System.out.println(Database.getCurrentUser().get(0));
+        }
+
+        ArrayList<Cliente> clientes = Database.getPersonas();
+        Cliente intentoLogin = null;
+        boolean existe = false;
+        boolean claveCorrecta = false;
+
+        for(Cliente c : clientes) {
+            if(c.getEmail().equals(this.email.getText())) {
+                existe = true;
+                intentoLogin = c;
+                break;
+            }
+        }
+
+        if(!existe) {
+            JOptionPane.showMessageDialog(this, "No hay un usuario con ese correo.", "Error de registro", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if(intentoLogin.checkPassword(this.password.getPassword())) {
+            JOptionPane.showMessageDialog(this, "Login correcto", "Login correcto", JOptionPane.WARNING_MESSAGE);
+            claveCorrecta = true;
+        }else {
+            JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "Error de registro", JOptionPane.WARNING_MESSAGE);
+            this.password.setText("");
+        }
+
+        if(claveCorrecta && existe) {
+            //POST LOGIN ACTION
+            ArrayList current = new ArrayList();
+            current.add(intentoLogin);
+            Database.setCurrentUser(current);
+            Database.save();
+        }else {
+            return;
+        }
+
+    }
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new Register().setVisible(true);
     }//GEN-LAST:event_registerBtnActionPerformed
 
-    private void getImagen() {
-        try {
-            logoDiv.setSize(130, 100);
-            ImageIcon imagen = new ImageIcon("imagenes/portatil.jpg");
-            //Se redimensiona
-            ImageIcon imgRedimensionada = new ImageIcon(imagen.getImage().getScaledInstance(logoDiv.getWidth(),
-                    logoDiv.getHeight(), 1));
-            logoDiv.setIcon(imgRedimensionada);
-        } catch (Exception e) {
-            System.out.println("Error: " + e.toString());
-        }
+    public void run() {
+        new Login().setVisible(true);
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LoginCenterPanel;
@@ -232,7 +241,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField email;
     private javax.swing.JButton loginBtn;
     private javax.swing.JLabel loginText;
     private javax.swing.JLabel logoDiv;

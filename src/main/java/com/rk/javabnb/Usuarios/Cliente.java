@@ -47,6 +47,12 @@ public class Cliente extends Component implements Serializable{
 
     public void modificarDatos(){}
 
+    public boolean checkPassword(char[] pass) {
+        String passwd = String.valueOf(pass);
+
+        return passwd.equals(this.clave) ? true : false;
+    }
+
     public String getEmail() {return this.email;}
     public String getName() { return this.nombre; }
 
