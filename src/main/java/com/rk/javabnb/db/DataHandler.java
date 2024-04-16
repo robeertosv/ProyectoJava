@@ -2,13 +2,12 @@ package com.rk.javabnb.db;
 
 import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.Usuarios.Cliente;
-//import com.rk.javabnb.Usuarios.Anfitrion;
 
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 
-//TODO! LOS ARCHIVOS .DAT TIENEN QUE SER DIFERENTES PARA CADA ARRAY LIST!!!
+//ODO! LOS ARCHIVOS .DAT TIENEN QUE SER DIFERENTES PARA CADA ARRAY LIST!!!
 public class DataHandler {
     private String sessionID;
 
