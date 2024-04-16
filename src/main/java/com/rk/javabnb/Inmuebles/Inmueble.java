@@ -1,5 +1,6 @@
 package com.rk.javabnb.Inmuebles;
 
+import javax.swing.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -15,6 +16,7 @@ public class Inmueble implements Serializable {
     private String[] servicios; //y si hacemos mejor un arraylist?
     private char tipo;
     public String titulo;
+    public ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 
     public Inmueble(String titulo, char tipo, String[] servicios, int precio, String[] fotografias, Direccion direccion, DatosInmueble datos){
         this.titulo = titulo;
@@ -40,4 +42,11 @@ public class Inmueble implements Serializable {
             System.out.println(e.getMessage());
         }
     }
+
+    //metodo que calcula el precio total dependiendo de la cantidad de personas y de noches
+
+    public String toString(){
+        return datos.toString()+"\n"+"Direccion: "+this.direccion.toStringShort()+"\n Precio mínimo por noche: "+this.precio+"\n Servicios: "+this.servicios+"\n Calificacion: "+this.calificacion;
+    }
+
 }

@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes">
+    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes, al terminar se guardan, pero creo que todavia no funciona">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Reserva.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/reservarInmueble.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/reservarInmueble.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/verInmueble.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/verInmueble.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clientes.dat" beforeDir="false" afterPath="$PROJECT_DIR$/clientes.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inmuebles.dat" beforeDir="false" afterPath="$PROJECT_DIR$/inmuebles.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/DatosInmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/DatosInmueble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Direccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DataHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/clientes.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/inmuebles.dat" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,24 +58,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.JavaBnB.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;67&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/UAH/PROGRAMACION/JavaBnB&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.JavaBnB.executor": "Run",
+    "Application.Login.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "297",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/UAH/PROGRAMACION/JavaBnB",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -95,7 +104,12 @@
       <workItem from="1712687517779" duration="2043000" />
       <workItem from="1713205295680" duration="2180000" />
       <workItem from="1713248083850" duration="4736000" />
-      <workItem from="1713253408680" duration="2074000" />
+      <workItem from="1713253408680" duration="2249000" />
+      <workItem from="1713275105112" duration="673000" />
+      <workItem from="1713283058031" duration="1419000" />
+      <workItem from="1713289166465" duration="176000" />
+      <workItem from="1713294435992" duration="2351000" />
+      <workItem from="1713301488895" duration="2287000" />
     </task>
     <task id="LOCAL-00001" summary="add files">
       <option name="closed" value="true" />
@@ -185,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713256592547</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes, al terminar se guardan, pero creo que todavia no funciona">
+      <option name="closed" value="true" />
+      <created>1713257655223</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1713257655223</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +219,27 @@
     <MESSAGE value="cambios en constructor del cliente y la clase de DataHabdler" />
     <MESSAGE value="empezndo a cambiar la logico de handler, por ahora sin borrar nada de lo que ya esta escrito" />
     <MESSAGE value="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes" />
+    <MESSAGE value="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes, al terminar se guardan, pero creo que todavia no funciona" />
+    <option name="LAST_COMMIT_MESSAGE" value="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes, al terminar se guardan, pero creo que todavia no funciona" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/Database.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/Database.java</url>
+          <line>85</line>
+          <properties class="com.rk.javabnb.db.Database" method="addCliente">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

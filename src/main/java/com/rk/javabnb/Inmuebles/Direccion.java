@@ -25,4 +25,8 @@ public class Direccion implements Serializable {
     public void setCiudad(String ciudad) {this.ciudad = ciudad;}
     public void setCp(int cp) {this.cp = cp;}
     public void setNumero(int numero) {this.numero = numero;}
+
+    public String toStringShort(){
+        return calle+" ,"+ciudad;
+    }
 }
