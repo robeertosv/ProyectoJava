@@ -14,18 +14,12 @@ public class DataHandler {
     public ArrayList<Cliente> leerClientes() {
         ArrayList<Cliente> clientes = new ArrayList<>();
         try {
-            FileInputStream fileInputStream = new FileInputStream("clientesParitculares.dat");
+            FileInputStream fileInputStream = new FileInputStream("clientes.dat");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            while(true){
-                try{
-                    Cliente cliente = (Cliente) objectInputStream.readObject();
-                    clientes.add(cliente);
-                }catch (EOFException e){
-                    break;
-                }catch (ClassNotFoundException e){
-                    e.printStackTrace();
-                    break;
-                }
+            try {
+                clientes = (ArrayList<Cliente>) objectInputStream.readObject();
+            }catch(ClassNotFoundException e){
+                e.printStackTrace();
             }
             fileInputStream.close();
             objectInputStream.close();
@@ -41,23 +35,51 @@ public class DataHandler {
         try {
             FileInputStream fileInputStream = new FileInputStream("inmuebles.dat");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            while(true){
-                try{
-                    Inmueble inmueble = (Inmueble) objectInputStream.readObject();
-                    inmuebles.add(inmueble);
-                }catch (EOFException e){
-                    break;
-                }catch (ClassNotFoundException e){
+            try{
+                    inmuebles = (ArrayList<Inmueble>) objectInputStream.readObject();
+                    fileInputStream.close();
+                    objectInputStream.close();
+            }catch (ClassNotFoundException e){
                     e.printStackTrace();
-                    break;
-                }
             }
-            fileInputStream.close();
-            objectInputStream.close();
-        } catch (IOException e) {
+        }catch (IOException e) {
             //JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
             System.out.println("Problema al leer inmuebles");
         }
         return inmuebles;
     }
+
+    public void guardarClientes(ArrayList<Cliente> clientes) {
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream("clientes.dat");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            for (Cliente cliente : clientes) {
+                objectOutputStream.writeObject(cliente);
+            }
+            objectOutputStream.close();
+            fileOutputStream.close();
+        }catch(IOException e){
+            //JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
+            System.out.println("Problema al guardar clientes");
+        }
+
+    }
+
+    public void guardarInmuebles(ArrayList<Inmueble> inmuebles) {
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream("inmuebles.dat");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            for (Inmueble inmueble : inmuebles) {
+                objectOutputStream.writeObject(inmueble);
+            }
+            objectOutputStream.close();
+            fileOutputStream.close();
+        }catch(IOException e){
+            //JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
+            System.out.println("Problema al guardar inmuebles");
+        }
+
+    }
+
+
 }
