@@ -24,5 +24,22 @@ public class JavaBnB implements Serializable {
         //Inmueble inmueble1 = new Inmueble ("SolMar",'C', new String[],120, {"foto playa","foto cocina", "foto dormitorio..."},d1,di1);
 
 
+        dataHandler.guardarClientes(clientes);
+        dataHandler.guardarInmuebles(inmuebles);
+
+        /*ArrayList<Cliente> clientesLeidos = new ArrayList<>();
+        try{
+            FileInputStream fileInputStream = new FileInputStream("clientes.dat");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            clientesLeidos = (ArrayList<Cliente>) objectInputStream.readObject();
+            objectInputStream.close();
+            fileInputStream.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        for(Cliente c: clientesLeidos){
+            System.out.println(c.getEmail());
+        }*/
     }
 }

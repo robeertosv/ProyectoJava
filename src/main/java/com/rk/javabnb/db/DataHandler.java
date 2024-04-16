@@ -48,4 +48,38 @@ public class DataHandler {
         }
         return inmuebles;
     }
+
+    public void guardarClientes(ArrayList<Cliente> clientes) {
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream("clientes.dat");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            for (Cliente cliente : clientes) {
+                objectOutputStream.writeObject(cliente);
+            }
+            objectOutputStream.close();
+            fileOutputStream.close();
+        }catch(IOException e){
+            //JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
+            System.out.println("Problema al guardar clientes");
+        }
+
+    }
+
+    public void guardarInmuebles(ArrayList<Inmueble> inmuebles) {
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream("inmuebles.dat");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            for (Inmueble inmueble : inmuebles) {
+                objectOutputStream.writeObject(inmueble);
+            }
+            objectOutputStream.close();
+            fileOutputStream.close();
+        }catch(IOException e){
+            //JOptionPane.showMessageDialog(null, "Ha ocurrido un error interno");
+            System.out.println("Problema al guardar inmuebles");
+        }
+
+    }
+
+
 }
