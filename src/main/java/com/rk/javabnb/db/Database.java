@@ -3,7 +3,6 @@ package com.rk.javabnb.db;
 import com.rk.javabnb.Usuarios.*;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +19,6 @@ public class Database implements Serializable{
     private static Admin admin;
     private static ArrayList<TarjetaCredito> tarjetas = new ArrayList<>();
     private static Map<String, ArrayList> datos = new HashMap<>();
-
     public Database() {
         this.load();
     }
