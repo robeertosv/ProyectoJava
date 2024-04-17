@@ -105,6 +105,7 @@
       <workItem from="1713358153539" duration="575000" />
       <workItem from="1713360918643" duration="16000" />
       <workItem from="1713361147145" duration="2577000" />
+      <workItem from="1713377303925" duration="96000" />
     </task>
     <task id="LOCAL-00001" summary="add files">
       <option name="closed" value="true" />
@@ -226,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713363928317</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)">
+      <option name="closed" value="true" />
+      <created>1713377344658</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713377344658</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
