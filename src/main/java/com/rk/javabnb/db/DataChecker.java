@@ -19,7 +19,7 @@ public class DataChecker {
             int numeros = Integer.parseInt(DNI.substring(0, DNI.length()-1));
             int index = numeros % 23;
 
-            if(DNI.charAt(DNI.length()) == letras[index]) { correctDigit = true; }
+            if(DNI.charAt(DNI.length()-1) == letras[index]) { correctDigit = true; }
             if(DNI.length() == 9) { correctLenght = true; }
 
             return correctDigit&&correctDigit? true : false;

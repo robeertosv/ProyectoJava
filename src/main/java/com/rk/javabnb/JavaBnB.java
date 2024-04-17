@@ -4,6 +4,7 @@ package com.rk.javabnb;
 import com.rk.javabnb.Inmuebles.*;
 import com.rk.javabnb.UI.*;
 import com.rk.javabnb.Usuarios.*;
+import com.rk.javabnb.db.DataChecker;
 import com.rk.javabnb.db.Database;
 
 
@@ -24,11 +25,9 @@ public class JavaBnB implements Serializable {
         Database.save();*/
         //new Login().run();
 
-        /*
-        ArrayList usr = new ArrayList();
-        Database.setCurrentUser(usr);
-        Database.save();
-         */
+
+        //Cerrar sesión
+        //Database.cerrarSesion();
 
         if(Database.getCurrentUser().size() != 0) {
             System.out.println("HAY ALGUIEN LOGGEADO");
@@ -36,6 +35,7 @@ public class JavaBnB implements Serializable {
         }else {
             Login login = new Login();
         }
+
         //POR QUE NO FUNCIONAN LOS ANFITRIONES????????????
         //probando versiones incompletas de VerInmueble
         /*Direccion d1 = new Direccion("Málaga","Calle Venus",33,23350);
@@ -46,7 +46,6 @@ public class JavaBnB implements Serializable {
         fotos1.add("foto1.jpg");
         Inmueble inmuebleMalaga1 = new Inmueble("Palmera",'A', servicios1, 90,fotos1,d1,di1);
         inmuebleMalaga1.verInmueble();*/
-
 
 
     }

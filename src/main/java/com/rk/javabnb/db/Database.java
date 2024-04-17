@@ -120,6 +120,11 @@ public class Database implements Serializable{
         return emails;
     }
 
+    public static void cerrarSesion() {
+        ArrayList usr = new ArrayList();
+        Database.setCurrentUser(usr);
+        Database.save();
+    }
     public static ArrayList<String> getAllEmail() {
         return Database.emails;
     }
