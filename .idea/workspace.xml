@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="Pequeños cambios en verInmueble y una prueba de anfitriones en main, pero es que los anfitriones no funcionan!!! y no entiendo por que">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/DatosInmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/DatosInmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Direccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/reservarInmueble.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/ReservarInmueble.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/reservarInmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/ReservarInmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/verInmueble.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/VerInmueble.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/verInmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/VerInmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" afterDir="false" />
-    </list>
+    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +104,7 @@
       <workItem from="1713340799194" duration="912000" />
       <workItem from="1713358153539" duration="575000" />
       <workItem from="1713360918643" duration="16000" />
-      <workItem from="1713361147145" duration="2364000" />
+      <workItem from="1713361147145" duration="2577000" />
     </task>
     <task id="LOCAL-00001" summary="add files">
       <option name="closed" value="true" />
@@ -228,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713340358471</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)">
+      <option name="closed" value="true" />
+      <created>1713363928317</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713363928317</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +241,7 @@
     <MESSAGE value="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes, al terminar se guardan, pero creo que todavia no funciona" />
     <MESSAGE value="He añadido una clase Reserva y los paneles de ver y reservar un inmueble, pero todavia no estan terminados, ni de lejos, dejame terminarlos luego" />
     <MESSAGE value="Pequeños cambios en verInmueble y una prueba de anfitriones en main, pero es que los anfitriones no funcionan!!! y no entiendo por que" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequeños cambios en verInmueble y una prueba de anfitriones en main, pero es que los anfitriones no funcionan!!! y no entiendo por que" />
+    <MESSAGE value="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)" />
+    <option name="LAST_COMMIT_MESSAGE" value="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)" />
   </component>
 </project>
