@@ -30,6 +30,6 @@ public class DatosInmueble implements Serializable {
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
 
     public String toString() {
-        return descripcion + "\n Detalles: "+habitaciones+" habitaciones, "+camas+" camas, "+banos+" baños, "+maxHuespedes+" el máximo de huéspedes";
+        return descripcion + "\nDetalles: "+habitaciones+"habitaciones, "+camas+"camas, "+banos+"baños, "+maxHuespedes+"el máximo de huéspedes";
     }
 }

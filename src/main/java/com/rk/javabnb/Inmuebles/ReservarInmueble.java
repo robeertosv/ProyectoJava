@@ -2,7 +2,7 @@ package com.rk.javabnb.Inmuebles;
 
 import javax.swing.*;
 
-public class reservarInmueble {
+public class ReservarInmueble {
     private JPanel reservarInmueblePanel;
     private JTextField comentariosTextField;
     private JLabel comentarioLabel;

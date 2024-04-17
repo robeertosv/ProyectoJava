@@ -12,15 +12,15 @@ public class Inmueble implements Serializable {
     private double calificacion;
     private DatosInmueble datos;
     private Direccion direccion;
-    private String[] fotografias; //por que es un string? arraylist?
+    private ArrayList<String> fotografias; //por que es un string? arraylist?
     private int precio;
-    private String[] servicios; //y si hacemos mejor un arraylist?
+    private ArrayList<String> servicios; //y si hacemos mejor un arraylist?
     private char tipo;
     public String titulo;
     public ArrayList<Reserva> reservas = new ArrayList<Reserva>();
     //todo anadir anfitrion
 
-    public Inmueble(String titulo, char tipo, String[] servicios, int precio, String[] fotografias, Direccion direccion, DatosInmueble datos){
+    public Inmueble(String titulo, char tipo, ArrayList<String> servicios, int precio, ArrayList<String> fotografias, Direccion direccion, DatosInmueble datos){
         this.titulo = titulo;
         this.tipo = tipo;
         this.servicios = servicios;
@@ -45,14 +45,24 @@ public class Inmueble implements Serializable {
         }
     }
 
+    public String serviciosToString(){
+        String text = "";
+        for (String servicio : servicios) {
+            text+=servicio + ", ";
+        }
+        String textoSinComa = text.substring(0, text.length()-2);
+        return textoSinComa;
+    }
+
     //metodo que calcula el precio total dependiendo de la cantidad de personas y de noches
 
     public String toString(){
-        return datos.toString()+"\n"+"Direccion: "+this.direccion.toStringShort()+"\n Precio mínimo por noche: "+this.precio+"\n Servicios: "+this.servicios+"\n Calificacion: "+this.calificacion;
+        return datos.toString()+"\n"+"Direccion: "+this.direccion.toStringShort()+"\nPrecio mínimo por noche: "+this.precio+"\nServicios: "+this.serviciosToString()+"\nCalificacion: "+this.calificacion;
     }
 
     public void verInmueble(){
-
+        VerInmueble verInmuebleForm = new VerInmueble(this.toString());
+        verInmuebleForm.setVisible(true);
     }
 
 }

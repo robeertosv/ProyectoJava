@@ -27,6 +27,6 @@ public class Direccion implements Serializable {
     public void setNumero(int numero) {this.numero = numero;}
 
     public String toStringShort(){
-        return calle+" ,"+ciudad;
+        return calle+", "+ciudad;
     }
 }
