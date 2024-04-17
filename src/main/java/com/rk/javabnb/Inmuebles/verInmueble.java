@@ -1,5 +1,7 @@
 package com.rk.javabnb.Inmuebles;
 
+import com.rk.javabnb.db.Database;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +15,8 @@ public class verInmueble extends JFrame{
 
     public verInmueble(String texto) { //pasar texto de inmueble.toString()
         super("verInmueble");
+        //Database db = new Database();
+        ArrayList<Anfitrion> anfitriones = Database.getAnfitriones(); //todo visualizar texto
         JTextArea descipcionTextArea = new JTextArea(texto);
         descipcionTextArea.setEditable(false);
         descipcionTextArea.setLineWrap(true);

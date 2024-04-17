@@ -21,5 +21,11 @@ public class JavaBnB implements Serializable {
 
         Database.save();*/
         new Login().run();
+
+        Anfitrion juan = new Anfitrion("clave","12345678A","juan@gmail.com","Juan",678345443);
+        db.addAnfitrion(juan);
+        //POR QUE NO FUNCIONAN LOS ANFITRIONES????????????
+
+
     }
 }

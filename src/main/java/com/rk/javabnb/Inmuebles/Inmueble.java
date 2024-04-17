@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+//import com.rk.javabnb.Usuarios.Anfitrion;
 
 public class Inmueble implements Serializable {
     private double calificacion;
@@ -17,6 +18,7 @@ public class Inmueble implements Serializable {
     private char tipo;
     public String titulo;
     public ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+    //todo anadir anfitrion
 
     public Inmueble(String titulo, char tipo, String[] servicios, int precio, String[] fotografias, Direccion direccion, DatosInmueble datos){
         this.titulo = titulo;
@@ -47,6 +49,10 @@ public class Inmueble implements Serializable {
 
     public String toString(){
         return datos.toString()+"\n"+"Direccion: "+this.direccion.toStringShort()+"\n Precio mínimo por noche: "+this.precio+"\n Servicios: "+this.servicios+"\n Calificacion: "+this.calificacion;
+    }
+
+    public void verInmueble(){
+
     }
 
 }
