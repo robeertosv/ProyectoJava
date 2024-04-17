@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)" />
+    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="commit and push solo para que me deje hacer el update?">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/ReviewForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/ReviewForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,26 +53,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.JavaBnB.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;297&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/UAH/PROGRAMACION/JavaBnB&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.JavaBnB.executor": "Run",
+    "Application.Login.executor": "Run",
+    "Application.ReviewForm.executor": "Run",
+    "Application.ReviewGUI.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "297",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/UAH/PROGRAMACION/JavaBnB",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db" />
@@ -106,6 +113,7 @@
       <workItem from="1713360918643" duration="16000" />
       <workItem from="1713361147145" duration="2577000" />
       <workItem from="1713377303925" duration="96000" />
+      <workItem from="1713377404819" duration="1009000" />
     </task>
     <task id="LOCAL-00001" summary="add files">
       <option name="closed" value="true" />
@@ -235,11 +243,38 @@
       <option name="project" value="LOCAL" />
       <updated>1713377344658</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)">
+      <option name="closed" value="true" />
+      <created>1713377417019</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713377417019</updated>
+    </task>
+    <task id="LOCAL-00018" summary="commit and push solo para que me deje hacer el update?">
+      <option name="closed" value="true" />
+      <created>1713377447316</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713377447316</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Arreglar fallos de compilación" />
@@ -251,6 +286,7 @@
     <MESSAGE value="He añadido una clase Reserva y los paneles de ver y reservar un inmueble, pero todavia no estan terminados, ni de lejos, dejame terminarlos luego" />
     <MESSAGE value="Pequeños cambios en verInmueble y una prueba de anfitriones en main, pero es que los anfitriones no funcionan!!! y no entiendo por que" />
     <MESSAGE value="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)" />
-    <option name="LAST_COMMIT_MESSAGE" value="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)" />
+    <MESSAGE value="commit and push solo para que me deje hacer el update?" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit and push solo para que me deje hacer el update?" />
   </component>
 </project>
