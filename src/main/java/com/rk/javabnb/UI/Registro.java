@@ -4,6 +4,7 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Usuarios.Anfitrion;
 import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.db.DataChecker;
@@ -244,23 +245,50 @@ public class Registro extends javax.swing.JFrame {
             return;
         }
 
-        //Comprobar validez de los datos
-        try {
-            boolean DNICorrecto = DataChecker.checkDNI(dni.getText());
-            boolean tfnCorrecto = DataChecker.checkTfn(Integer.parseInt(tfn.getText()));
-            boolean passCorrecta = DataChecker.checkPass(password.getPassword());
+        if(jComboBox1.getSelectedIndex() == 0) {
+            //Es cliente particular
+            try {
+                boolean DNICorrecto = DataChecker.checkDNI(dni.getText());
+                boolean tfnCorrecto = DataChecker.checkTfn(Integer.parseInt(tfn.getText()));
+                boolean passCorrecta = DataChecker.checkPass(password.getPassword());
 
-            if(DNICorrecto && tfnCorrecto && passCorrecta) {
-                //TODO Diferenciar si es cliente particular o anfitrion
-                //Database.addCliente(new ClienteParticular(String.valueOf(password.getPassword()), dni.getText(), email.getText(), name.getText(), Integer.parseInt(tfn.getText()));
-            }else {
+                if(DNICorrecto && tfnCorrecto && passCorrecta) {
+                    //TODO Diferenciar si es cliente particular o anfitrion
+                    new ClienteParticular(String.valueOf(password.getPassword()), dni.getText(), email.getText(), name.getText(), Integer.parseInt(tfn.getText()));
+                    JOptionPane.showMessageDialog(this, "Registro exitoso del cliente", "Registro exitoso", JOptionPane.WARNING_MESSAGE);
+                    new Login();
+                    this.dispose();
+                }else {
+                    JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos TF", "Error de Registro", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            } catch(Exception e) {
+                JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }else {
+            try {
+                boolean DNICorrecto = DataChecker.checkDNI(dni.getText());
+                boolean tfnCorrecto = DataChecker.checkTfn(Integer.parseInt(tfn.getText()));
+                boolean passCorrecta = DataChecker.checkPass(password.getPassword());
+
+                if(DNICorrecto && tfnCorrecto && passCorrecta) {
+                    //TODO Diferenciar si es cliente particular o anfitrion
+                    new Anfitrion(String.valueOf(password.getPassword()), dni.getText(), email.getText(), name.getText(), Integer.parseInt(tfn.getText()));
+                    JOptionPane.showMessageDialog(this, "Registro exitoso del anfitrión", "Registro exitoso", JOptionPane.WARNING_MESSAGE);
+                    new Login();
+                    this.dispose();
+                }else {
+                    JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
+                }
+            } catch(Exception e) {
                 JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
             }
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
         }
 
     }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField dni;
