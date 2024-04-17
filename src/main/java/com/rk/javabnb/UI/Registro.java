@@ -239,53 +239,56 @@ public class Registro extends javax.swing.JFrame {
     }
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        if(Database.getAllEmail().contains(email.getText())) {
-            //El email ya está registrado
-            JOptionPane.showMessageDialog(this, "Ya existe una cuenta con ese correo", "Error de Registro", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        if(jComboBox1.getSelectedIndex() == 0) {
-            //Es cliente particular
-            try {
-                boolean DNICorrecto = DataChecker.checkDNI(dni.getText());
-                boolean tfnCorrecto = DataChecker.checkTfn(Integer.parseInt(tfn.getText()));
-                boolean passCorrecta = DataChecker.checkPass(password.getPassword());
-
-                if(DNICorrecto && tfnCorrecto && passCorrecta) {
-                    //TODO Diferenciar si es cliente particular o anfitrion
-                    new ClienteParticular(String.valueOf(password.getPassword()), dni.getText(), email.getText(), name.getText(), Integer.parseInt(tfn.getText()));
-                    JOptionPane.showMessageDialog(this, "Registro exitoso del cliente", "Registro exitoso", JOptionPane.WARNING_MESSAGE);
-                    new Login();
-                    this.dispose();
-                }else {
-                    JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos TF", "Error de Registro", JOptionPane.WARNING_MESSAGE);
-                    return;
-                }
-            } catch(Exception e) {
-                JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
+        if(terms.isSelected()) {
+            if(Database.getAllEmail().contains(email.getText())) {
+                //El email ya está registrado
+                JOptionPane.showMessageDialog(this, "Ya existe una cuenta con ese correo", "Error de Registro", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-        }else {
-            try {
-                boolean DNICorrecto = DataChecker.checkDNI(dni.getText());
-                boolean tfnCorrecto = DataChecker.checkTfn(Integer.parseInt(tfn.getText()));
-                boolean passCorrecta = DataChecker.checkPass(password.getPassword());
 
-                if(DNICorrecto && tfnCorrecto && passCorrecta) {
-                    //TODO Diferenciar si es cliente particular o anfitrion
-                    new Anfitrion(String.valueOf(password.getPassword()), dni.getText(), email.getText(), name.getText(), Integer.parseInt(tfn.getText()));
-                    JOptionPane.showMessageDialog(this, "Registro exitoso del anfitrión", "Registro exitoso", JOptionPane.WARNING_MESSAGE);
-                    new Login();
-                    this.dispose();
-                }else {
+            if(jComboBox1.getSelectedIndex() == 0) {
+                //Es cliente particular
+                try {
+                    boolean DNICorrecto = DataChecker.checkDNI(dni.getText());
+                    boolean tfnCorrecto = DataChecker.checkTfn(Integer.parseInt(tfn.getText()));
+                    boolean passCorrecta = DataChecker.checkPass(password.getPassword());
+
+                    if(DNICorrecto && tfnCorrecto && passCorrecta) {
+                        //TODO Diferenciar si es cliente particular o anfitrion
+                        new ClienteParticular(String.valueOf(password.getPassword()), dni.getText(), email.getText(), name.getText(), Integer.parseInt(tfn.getText()));
+                        JOptionPane.showMessageDialog(this, "Registro exitoso del cliente", "Registro exitoso", JOptionPane.WARNING_MESSAGE);
+                        new Login();
+                        this.dispose();
+                    }else {
+                        JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos TF", "Error de Registro", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+                } catch(Exception e) {
+                    JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            }else {
+                try {
+                    boolean DNICorrecto = DataChecker.checkDNI(dni.getText());
+                    boolean tfnCorrecto = DataChecker.checkTfn(Integer.parseInt(tfn.getText()));
+                    boolean passCorrecta = DataChecker.checkPass(password.getPassword());
+
+                    if(DNICorrecto && tfnCorrecto && passCorrecta) {
+                        //TODO Diferenciar si es cliente particular o anfitrion
+                        new Anfitrion(String.valueOf(password.getPassword()), dni.getText(), email.getText(), name.getText(), Integer.parseInt(tfn.getText()));
+                        JOptionPane.showMessageDialog(this, "Registro exitoso del anfitrión", "Registro exitoso", JOptionPane.WARNING_MESSAGE);
+                        new Login();
+                        this.dispose();
+                    }else {
+                        JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
+                    }
+                } catch(Exception e) {
                     JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
                 }
-            } catch(Exception e) {
-                JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Debes aceptar los términos y condiciones", "Error de registro", JOptionPane.WARNING_MESSAGE);
         }
-
     }
 
 
