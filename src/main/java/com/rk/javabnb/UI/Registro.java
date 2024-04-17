@@ -4,6 +4,14 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Usuarios.Cliente;
+import com.rk.javabnb.Usuarios.ClienteParticular;
+import com.rk.javabnb.db.DataChecker;
+import com.rk.javabnb.db.Database;
+
+import javax.swing.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author Roberto
@@ -39,7 +47,7 @@ public class Registro extends javax.swing.JFrame {
         tfn = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         terms = new javax.swing.JCheckBox();
-        loginBtn = new javax.swing.JButton();
+        registerBtn = new javax.swing.JButton();
         goLogin = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -164,9 +172,14 @@ public class Registro extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         formPanel.add(terms, gridBagConstraints);
 
-        loginBtn.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
-        loginBtn.setText("Registrar");
-        loginBtn.setToolTipText("");
+        registerBtn.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
+        registerBtn.setText("Registrar");
+        registerBtn.setToolTipText("");
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBtnActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
@@ -174,7 +187,7 @@ public class Registro extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        formPanel.add(loginBtn, gridBagConstraints);
+        formPanel.add(registerBtn, gridBagConstraints);
 
         goLogin.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         goLogin.setText("¿Ya tienes cuenta? ¡Inicia sesión!");
@@ -213,16 +226,41 @@ public class Registro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {
         //Cuando se cierra la ventana de login
         new Login();
-    }//GEN-LAST:event_formWindowClosing
+    }
 
-    private void goLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goLoginMousePressed
+    private void goLoginMousePressed(java.awt.event.MouseEvent evt) {
         new Login();   
         this.dispose();
            
-    }//GEN-LAST:event_goLoginMousePressed
+    }
+
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        if(Database.getAllEmail().contains(email.getText())) {
+            //El email ya está registrado
+            JOptionPane.showMessageDialog(this, "Ya existe una cuenta con ese correo", "Error de Registro", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        //Comprobar validez de los datos
+        try {
+            boolean DNICorrecto = DataChecker.checkDNI(dni.getText());
+            boolean tfnCorrecto = DataChecker.checkTfn(Integer.parseInt(tfn.getText()));
+            boolean passCorrecta = DataChecker.checkPass(password.getPassword());
+
+            if(DNICorrecto && tfnCorrecto && passCorrecta) {
+                //TODO Diferenciar si es cliente particular o anfitrion
+                //Database.addCliente(new ClienteParticular(String.valueOf(password.getPassword()), dni.getText(), email.getText(), name.getText(), Integer.parseInt(tfn.getText()));
+            }else {
+                JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Comprueba los datos introducidos", "Error de Registro", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField dni;
@@ -240,9 +278,9 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel leftPanel;
-    private javax.swing.JButton loginBtn;
     private javax.swing.JTextField name;
     private javax.swing.JPasswordField password;
+    private javax.swing.JButton registerBtn;
     private javax.swing.JCheckBox terms;
     private javax.swing.JTextField tfn;
     // End of variables declaration//GEN-END:variables

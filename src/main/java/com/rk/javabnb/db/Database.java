@@ -19,6 +19,8 @@ public class Database implements Serializable{
     private static ArrayList<Anfitrion> anfitriones = new ArrayList<>();
     private static Admin admin;
     private static ArrayList<TarjetaCredito> tarjetas = new ArrayList<>();
+
+    private static ArrayList<String> emails = new ArrayList<>();
     private static Map<String, ArrayList> datos = new HashMap<>();
     public Database() {
         this.load();
@@ -49,6 +51,7 @@ public class Database implements Serializable{
             ois.close();
             fis.close();
 
+            Database.emails = Database.getAllEmail();
 
 
         }catch (Exception e) {
@@ -105,6 +108,20 @@ public class Database implements Serializable{
     public static ArrayList<Anfitrion> getAnfitriones() { return Database.anfitriones; }
     public static void setCurrentUser(ArrayList c) {
         Database.currentUser = c;
+    }
+
+    private static ArrayList<String> setAllEmail() {
+        ArrayList<String> emails = new ArrayList<>();
+
+        for(Cliente c : Database.getClientes()) {
+            emails.add(c.getEmail());
+        }
+
+        return emails;
+    }
+
+    public static ArrayList<String> getAllEmail() {
+        return Database.emails;
     }
 
     public static ArrayList getCurrentUser() { return Database.currentUser; }
