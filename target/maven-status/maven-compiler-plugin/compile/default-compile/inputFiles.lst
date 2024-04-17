@@ -2,7 +2,9 @@ D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\db\DataHandler.jav
 D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Usuarios\Admin.java
 D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\DatosInmueble.java
 D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Usuarios\ClienteParticular.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\UI\Register.java
+D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\UI\Registro.java
+D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\reservarInmueble.java
+D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\Reserva.java
 D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Usuarios\Anfitrion.java
 D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\Direccion.java
 D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\UI\Login.java
@@ -10,4 +12,5 @@ D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Usuarios\TarjetaCr
 D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Usuarios\Cliente.java
 D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\db\Database.java
 D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\Inmueble.java
+D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\verInmueble.java
 D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\JavaBnB.java

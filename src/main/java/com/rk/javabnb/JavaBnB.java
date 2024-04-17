@@ -2,9 +2,10 @@ package com.rk.javabnb;
 
 
 import com.rk.javabnb.Inmuebles.*;
+import com.rk.javabnb.UI.Login;
 import com.rk.javabnb.Usuarios.*;
 import com.rk.javabnb.db.Database;
-import com.rk.javabnb.UI.*;
+
 
 import java.io.*;
 import java.time.LocalDate;
@@ -12,7 +13,7 @@ import java.time.LocalDate;
 public class JavaBnB implements Serializable {
 
     public static void main(String[] args) {
-        Database db = new Database();
+        Database db = new Database(); //Cargar los datos desde la db
 
         /*ClienteParticular luis = new ClienteParticular("sd", "780A", "re.com", "LUIS", 980);
         ClienteParticular roberto = new ClienteParticular("clave", "098547422A", "resvolkava@gmail.com", "Roberto", 640721423);
@@ -20,10 +21,19 @@ public class JavaBnB implements Serializable {
         TarjetaCredito card = new TarjetaCredito(LocalDate.now(), 874, "Roberto");
 
         Database.save();*/
-        new Login().run();
 
-        Anfitrion juan = new Anfitrion("clave","12345678A","juan@gmail.com","Juan",678345443);
-        db.addAnfitrion(juan);
+        /*
+        ArrayList usr = new ArrayList();
+        Database.setCurrentUser(usr);
+        Database.save();
+         */
+
+        if(Database.getCurrentUser().size() != 0) {
+            System.out.println("HAY ALGUIEN LOGGEADO");
+            //Abrir pestaña principal
+        }else {
+            Login login = new Login();
+        }
         //POR QUE NO FUNCIONAN LOS ANFITRIONES????????????
 
 

@@ -1,11 +1,13 @@
 package com.rk.javabnb.Inmuebles;
 
+import com.rk.javabnb.Usuarios.Anfitrion;
 import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.*;
+import java.util.ArrayList;
 
 public class verInmueble extends JFrame{
     private JPanel verInmueblePanel;
