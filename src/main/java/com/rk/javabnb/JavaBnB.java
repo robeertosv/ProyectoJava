@@ -29,12 +29,12 @@ public class JavaBnB implements Serializable {
         //Cerrar sesión
         //Database.cerrarSesion();
 
-        if(Database.getCurrentUser().size() != 0) {
+        /*if(Database.getCurrentUser().size() != 0) {
             System.out.println("HAY ALGUIEN LOGGEADO");
             //Abrir pestaña principal
         }else {
             Login login = new Login();
-        }
+        }*/
 
         //POR QUE NO FUNCIONAN LOS ANFITRIONES????????????
         //probando versiones incompletas de VerInmueble
@@ -47,6 +47,7 @@ public class JavaBnB implements Serializable {
         Inmueble inmuebleMalaga1 = new Inmueble("Palmera",'A', servicios1, 90,fotos1,d1,di1);
         inmuebleMalaga1.verInmueble();*/
 
+        //ReservarInmueble ri = new ReservarInmueble();
 
     }
 }
