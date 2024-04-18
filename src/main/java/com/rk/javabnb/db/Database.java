@@ -97,7 +97,7 @@ public class Database implements Serializable{
     public static void addCard(TarjetaCredito t) {
         Database.tarjetas.add(t);
     }
-
+    public static ArrayList<TarjetaCredito> getTarjetas() { return Database.tarjetas; }
     public static void setAdmin(Admin a) {
         Database.admin = a;
     }
