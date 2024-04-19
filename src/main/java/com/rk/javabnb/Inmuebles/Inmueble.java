@@ -45,9 +45,5 @@ public class Inmueble implements Serializable {
         return datos.toString()+"\n"+"Direccion: "+this.direccion.toStringShort()+"\nPrecio mínimo por noche: "+this.precio+"\nServicios: "+this.serviciosToString()+"\nCalificacion: "+this.calificacion;
     }
 
-    public void verInmueble(){
-        VerInmueble verInmuebleForm = new VerInmueble(this.toString());
-        verInmuebleForm.setVisible(true);
-    }
 
 }

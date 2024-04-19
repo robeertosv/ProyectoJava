@@ -49,7 +49,5 @@ public class JavaBnB implements Serializable {
         Inmueble inmuebleMalaga1 = new Inmueble("Palmera",'A', servicios1, 90,fotos1,d1,di1);
         inmuebleMalaga1.verInmueble();*/
 
-        //ReservarInmueble ri = new ReservarInmueble();
-
     }
 }
