@@ -1,9 +1,6 @@
 package com.rk.javabnb.Inmuebles;
 
 import javax.swing.*;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 //import com.rk.javabnb.Usuarios.Anfitrion;
@@ -17,7 +14,7 @@ public class Inmueble implements Serializable {
     private ArrayList<String> servicios; //y si hacemos mejor un arraylist?
     private char tipo;
     public String titulo;
-    public ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+
     //todo anadir anfitrion
 
     public Inmueble(String titulo, char tipo, ArrayList<String> servicios, int precio, ArrayList<String> fotografias, Direccion direccion, DatosInmueble datos){
@@ -31,19 +28,7 @@ public class Inmueble implements Serializable {
         calificacion = 0;
     }
 
-    public void serializar(ArrayList<Inmueble> inmuebles){
-        try{
-            FileOutputStream fileOutputStream = new FileOutputStream("inmuebles.dat");
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            for(Inmueble i:inmuebles){
-                objectOutputStream.writeObject(i);
-            }
-            fileOutputStream.close();
-            objectOutputStream.close();
-        }catch(IOException e){
-            System.out.println(e.getMessage());
-        }
-    }
+   
 
     public String serviciosToString(){
         String text = "";

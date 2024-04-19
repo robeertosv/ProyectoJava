@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="no he modificaod basicamente nada, he probado una cosa y la he borrado">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/ConfirmarReserva.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/ConfirmarReserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="Validacion de tarjeta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/ReservarInmueble.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/ReservarInmueble.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/ReservarInmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/ReservarInmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,42 +54,34 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.DatosBancarios.executor": "Run",
     "Application.JavaBnB.executor": "Run",
     "Application.Login.executor": "Run",
-    "Application.ReservarInmueble.executor": "Run",
-    "Application.ReviewForm.executor": "Run",
-    "Application.ReviewGUI.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "297",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/UAH/PROGRAMACION/JavaBnB",
+    "last_opened_file_path": "C:/Users/Roberto/Documents/NetBeansProjects/TestProject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -121,11 +108,13 @@
       <workItem from="1713340799194" duration="912000" />
       <workItem from="1713358153539" duration="575000" />
       <workItem from="1713360918643" duration="16000" />
-      <workItem from="1713361147145" duration="2577000" />
-      <workItem from="1713377303925" duration="96000" />
-      <workItem from="1713377404819" duration="1519000" />
-      <workItem from="1713422485385" duration="11000" />
-      <workItem from="1713422778649" duration="6996000" />
+      <workItem from="1713361147145" duration="2364000" />
+      <workItem from="1713374862998" duration="5174000" />
+      <workItem from="1713382592069" duration="940000" />
+      <workItem from="1713423236224" duration="1845000" />
+      <workItem from="1713516145206" duration="62000" />
+      <workItem from="1713519628867" duration="183000" />
+      <workItem from="1713533031052" duration="559000" />
     </task>
     <task id="LOCAL-00001" summary="add files">
       <option name="closed" value="true" />
@@ -239,62 +228,43 @@
       <option name="project" value="LOCAL" />
       <updated>1713340358471</updated>
     </task>
-    <task id="LOCAL-00015" summary="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)">
+    <task id="LOCAL-00015" summary="Registro">
       <option name="closed" value="true" />
-      <created>1713363928317</created>
+      <created>1713376840198</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1713363928317</updated>
+      <updated>1713376840198</updated>
     </task>
-    <task id="LOCAL-00016" summary="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)">
+    <task id="LOCAL-00016" summary="Registro Completado">
       <option name="closed" value="true" />
-      <created>1713377344658</created>
+      <created>1713379279278</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1713377344658</updated>
+      <updated>1713379279278</updated>
     </task>
-    <task id="LOCAL-00017" summary="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)">
+    <task id="LOCAL-00017" summary="Registro Completado">
       <option name="closed" value="true" />
-      <created>1713377417019</created>
+      <created>1713379393527</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1713377417019</updated>
+      <updated>1713379393527</updated>
     </task>
-    <task id="LOCAL-00018" summary="commit and push solo para que me deje hacer el update?">
+    <task id="LOCAL-00018" summary="Validacion de tarjeta">
       <option name="closed" value="true" />
-      <created>1713377447316</created>
+      <created>1713423902288</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1713377447316</updated>
+      <updated>1713423902288</updated>
     </task>
-    <task id="LOCAL-00019" summary="no he modificaod basicamente nada, he probado una cosa y la he borrado">
-      <option name="closed" value="true" />
-      <created>1713379489636</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1713379489636</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Arreglar fallos de compilación" />
@@ -305,9 +275,11 @@
     <MESSAGE value="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes, al terminar se guardan, pero creo que todavia no funciona" />
     <MESSAGE value="He añadido una clase Reserva y los paneles de ver y reservar un inmueble, pero todavia no estan terminados, ni de lejos, dejame terminarlos luego" />
     <MESSAGE value="Pequeños cambios en verInmueble y una prueba de anfitriones en main, pero es que los anfitriones no funcionan!!! y no entiendo por que" />
-    <MESSAGE value="avances pequeños en ver inmueble y su prueba en Main (no la borres, si eso, comentala)" />
-    <MESSAGE value="commit and push solo para que me deje hacer el update?" />
-    <MESSAGE value="no he modificaod basicamente nada, he probado una cosa y la he borrado" />
-    <option name="LAST_COMMIT_MESSAGE" value="no he modificaod basicamente nada, he probado una cosa y la he borrado" />
+    <MESSAGE value="Fix images, Fix persistent login" />
+    <MESSAGE value="Katia ver inmuebles" />
+    <MESSAGE value="Registro" />
+    <MESSAGE value="Registro Completado" />
+    <MESSAGE value="Validacion de tarjeta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Validacion de tarjeta" />
   </component>
 </project>
