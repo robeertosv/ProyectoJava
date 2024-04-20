@@ -12,10 +12,10 @@ import java.util.Map;
 
 
 /*
-* La nueva base de datos es así:
-*   - Todas las propiedades deben ser estáticas porque todas las clases necesitan poder acceder a los datos más nuevos, y no a los guardados en las instancias
-*   - Con un solo archivo se pueden guardar todos los elementos de la base de datos, excepto el admin, que por seguridad, debería ir en otro archivo
-*/
+ * La nueva base de datos es así:
+ *   - Todas las propiedades deben ser estáticas porque todas las clases necesitan poder acceder a los datos más nuevos, y no a los guardados en las instancias
+ *   - Con un solo archivo se pueden guardar todos los elementos de la base de datos, excepto el admin, que por seguridad, debería ir en otro archivo
+ */
 public class Database implements Serializable{
     private static ArrayList currentUser = new ArrayList();
     private static ArrayList<ClienteParticular> clientes = new ArrayList<>();
@@ -26,7 +26,7 @@ public class Database implements Serializable{
     private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
     private static ArrayList<String> emails = new ArrayList<>();
 
-    private static ArrayList<InmueblePreview> inmueblePreviews = new ArrayList<>();
+    public static ArrayList<InmueblePreview> inmueblePreviews = new ArrayList<>();
     private static Map<String, ArrayList> datos = new HashMap<>();
 
     public Database() {

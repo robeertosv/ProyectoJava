@@ -7,12 +7,15 @@ package com.rk.javabnb.Inmuebles;
 import com.rk.javabnb.db.Database;
 
 public class InmueblePreview extends javax.swing.JPanel {
-        public InmueblePreview(Inmueble i) {
+    public InmueblePreview(Inmueble i) {
         initComponents();
         this.nombre.setText(i.getNombre());
         this.desc.setText(i.getDesc());
-        this.rating.setText(String.valueOf(i.getCalificacion()) + "/5");
+        this.rating.setText(i.getCalificacion() + "/5");
         this.precio.setText(String.valueOf(i.getPrecio()) + "€");
+
+        this.ratingD = i.getCalificacion();
+        this.precioD = i.getPrecio();
         Database.addInmueblePreview(this);
         this.ciudad = i.getCiudad();
         Database.save();
@@ -20,6 +23,13 @@ public class InmueblePreview extends javax.swing.JPanel {
 
     public String getNombre() { return this.nombre.getText(); }
     public String getCiudad() { return this.ciudad; }
+    public double getPrecio() { return this.precioD; }
+    public double getRating() { return  this.ratingD; }
+    public void setRating(double nota) {
+        this.ratingD = nota;
+        this.rating.setText(nota + "/5");
+        Database.save();
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -94,5 +104,7 @@ public class InmueblePreview extends javax.swing.JPanel {
     private javax.swing.JLabel rating;
     private javax.swing.JButton showMore;
     private String ciudad;
+    private double precioD;
+    private double ratingD;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,6 +11,7 @@ import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 import java.util.ArrayList;
 
 /*Pantalla principal de la aplicación*/
@@ -65,7 +66,7 @@ public class Home extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         jPanel1.add(searchInmueble, gridBagConstraints);
 
-        filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Ciudad" }));
+        filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Ciudad", "Menores precios", "Mejor rating"}));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -138,6 +139,25 @@ public class Home extends javax.swing.JFrame {
                         huboResultados = true;
                     }
                 }
+            break;
+            //Por precios (Menor a mayor)
+            case 2:
+                for(InmueblePreview i : Database.getInmueblePreview()) {
+                    resultado.add(i);
+                    huboResultados = true;
+                }
+                resultado.sort((obj1, obj2) -> Double.compare(obj1.getPrecio(), obj2.getPrecio()));
+                break;
+            //Mejores ratings
+            case 3:
+                for(InmueblePreview i : Database.getInmueblePreview()) {
+                    resultado.add(i);
+                    huboResultados = true;
+                    System.out.println(i.getRating());
+                }
+                resultado.sort((obj1, obj2) -> Double.compare(obj1.getRating(), obj2.getRating()));
+                Collections.reverse(resultado);
+                break;
         }
 
         if(huboResultados) {
