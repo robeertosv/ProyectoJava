@@ -4,6 +4,7 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.Inmuebles.InmueblePreview;
 import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.db.Database;
@@ -31,13 +32,13 @@ public class Home extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        searchInmueble = new javax.swing.JButton();
+        filtros = new javax.swing.JComboBox<>();
+        search = new javax.swing.JTextField();
         menuOpciones = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
-        JPanel containerPanel = new JPanel(new GridLayout(0, 1)); //Crear el contenedor donde se añadirán las casas
+        containerPanel = new JPanel(new GridLayout(0, 1)); //Crear el contenedor donde se añadirán las casas
 
         for(InmueblePreview panel : Database.getInmueblePreview()) {
             containerPanel.add(panel);
@@ -53,30 +54,33 @@ public class Home extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/small_logo.png"))); // NOI18N
         jPanel1.add(jLabel1, new java.awt.GridBagConstraints());
 
-        jButton1.setText("Buscar");
+        searchInmueble.setText("Buscar");
+        searchInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchInmuebleActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
-        jPanel1.add(jButton1, gridBagConstraints);
+        jPanel1.add(searchInmueble, gridBagConstraints);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtros" }));
+        filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(11, 11, 11, 11);
-        jPanel1.add(jComboBox1, gridBagConstraints);
+        jPanel1.add(filtros, gridBagConstraints);
 
-        jTextField1.setText("Search something");
+        search.setText("Search something");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 26;
         gridBagConstraints.insets = new java.awt.Insets(11, 11, 11, 11);
-        jPanel1.add(jTextField1, gridBagConstraints);
+        jPanel1.add(search, gridBagConstraints);
 
-        //menuOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Roberto", "Cerrar Sesión" }));
-        Cliente cliente = (Cliente) Database.getCurrentUser().get(0);
-        menuOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { cliente.getName(), "Cerrar Sesión" }));
+        menuOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Roberto", "Cerrar Sesión" }));
         menuOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuOpcionesActionPerformed(evt);
@@ -111,6 +115,38 @@ public class Home extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_menuOpcionesActionPerformed
+
+    private void searchInmuebleActionPerformed(java.awt.event.ActionEvent evt) {
+        //BUSCAR BUSCAR Y MOSTRAR INMUEBLES
+        ArrayList<InmueblePreview> resultado = new ArrayList<>();
+        boolean huboResultados = false;
+        switch(this.filtros.getSelectedIndex()) {
+            //Buscar por nombre
+            case 0:
+                for(InmueblePreview i : Database.getInmueblePreview()) {
+                    if(i.getNombre().equals(this.search.getText())) {
+                        resultado.add(i);
+                        huboResultados = true;
+                    }
+                }
+        }
+
+        if(huboResultados) {
+            this.containerPanel.removeAll();
+            for(InmueblePreview i : resultado) {
+                this.containerPanel.add(i);
+            }
+            this.scrollPane.setViewportView(containerPanel);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontraron resultados para: " + this.search.getText(), "No se encontraron resultados", JOptionPane.WARNING_MESSAGE);
+            this.containerPanel.removeAll();
+            for(InmueblePreview panel : Database.getInmueblePreview()) {
+                containerPanel.add(panel);
+            }
+            this.scrollPane.setViewportView(containerPanel);
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -148,13 +184,15 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> filtros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> menuOpciones;
     private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JTextField search;
+    private javax.swing.JButton searchInmueble;
+    private JPanel containerPanel;
+    private int filtro;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,6 +17,8 @@ public class InmueblePreview extends javax.swing.JPanel {
         Database.save();
     }
 
+    public String getNombre() { return this.nombre.getText(); }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -89,5 +91,6 @@ public class InmueblePreview extends javax.swing.JPanel {
     private javax.swing.JLabel precio;
     private javax.swing.JLabel rating;
     private javax.swing.JButton showMore;
+    private Inmueble padre;
     // End of variables declaration//GEN-END:variables
 }
