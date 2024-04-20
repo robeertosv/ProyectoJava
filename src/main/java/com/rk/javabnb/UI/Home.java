@@ -5,6 +5,7 @@
 package com.rk.javabnb.UI;
 
 import com.rk.javabnb.Inmuebles.InmueblePreview;
+import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
@@ -73,7 +74,9 @@ public class Home extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(11, 11, 11, 11);
         jPanel1.add(jTextField1, gridBagConstraints);
 
-        menuOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Roberto", "Cerrar Sesión" }));
+        //menuOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Roberto", "Cerrar Sesión" }));
+        Cliente cliente = (Cliente) Database.getCurrentUser().get(0);
+        menuOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { cliente.getName(), "Cerrar Sesión" }));
         menuOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuOpcionesActionPerformed(evt);
