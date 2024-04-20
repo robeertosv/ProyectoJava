@@ -175,11 +175,12 @@ public class Login extends javax.swing.JFrame {
 
         if(encontrado) {
             if(inLogin.checkPassword(password.getPassword())) {
-                JOptionPane.showMessageDialog(this, "Login correcto", "Error de registro", JOptionPane.WARNING_MESSAGE);
                 ArrayList loggedUser = new ArrayList();
                 loggedUser.add(inLogin);
                 Database.setCurrentUser(loggedUser);
                 Database.save();
+                new Home();
+                this.dispose();
             }else {
                 JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "Error de registro", JOptionPane.WARNING_MESSAGE);
                 password.setText("");

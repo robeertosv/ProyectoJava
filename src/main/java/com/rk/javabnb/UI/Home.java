@@ -33,11 +33,11 @@ public class Home extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        menuOpciones = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         JPanel containerPanel = new JPanel(new GridLayout(0, 1)); //Crear el contenedor donde se añadirán las casas
-        
+
         for(InmueblePreview panel : Database.getInmueblePreview()) {
             containerPanel.add(panel);
         }
@@ -73,24 +73,41 @@ public class Home extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(11, 11, 11, 11);
         jPanel1.add(jTextField1, gridBagConstraints);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Opciones", "Item 2", "Item 3", "Item 4" }));
+        menuOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Roberto", "Cerrar Sesión" }));
+        menuOpciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOpcionesActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 9, 0, 9);
-        jPanel1.add(jComboBox2, gridBagConstraints);
+        jPanel1.add(menuOpciones, gridBagConstraints);
 
         jLabel2.setText("                           ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         jPanel1.add(jLabel2, gridBagConstraints);
+
         scrollPane.setViewportView(containerPanel);
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
         getContentPane().add(scrollPane, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpcionesActionPerformed
+        switch(menuOpciones.getSelectedIndex()) {
+            //Cerrar sesión
+            case 1:
+                Database.cerrarSesion();
+                new Login();
+                this.dispose();
+                break;
+        }
+    }//GEN-LAST:event_menuOpcionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,11 +147,11 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> menuOpciones;
     private javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
 }
