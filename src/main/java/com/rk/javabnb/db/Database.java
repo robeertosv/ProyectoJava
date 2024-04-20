@@ -1,5 +1,6 @@
 package com.rk.javabnb.db;
 
+import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.Inmuebles.InmueblePreview;
 import com.rk.javabnb.Usuarios.*;
 
@@ -22,6 +23,7 @@ public class Database implements Serializable{
     private static Admin admin;
     private static ArrayList<TarjetaCredito> tarjetas = new ArrayList<>();
 
+    private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
     private static ArrayList<String> emails = new ArrayList<>();
 
     private static ArrayList<InmueblePreview> inmueblePreviews = new ArrayList<>();
@@ -151,6 +153,9 @@ public class Database implements Serializable{
         return temp;
     }
 
+    public static void addInmueble(Inmueble i) { Database.inmuebles.add(i); }
+    public static ArrayList<Inmueble> getInmuebles() { return Database.inmuebles; }
     public static void addInmueblePreview(InmueblePreview i) { Database.inmueblePreviews.add(i); }
     public static ArrayList<InmueblePreview> getInmueblePreview() { return Database.inmueblePreviews; }
+
 }

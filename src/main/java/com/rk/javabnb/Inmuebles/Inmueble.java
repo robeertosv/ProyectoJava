@@ -29,7 +29,6 @@ public class Inmueble implements Serializable {
         this.datos = datos;
         calificacion = 0;
         new InmueblePreview(this);
-
     }
 
     public String getNombre() { return this.titulo; }
