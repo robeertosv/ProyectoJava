@@ -65,7 +65,7 @@ public class Home extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         jPanel1.add(searchInmueble, gridBagConstraints);
 
-        filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre" }));
+        filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Ciudad" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -125,6 +125,15 @@ public class Home extends javax.swing.JFrame {
             case 0:
                 for(InmueblePreview i : Database.getInmueblePreview()) {
                     if(i.getNombre().equals(this.search.getText())) {
+                        resultado.add(i);
+                        huboResultados = true;
+                    }
+                }
+            break;
+            //Buscar por ciudad
+            case 1:
+                for(InmueblePreview i : Database.getInmueblePreview()) {
+                    if(i.getCiudad().equals(this.search.getText())) {
                         resultado.add(i);
                         huboResultados = true;
                     }

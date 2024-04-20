@@ -37,6 +37,8 @@ public class Inmueble implements Serializable {
     public double getPrecio() { return this.precio;}
     public double getCalificacion() { return this.calificacion;}
 
+    public String getCiudad() { return this.direccion.getCiudad(); }
+
 
     public String serviciosToString(){
         String text = "";

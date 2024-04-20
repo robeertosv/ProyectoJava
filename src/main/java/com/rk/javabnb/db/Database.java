@@ -64,6 +64,7 @@ public class Database implements Serializable{
 
         }catch (Exception e) {
             System.err.println(e);
+            new DatosPrueba();
         }
     }
     public static void save() {

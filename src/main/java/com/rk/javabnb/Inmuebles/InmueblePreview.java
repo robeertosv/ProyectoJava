@@ -14,10 +14,12 @@ public class InmueblePreview extends javax.swing.JPanel {
         this.rating.setText(String.valueOf(i.getCalificacion()) + "/5");
         this.precio.setText(String.valueOf(i.getPrecio()) + "€");
         Database.addInmueblePreview(this);
+        this.ciudad = i.getCiudad();
         Database.save();
     }
 
     public String getNombre() { return this.nombre.getText(); }
+    public String getCiudad() { return this.ciudad; }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -91,6 +93,6 @@ public class InmueblePreview extends javax.swing.JPanel {
     private javax.swing.JLabel precio;
     private javax.swing.JLabel rating;
     private javax.swing.JButton showMore;
-    private Inmueble padre;
+    private String ciudad;
     // End of variables declaration//GEN-END:variables
 }
