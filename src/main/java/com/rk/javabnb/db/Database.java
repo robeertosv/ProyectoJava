@@ -1,7 +1,9 @@
 package com.rk.javabnb.db;
 
+import com.rk.javabnb.Inmuebles.InmueblePreview;
 import com.rk.javabnb.Usuarios.*;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +23,10 @@ public class Database implements Serializable{
     private static ArrayList<TarjetaCredito> tarjetas = new ArrayList<>();
 
     private static ArrayList<String> emails = new ArrayList<>();
+
+    private static ArrayList<InmueblePreview> inmueblePreviews = new ArrayList<>();
     private static Map<String, ArrayList> datos = new HashMap<>();
+
     public Database() {
         this.load();
     }
@@ -35,6 +40,7 @@ public class Database implements Serializable{
             Database.clientes = Database.datos.get("clientes");
             Database.anfitriones = Database.datos.get("anfitriones");
             Database.tarjetas = Database.datos.get("tarjetas");
+            Database.inmueblePreviews = Database.datos.get("inmueblesPreview");
 
             ois.close();
             fis.close();
@@ -63,6 +69,8 @@ public class Database implements Serializable{
             datos.put("clientes", Database.getClientes());
             datos.put("tarjetas", Database.tarjetas);
             datos.put("anfitriones", Database.anfitriones);
+            datos.put("inmueblesPreview", Database.inmueblePreviews);
+
             FileOutputStream fos = new FileOutputStream("db.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(datos);
@@ -142,4 +150,7 @@ public class Database implements Serializable{
 
         return temp;
     }
+
+    public static void addInmueblePreview(InmueblePreview i) { Database.inmueblePreviews.add(i); }
+    public static ArrayList<InmueblePreview> getInmueblePreview() { return Database.inmueblePreviews; }
 }

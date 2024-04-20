@@ -16,8 +16,8 @@ public class JavaBnB implements Serializable {
 
     public static void main(String[] args) {
         Database db = new Database(); //Cargar los datos desde la db
-        /*
-        ClienteParticular luis = new ClienteParticular("sd", "780A", "re.com", "LUIS", 980);
+
+        /*ClienteParticular luis = new ClienteParticular("sd", "780A", "re.com", "LUIS", 980);
         ClienteParticular roberto = new ClienteParticular("clave", "098547422A", "resvolkava@gmail.com", "Roberto", 640721423);
         Anfitrion katia = new Anfitrion("clave", "Z48540189A", "katia@katia.com", "Katia", 680997055);
         TarjetaCredito card = new TarjetaCredito(LocalDate.now(), 874, "Roberto");
@@ -38,16 +38,11 @@ public class JavaBnB implements Serializable {
             Login login = new Login();
         }*/
 
-        //POR QUE NO FUNCIONAN LOS ANFITRIONES????????????
-        //probando versiones incompletas de VerInmueble
-        /*Direccion d1 = new Direccion("Málaga","Calle Venus",33,23350);
-        DatosInmueble di1 = new DatosInmueble(1,3,2,4,"Una apartamento soleado, a 500 metros de la playa, cerca del casco histórico de Málaga. Muy moderno y limpio. Se admiten mascotas.");
-        ArrayList<String> servicios1 = new ArrayList<>();
-        servicios1.add("aire acondicionado");
-        ArrayList<String> fotos1 = new ArrayList<>();
-        fotos1.add("foto1.jpg");
-        Inmueble inmuebleMalaga1 = new Inmueble("Palmera",'A', servicios1, 90,fotos1,d1,di1);
-        inmuebleMalaga1.verInmueble();*/
+        /*Inmueble casa1 = new Inmueble("Casa Roberto", 'c', new ArrayList<>(), 600, new ArrayList<>(), new Direccion("Alcalá" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"));
+        Inmueble casa2 = new Inmueble("Casa Katia", 'c', new ArrayList<>(), 800, new ArrayList<>(), new Direccion("Alcalá" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"));
+        Inmueble casa3 = new Inmueble("Casa Pepe", 'c', new ArrayList<>(), 900, new ArrayList<>(), new Direccion("Alcalá" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"));*/
+
+        new Home();
 
     }
 }

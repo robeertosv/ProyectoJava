@@ -1,5 +1,7 @@
 package com.rk.javabnb.Inmuebles;
 
+import com.rk.javabnb.db.Database;
+
 import javax.swing.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,12 +11,12 @@ public class Inmueble implements Serializable {
     private double calificacion;
     private DatosInmueble datos;
     private Direccion direccion;
-    private ArrayList<String> fotografias; //por que es un string? arraylist?
-    private int precio;
-    private ArrayList<String> servicios; //y si hacemos mejor un arraylist?
+    private ArrayList<String> fotografias;
+    private double precio;
+    private ArrayList<String> servicios;
     private char tipo;
     public String titulo;
-
+    public String desc;
     //todo anadir anfitrion
 
     public Inmueble(String titulo, char tipo, ArrayList<String> servicios, int precio, ArrayList<String> fotografias, Direccion direccion, DatosInmueble datos){
@@ -26,9 +28,16 @@ public class Inmueble implements Serializable {
         this.direccion = direccion;
         this.datos = datos;
         calificacion = 0;
+        new InmueblePreview(this);
+
     }
 
-   
+    public String getNombre() { return this.titulo; }
+    public String getDesc() { return this.desc; }
+
+    public double getPrecio() { return this.precio;}
+    public double getCalificacion() { return this.calificacion;}
+
 
     public String serviciosToString(){
         String text = "";
@@ -41,9 +50,9 @@ public class Inmueble implements Serializable {
 
     //metodo que calcula el precio total dependiendo de la cantidad de personas y de noches
 
-    public String toString(){
+    /*public String toString(){
         return datos.toString()+"\n"+"Direccion: "+this.direccion.toStringShort()+"\nPrecio mínimo por noche: "+this.precio+"\nServicios: "+this.serviciosToString()+"\nCalificacion: "+this.calificacion;
-    }
+    }*/
 
 
 }
