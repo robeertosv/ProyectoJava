@@ -157,9 +157,6 @@ public class Database implements Serializable{
 
     public static void addInmueble(Inmueble i) { Database.inmuebles.add(i); }
     public static ArrayList<Inmueble> getInmuebles() { return Database.inmuebles; }
-    public static void addInmueblePreview(InmueblePreview i) { Database.inmueblePreviews.add(i); }
-    //public static ArrayList<InmueblePreview> getInmueblePreview() { return Database.inmueblePreviews; }
-
     public static ArrayList<InmueblePreview> getInmueblePreview() {
         Database.inmueblePreviews = new ArrayList<>();
         for(Inmueble i : Database.inmuebles) {

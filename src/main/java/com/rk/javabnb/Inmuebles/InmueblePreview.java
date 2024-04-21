@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.rk.javabnb.Inmuebles;
 
 import com.rk.javabnb.db.Database;
 
 public class InmueblePreview extends javax.swing.JPanel {
     public InmueblePreview(Inmueble i) {
+        this.inmueble = i;
         initComponents();
         this.nombre.setText(i.getNombre());
         this.desc.setText(i.getDesc());
@@ -16,7 +13,6 @@ public class InmueblePreview extends javax.swing.JPanel {
 
         this.ratingD = i.getCalificacion();
         this.precioD = i.getPrecio();
-        Database.addInmueblePreview(this);
         this.ciudad = i.getCiudad();
         Database.save();
     }
@@ -87,6 +83,11 @@ public class InmueblePreview extends javax.swing.JPanel {
         add(jLabel5, gridBagConstraints);
 
         showMore.setText("Ver más");
+        showMore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showMoreActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -95,7 +96,15 @@ public class InmueblePreview extends javax.swing.JPanel {
         add(showMore, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void showMoreActionPerformed(java.awt.event.ActionEvent evt) {
+        //Crear la página del Inmueble y poder gestionar la reserva desde ahí
+        new PreReserva(this.inmueble);
+    }
 
+
+    private double ratingD;
+    private double precioD;
+    private String ciudad;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel desc;
     private javax.swing.JLabel jLabel5;
@@ -103,8 +112,6 @@ public class InmueblePreview extends javax.swing.JPanel {
     private javax.swing.JLabel precio;
     private javax.swing.JLabel rating;
     private javax.swing.JButton showMore;
-    private String ciudad;
-    private double precioD;
-    private double ratingD;
+    private Inmueble inmueble;
     // End of variables declaration//GEN-END:variables
 }

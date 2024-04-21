@@ -1,6 +1,7 @@
 package com.rk.javabnb.Inmuebles;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class DatosInmueble implements Serializable {
     private int banos;
@@ -28,6 +29,16 @@ public class DatosInmueble implements Serializable {
     public void setHabitaciones(int habitaciones) {this.habitaciones = habitaciones;}
     public void setMaxHuespedes(int maxHuespedes) {this.maxHuespedes = maxHuespedes;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
+
+    public ArrayList<String> getDatos() {
+        ArrayList<String> datos = new ArrayList<>();
+        datos.add("Habitaciones: " + this.habitaciones);
+        datos.add("Máx nº huéspedes: " + this.maxHuespedes);
+        datos.add("Camas: "+ this.camas);
+        datos.add("Baños: " + this.banos);
+
+        return  datos;
+    }
 
     public String toString() {
         return descripcion + "\nDetalles: "+habitaciones+"habitaciones, "+camas+"camas, "+banos+"baños, "+maxHuespedes+"el máximo de huéspedes";

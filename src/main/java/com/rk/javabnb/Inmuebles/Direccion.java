@@ -17,10 +17,10 @@ public class Direccion implements Serializable {
         this.cp = cp;
     }
 
-    public String getCalle() {return calle;}
-    public String getCiudad() {return ciudad;}
-    public int getNumero() {return numero;}
-    public int getCp() {return cp;}
+    public String getCalle() {return this.calle;}
+    public String getCiudad() {return this.ciudad;}
+    public int getNumero() {return this.numero;}
+    public int getCp() {return this.cp;}
     public void setCalle(String calle) {this.calle = calle;}
     public void setCiudad(String ciudad) {this.ciudad = ciudad;}
     public void setCp(int cp) {this.cp = cp;}

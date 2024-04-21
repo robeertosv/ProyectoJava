@@ -60,6 +60,26 @@ public class Inmueble implements Serializable {
         return textoSinComa;
     }
 
+    public String getDireccion() {
+        Direccion d = this.direccion;
+        return  d.getCalle() + ", " + d.getNumero() + ", " + d.getNumero() + ", "+ d.getCiudad();
+    }
+
+    public ArrayList<String> getServicios() {
+        return  this.servicios;
+    }
+
+    public ArrayList<String> getDatos() {
+        return this.datos.getDatos();
+    }
+
+    public String getTipo() {
+        if(this.tipo == 'c') {
+            return "Chalet";
+        } else {
+            return "Piso";
+        }
+    }
     //metodo que calcula el precio total dependiendo de la cantidad de personas y de noches
 
     /*public String toString(){

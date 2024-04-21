@@ -1,6 +1,6 @@
 package com.rk.javabnb.Usuarios;
 
-import com.rk.javabnb.Inmuebles.Reserva;
+import com.rk.javabnb.Inmuebles.PreReserva;
 import com.rk.javabnb.db.DataHandler;
 import com.rk.javabnb.db.Database;
 
@@ -15,7 +15,7 @@ public class Cliente extends Component implements Serializable{
     private String email;
     private String nombre;
     private int tfno;
-    private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+    private ArrayList<PreReserva> reservas = new ArrayList<PreReserva>();
 
     private boolean noExiste = true;
 
