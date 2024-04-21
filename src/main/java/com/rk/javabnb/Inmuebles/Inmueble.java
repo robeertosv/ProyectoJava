@@ -27,7 +27,7 @@ public class Inmueble implements Serializable {
         this.fotografias = fotografias;
         this.direccion = direccion;
         this.datos = datos;
-        new InmueblePreview(this);
+        Database.addInmueble(this);
     }
 
     public String getNombre() { return this.titulo; }

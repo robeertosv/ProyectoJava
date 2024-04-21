@@ -42,7 +42,7 @@ public class Database implements Serializable{
             Database.clientes = Database.datos.get("clientes");
             Database.anfitriones = Database.datos.get("anfitriones");
             Database.tarjetas = Database.datos.get("tarjetas");
-            Database.inmueblePreviews = Database.datos.get("inmueblesPreview");
+            Database.inmuebles = Database.datos.get("inmuebles");
 
             ois.close();
             fis.close();
@@ -72,7 +72,8 @@ public class Database implements Serializable{
             datos.put("clientes", Database.getClientes());
             datos.put("tarjetas", Database.tarjetas);
             datos.put("anfitriones", Database.anfitriones);
-            datos.put("inmueblesPreview", Database.inmueblePreviews);
+            //datos.put("inmueblesPreview", Database.inmueblePreviews);
+            datos.put("inmuebles", Database.inmuebles);
 
             FileOutputStream fos = new FileOutputStream("db.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -157,6 +158,14 @@ public class Database implements Serializable{
     public static void addInmueble(Inmueble i) { Database.inmuebles.add(i); }
     public static ArrayList<Inmueble> getInmuebles() { return Database.inmuebles; }
     public static void addInmueblePreview(InmueblePreview i) { Database.inmueblePreviews.add(i); }
-    public static ArrayList<InmueblePreview> getInmueblePreview() { return Database.inmueblePreviews; }
+    //public static ArrayList<InmueblePreview> getInmueblePreview() { return Database.inmueblePreviews; }
+
+    public static ArrayList<InmueblePreview> getInmueblePreview() {
+        Database.inmueblePreviews = new ArrayList<>();
+        for(Inmueble i : Database.inmuebles) {
+            Database.inmueblePreviews.add(new InmueblePreview(i));
+        }
+        return Database.inmueblePreviews;
+    }
 
 }
