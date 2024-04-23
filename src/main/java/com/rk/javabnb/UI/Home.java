@@ -81,7 +81,8 @@ public class Home extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(11, 11, 11, 11);
         jPanel1.add(search, gridBagConstraints);
 
-        menuOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Roberto", "Cerrar Sesión" }));
+        Cliente currentClient = (Cliente) Database.getCurrentUser().get(0);
+        menuOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { currentClient.getName(), "Cerrar Sesión" }));
         menuOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuOpcionesActionPerformed(evt);
@@ -130,7 +131,7 @@ public class Home extends javax.swing.JFrame {
                         huboResultados = true;
                     }
                 }
-            break;
+                break;
             //Buscar por ciudad
             case 1:
                 for(InmueblePreview i : Database.getInmueblePreview()) {
@@ -139,7 +140,7 @@ public class Home extends javax.swing.JFrame {
                         huboResultados = true;
                     }
                 }
-            break;
+                break;
             //Por precios (Menor a mayor)
             case 2:
                 for(InmueblePreview i : Database.getInmueblePreview()) {
@@ -184,7 +185,7 @@ public class Home extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
