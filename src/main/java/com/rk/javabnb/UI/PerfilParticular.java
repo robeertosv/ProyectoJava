@@ -4,6 +4,7 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.db.DataChecker;
 import com.rk.javabnb.db.Database;
@@ -55,6 +56,11 @@ public class PerfilParticular extends javax.swing.JFrame {
         cambiarTarjetaButton = new javax.swing.JButton();
 
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formClosing();
+            }
+        });
         this.getContentPane().setLayout(new java.awt.GridBagLayout());
         this.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -225,6 +231,11 @@ public class PerfilParticular extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_hacerseVIPButtonActionPerformed
 
+    private void formClosing() {
+        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+        new Home(c.getClass().getSimpleName());
+        this.dispose();
+    }
     private void cambiarContrasenaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarContrasenaButtonActionPerformed
         new NuevaContrasena();
         this.dispose();

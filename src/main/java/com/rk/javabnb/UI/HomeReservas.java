@@ -59,6 +59,11 @@ public class HomeReservas extends javax.swing.JFrame {
         }
 
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formClosing();
+            }
+        });
         this.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -348,6 +353,11 @@ public class HomeReservas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuComboBoxActionPerformed
 
+    private void formClosing() {
+        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+        new Home(c.getClass().getSimpleName());
+        this.dispose();
+    }
     /**
      * @param args the command line arguments
      */

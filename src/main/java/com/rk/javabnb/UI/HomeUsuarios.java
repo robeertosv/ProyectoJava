@@ -4,6 +4,7 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
@@ -52,6 +53,11 @@ public class HomeUsuarios extends javax.swing.JFrame {
         }
 
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formClosing();
+            }
+        });
         this.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -192,6 +198,11 @@ public class HomeUsuarios extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buscarButtonActionPerformed
 
+    private void formClosing() {
+        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+        new Home(c.getClass().getSimpleName());
+        this.dispose();
+    }
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         switch(jComboBox1.getSelectedIndex()) {
             case 1: //vuelve al menú de admin

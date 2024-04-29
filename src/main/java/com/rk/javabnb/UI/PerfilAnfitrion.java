@@ -56,6 +56,11 @@ public class PerfilAnfitrion extends javax.swing.JFrame {
         fechaLabel = new javax.swing.JLabel();
 
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formClosing();
+            }
+        });
         this.getContentPane().setLayout(new java.awt.GridBagLayout());
         this.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -279,7 +284,7 @@ public class PerfilAnfitrion extends javax.swing.JFrame {
             }
         });
     }
-
+    private void formClosing() {this.dispose(); }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cambiarContrasenaButton;
     private javax.swing.JTextField dniTextField;

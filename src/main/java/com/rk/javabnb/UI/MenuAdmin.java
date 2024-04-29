@@ -46,7 +46,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
-        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         this.getContentPane().setLayout(new java.awt.GridBagLayout());
         this.setBackground(new java.awt.Color(255, 255, 255));
 

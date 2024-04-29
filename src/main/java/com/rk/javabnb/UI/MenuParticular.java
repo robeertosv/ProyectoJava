@@ -45,6 +45,11 @@ public class MenuParticular extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formClosing();
+            }
+        });
         this.getContentPane().setLayout(new java.awt.GridBagLayout());
         this.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -173,6 +178,7 @@ public class MenuParticular extends javax.swing.JFrame {
         //lleva a la pagina con datos del cliente, donde los puede editar
     }//GEN-LAST:event_perfilButtonActionPerformed
 
+    private void formClosing() { new Home("particular"); this.dispose(); }
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
         new Home("particular");
         this.dispose();

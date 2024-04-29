@@ -73,6 +73,11 @@ public class CrearInmueble extends javax.swing.JFrame {
         menuButton = new javax.swing.JButton();
 
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formClosing();
+            }
+        });
         this.setBackground(new java.awt.Color(255, 255, 255));
         this.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
         this.setPreferredSize(new java.awt.Dimension(1000, 1000));
@@ -370,6 +375,10 @@ public class CrearInmueble extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formClosing() {
+        new Home("anfitrion");
+        this.dispose();
+    }
     private void crearButtonActionPerformed(java.awt.event.ActionEvent evt) {//verifica que todos los datos obligatorios fueron introducidos e instancia un nuevo inmueble//GEN-FIRST:event_crearButtonActionPerformed
         boolean tituloB = false;
         if(!tituloTextField.getText().isEmpty()){

@@ -4,6 +4,7 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.Usuarios.TarjetaCredito;
 import com.rk.javabnb.db.DataChecker;
@@ -53,6 +54,11 @@ public class DatosBancarios extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formClosing();
+            }
+        });
         setTitle("Añadir una tarjeta");
         setMaximumSize(new java.awt.Dimension(560, 380));
         setMinimumSize(new java.awt.Dimension(560, 380));
@@ -150,6 +156,11 @@ public class DatosBancarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formClosing() {
+        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+        new Home(c.getClass().getSimpleName());
+        this.dispose();
+    }
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         boolean numCorrecto = false;
         long numero = Long.parseLong(num.getText());

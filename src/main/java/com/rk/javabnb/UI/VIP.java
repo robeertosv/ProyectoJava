@@ -4,6 +4,7 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.db.Database;
 
@@ -42,6 +43,11 @@ public class VIP extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
 
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formClosing();
+            }
+        });
         this.getContentPane().setLayout(new java.awt.GridBagLayout());
         this.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -118,9 +124,12 @@ public class VIP extends javax.swing.JFrame {
         //si el particular tiene configurado algun metodo de pago, le permite hacerse VIP
     }//GEN-LAST:event_vipButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
+    private void formClosing() {
+        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+        new Home(c.getClass().getSimpleName());
+        this.dispose();
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

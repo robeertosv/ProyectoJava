@@ -4,6 +4,7 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
@@ -41,6 +42,11 @@ public class ReestablecerContrasena extends javax.swing.JFrame {
         reestablecerButton = new javax.swing.JButton();
 
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formClosing();
+            }
+        });
         this.getContentPane().setLayout(new java.awt.GridBagLayout());
         this.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -155,6 +161,11 @@ public class ReestablecerContrasena extends javax.swing.JFrame {
                 new ReestablecerContrasena().setVisible(true);
             }
         });
+    }
+    private void formClosing() {
+        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+        new Login();
+        this.dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
