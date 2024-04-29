@@ -8,13 +8,14 @@ import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.Inmuebles.Reserva;
 import com.rk.javabnb.Usuarios.Admin;
 import com.rk.javabnb.Usuarios.Anfitrion;
+import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.db.Database;
 import com.rk.javabnb.db.DataChecker;
 
 import javax.swing.*;
+import java.awt.*;
 import java.time.LocalDate;
-import java.awt.Image;
 
 /**
  *
@@ -104,7 +105,12 @@ public class PreReserva2 extends javax.swing.JFrame {
         volverButton = new javax.swing.JButton();
         huespedesSpinner = new javax.swing.JSpinner();
 
-        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formClosing();
+            }
+        });
         this.getContentPane().setLayout(new java.awt.GridBagLayout());
         this.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -256,6 +262,7 @@ public class PreReserva2 extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 34, 5, 34);
         getContentPane().add(fechaLlegada, gridBagConstraints);
@@ -264,6 +271,7 @@ public class PreReserva2 extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         getContentPane().add(fechaSalida, gridBagConstraints);
 
@@ -296,7 +304,7 @@ public class PreReserva2 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 20);
         getContentPane().add(reservarButton, gridBagConstraints);
 
-        fotoLabel.setText("jLabel24");
+        fotoLabel.setText("");
         fotoLabel.setMaximumSize(new java.awt.Dimension(400, 300));
         fotoLabel.setPreferredSize(new java.awt.Dimension(400, 300));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -384,20 +392,13 @@ public class PreReserva2 extends javax.swing.JFrame {
         //verifica si el usuario loggeado es un cliente particular, que ha elegido fechas buenas, correcto numero de huespedes y se crea la reserva
     }//GEN-LAST:event_reservarButtonActionPerformed
 
+    public void formClosing(){
+        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+        new Home(c.getClass().getSimpleName());
+        this.dispose();
+    }
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
-        if(Database.getCurrentUser().get(0) instanceof Admin){
-            new Home("admin");
-            this.dispose();
-            this.setVisible(false);
-        }else if(Database.getCurrentUser().get(0) instanceof Anfitrion){
-            new Home("anfitrion");
-            this.dispose();
-            this.setVisible(false);
-        }else{
-            new Home("particular");
-            this.dispose();
-            this.setVisible(false);
-        }
+        this.dispose();
         //vuelve a la pagina de inmuebles de la que habia salido
     }//GEN-LAST:event_volverButtonActionPerformed
 
@@ -443,4 +444,3 @@ public class PreReserva2 extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private Inmueble inmueble;
 }
-
