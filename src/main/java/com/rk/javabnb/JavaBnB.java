@@ -17,7 +17,6 @@ public class JavaBnB implements Serializable {
 
     public static void main(String[] args) {
         Database db = new Database();//Cargar los datos desde la db
-        //Admin admin = new Admin();
 
 
         if(Database.getCurrentUser().size() != 0) {
