@@ -4,7 +4,10 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Usuarios.Anfitrion;
 import com.rk.javabnb.Usuarios.Cliente;
+import com.rk.javabnb.Usuarios.ClienteParticular;
+import com.rk.javabnb.db.DataChecker;
 import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
@@ -40,9 +43,13 @@ public class NuevaContrasena extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         nombreClienteLabel = new javax.swing.JLabel();
 
-        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        this.getContentPane().setLayout(new java.awt.GridBagLayout());
-        this.setBackground(new java.awt.Color(255, 255, 255));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/small_logo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -90,16 +97,24 @@ public class NuevaContrasena extends javax.swing.JFrame {
         if(claveTextField1.getText().length()<4){
             JOptionPane.showMessageDialog(this,"La contraseña es demasiado corta","Error",JOptionPane.ERROR_MESSAGE);
         }else{corta = false;}
-        if((!corta)&&(claveTextField1.getText().equals(claveTextField2.getText()))){
+
+        if((!corta) && (claveTextField1.getText().equals(claveTextField2.getText()))){
             if(Database.getCurrentUser().get(0) instanceof Cliente) {
                 Cliente c = (Cliente) Database.getCurrentUser().get(0);
                 c.setClave(claveTextField1.getText());
+                new Home(c.getClass().getSimpleName());
                 this.dispose();
-                this.setVisible(false);
             }
         }
         //verifica si la contraseña tiene por lo menos cinco caracteres y si el loggeado es un cliente, le cambia la contraseña
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+        new Home(c.getClass().getSimpleName());
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosing
+
 
     /**
      * @param args the command line arguments
