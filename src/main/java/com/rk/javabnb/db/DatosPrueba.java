@@ -12,21 +12,40 @@ public class DatosPrueba {
     }
 
     public void createData() {
-        ClienteParticular luis = new ClienteParticular("sd", "780A", "re.com", "LUIS", 980);
-        ClienteParticular roberto = new ClienteParticular("clave", "098547422A", "resvolkava@gmail.com", "Roberto", 640721423);
-        Anfitrion katia = new Anfitrion("clave", "Z48540189A", "katia@katia.com", "Katia", 680997055);
-        TarjetaCredito card = new TarjetaCredito(LocalDate.now(), 1234567890, "Roberto");
-        roberto.setTarjeta(card);
-        Inmueble casa1 = new Inmueble("Casa Roberto", 'c', "aire acondicionado, wifi", 1000, "foto", new Direccion("Alcalá" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"),katia);
-        Inmueble casa2 = new Inmueble("Casa Katia", 'c', "piscina", 800, "foto", new Direccion("Madrid" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"),katia);
-        Inmueble casa3 = new Inmueble("Casa Pepe", 'c', "wifi", 900, "foto", new Direccion("Cuenca" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"),katia);
-        Inmueble casa4 = new Inmueble("Apartamento Luis", 'a', "cocina", 825, "foto", new Direccion("Madrid", "Bel", 3, 28805), new DatosInmueble(2,2,2,2,"Casa coquette"),katia);
         new Admin();
+
+        ClienteParticular luis = new ClienteParticular("clave", "87654321A", "luis@gmail.com", "Luis Fernández", 653111000);
+        ClienteParticular roberto = new ClienteParticular("clave", "098547422A", "resvolkava@gmail.com", "Roberto", 640000111);
+
+        Anfitrion katia = new Anfitrion("clave", "Z48540189A", "katia@katia.com", "Katia", 680000111);
+        Anfitrion lucas = new Anfitrion("clave", "12345678A", "lucas@gmail.com", "Lucas García", 625000999);
+
+
+        TarjetaCredito cardRoberto = new TarjetaCredito(LocalDate.now(), 1234567812345678l, "Roberto");
+        roberto.setTarjeta(cardRoberto);
+
+        TarjetaCredito cardLuis = new TarjetaCredito(LocalDate.now(), 8765432187654321l, "Luis Fernández");
+        luis.setTarjeta(cardLuis);
+
+        Inmueble casa1 = new Inmueble("Casa Alcalá", 'c', "aire acondicionado, wifi", 100, "foto", new Direccion("Alcalá" ,"Rosales", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa acogedora en el centro de Alcalá de Henares, podrás pasarlo super bien"),katia);
+        Inmueble casa2 = new Inmueble("Casa Madrileña", 'c', "piscina", 80, "foto", new Direccion("Madrid" ,"Margaritas", 3, 28005), new DatosInmueble(2, 3, 3, 3,"Casa bonita perfecta para pasar un finde semana con amigos"),katia);
+        Inmueble casa3 = new Inmueble("Casa Fiestas", 'c', "wifi", 90, "foto", new Direccion("Cuenca" ,"Pantanos", 5, 28006), new DatosInmueble(2, 3, 3, 3,"Casa con un ambiente familiar en el que poder descansar"),katia);
+
+        Inmueble apartamento1 = new Inmueble("Apartamento Centro", 'a', "cocina, discoteca", 99, "foto", new Direccion("Madrid", "Callao", 3, 28803), new DatosInmueble(2,2,2,2,"Apartamento bien ubicado, restaurantes y zonas de ocio cercanas"),lucas);
+        Inmueble apartamento2 = new Inmueble("Apartamento Gran Vía", 'a', "limpieza", 102, "foto", new Direccion("Madrid", "Gran Vía", 180, 28805), new DatosInmueble(2,2,2,2,"Apartamento bien ubicado, en pleno corazón de Madrid"),lucas);
+        Inmueble apartamento3 = new Inmueble("Apartamento Campanadas", 'a', "WiFi", 200, "foto", new Direccion("Madrid", "Puerta del Sol", 7, 28001), new DatosInmueble(2,2,2,2,"Apartamento perfecto para ver las uvas"),katia);
+
+        new Reserva(casa1, roberto, LocalDate.of(2024, 4, 29), LocalDate.of(2024, 5, 2), 2);
+        new Reserva(apartamento2, luis, LocalDate.of(2024, 5, 1), LocalDate.of(2024, 6, 3), 1);
 
         casa1.addResena(2);
         casa2.addResena(5);
         casa3.addResena(1);
-        casa4.addResena(4);
+
+        apartamento1.addResena(4);
+        apartamento2.addResena(5);
+        apartamento3.addResena(5);
+        apartamento2.addResena(4);
         Database.save();
 
     }
