@@ -10,6 +10,7 @@ public class ClienteParticular extends Cliente implements Serializable {
     public boolean isVIP;
     private TarjetaCredito tarjeta;
     private ArrayList<Inmueble> inmueblesReservados = new ArrayList<>();
+    private ArrayList<Inmueble> inmueblesValorados = new ArrayList<>();
 
     public ClienteParticular(String clave, String DNI, String email, String nombre, int tfno) {
         super(clave, DNI, email, nombre, tfno);
@@ -34,6 +35,8 @@ public class ClienteParticular extends Cliente implements Serializable {
         Database.save();
     }
 
+    public void addInmuebleValorado(Inmueble i) { this.inmueblesValorados.add(i); }
+    public ArrayList<Inmueble> getInmueblesValorados() { return this.inmueblesValorados; }
     public void hacerVIP(){
         this.isVIP = true;
         Database.save();

@@ -28,8 +28,9 @@ public class HomeReservas extends javax.swing.JFrame {
         setVisible(true);
         this.persona = persona;
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 1000);
+        //this.setLocationRelativeTo(null);
+        this.setSize(800, 400);
+
         //muestra las reservas, dependiendo de quien está loggeado - el admin las puede ver todas, el anfitrion solo las de su inmueble y el particular solo las que ha hecho (y puede dejar reseñas)
     }
 

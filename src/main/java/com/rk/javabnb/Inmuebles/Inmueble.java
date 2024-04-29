@@ -1,5 +1,6 @@
 package com.rk.javabnb.Inmuebles;
 
+import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.db.Database;
 
 import java.io.Serializable;
@@ -84,7 +85,14 @@ public class Inmueble implements Serializable {
         if(this.calificacion>4){
             this.anfitrion.setSuper(true);
         }else{this.anfitrion.setSuper(false);}
-        Database.save();
+        try {
+            ClienteParticular cliente = (ClienteParticular) Database.getCurrentUser().getFirst();
+            cliente.addInmuebleValorado(this);
+            Database.save();
+        }catch(Exception e) {
+            System.out.println(e);
+
+        }
         //calcula una nueva media de reseñas, actualiza la calificacion y mira si el anfitrion se ha vuelto superanfitrion o ha dejado de serlo
     }
 
