@@ -200,7 +200,7 @@ public class DatosBancarios extends javax.swing.JFrame {
         }
 
         }else {
-            JOptionPane.showMessageDialog(this, "Comprueba el numero de la tajeta", "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Comprueba el numero de la tarjeta o la fecha", "Error", JOptionPane.WARNING_MESSAGE);
             if(llegada.equals("prereserva")){
                 new PreReserva2(Database.getCurrentInmueble());
             }else if(llegada.equals("vip")){

@@ -47,6 +47,7 @@ public class Inmueble implements Serializable {
     }
     public int getMHuespedes(){return this.datos.getMaxHuespedes();}
     public ArrayList<Reserva> getReservas(){return this.reservas;}
+    public void addReserva(Reserva reserva){this.reservas.add(reserva);}
     public double getPrecio() { return this.precio;}
     public double getCalificacion() { return this.calificacion;}
     public String getCiudad() { return this.direccion.getCiudad(); }
@@ -99,8 +100,8 @@ public class Inmueble implements Serializable {
         for(Reserva reserva:this.getReservas()){
             LocalDate entrada = reserva.getEntrada();
             LocalDate salida = reserva.getSalida();
-            if((entrada.isAfter(fechaEntrada)&&entrada.isBefore(fechaSalida))&&(salida.isAfter(fechaEntrada)&&salida.isBefore(fechaSalida))){
-                nreservas += (-1);
+            if(!((entrada.isAfter(fechaEntrada)&&entrada.isBefore(fechaSalida))||(salida.isAfter(fechaEntrada)&&salida.isBefore(fechaSalida)))){
+                nreservas = nreservas - 1;
             }
         }
         if(nreservas==0){disponible=true;}//ve si el número de las reservas coincide con el número de las reservas que no intervendrían con la nueva, si es cero, entonces se puede hacer la reserva, ya que todas las reservas no intervienen
@@ -110,8 +111,6 @@ public class Inmueble implements Serializable {
         //tambien verifica si las fechas introducidas se encuentran en el futuro
         //tambien mira que la fecha de entrada es antes de la fecha de salida
     }
-
-    //todo metodo que calcula el precio total dependiendo de la cantidad de personas y de noches
 
     public String toString(){
         return datos.toString()+this.direccion.toStringShort()+this.precio+this.servicios;

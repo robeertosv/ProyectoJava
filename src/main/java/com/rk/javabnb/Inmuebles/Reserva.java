@@ -34,6 +34,7 @@ public class Reserva implements Serializable {
         //this.getAnfitrion().addReserva(this);
         Database.addReserva(this);
         Database.save();
+        inmueble.addReserva(this);
         this.generarFactura();
     }
     
