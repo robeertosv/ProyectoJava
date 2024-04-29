@@ -33,7 +33,7 @@ public class JavaBnB implements Serializable {
             new Login();
         }
 
-        /* ¿Que es esto?
+        /*
         Admin admin = new Admin();
         ArrayList<Object> logeados = new ArrayList<>();
         logeados.add(admin);
