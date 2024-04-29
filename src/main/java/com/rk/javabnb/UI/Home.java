@@ -71,7 +71,7 @@ public class Home extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         jPanel1.add(searchInmueble, gridBagConstraints);
 
-        filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Ciudad", "Menores precios", "Mejor rating"}));
+        filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Ciudad", "Menores precios", "Mejor rating", "Tipo"}));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -181,6 +181,26 @@ public class Home extends javax.swing.JFrame {
                     resultado.sort((obj1, obj2) -> Double.compare(obj1.getRating(), obj2.getRating()));
                     Collections.reverse(resultado);
                     break;
+                //Busqueda por casa o apartamento
+                case 4:
+                    if(this.search.getText().equals("casa")) {
+                        for(InmueblePreview i : Database.getInmueblePreview()) {
+                            if(i.getTipo().equals("Casa")) {
+                                resultado.add(i);
+                                huboResultados = true;
+                            }
+                        }
+                    }else if(this.search.getText().equals("apartamento")) {
+                        for(InmueblePreview i : Database.getInmueblePreview()) {
+                            if(i.getTipo().equals("Apartamento")) {
+                                resultado.add(i);
+                                huboResultados = true;
+                            }
+                        }
+                    }else {
+                        JOptionPane.showMessageDialog(this, "Solo puedes buscar \"casa\" o \"apartamento\"", "ERROR", JOptionPane.WARNING_MESSAGE);
+                    }
+
             }
 
             if (huboResultados) {

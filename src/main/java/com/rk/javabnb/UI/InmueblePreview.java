@@ -25,6 +25,7 @@ public class InmueblePreview extends javax.swing.JPanel {
     public String getCiudad() { return this.ciudad; }
     public double getPrecio() { return this.precioD; }
     public double getRating() { return  this.ratingD; }
+    public String getTipo() { return this.inmueble.getTipo(); }
     public Anfitrion getAnfitrion() { return this.anfitrion; }
     public void setRating(double nota) {
         this.ratingD = nota;
