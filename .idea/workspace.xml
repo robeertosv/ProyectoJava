@@ -5,42 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="Arreglar el destrozo">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Casa Katia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Casa Luis.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Casa Pepe.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/currentUser.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/DatosInmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/DatosInmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Direccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/InmueblePreview.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/InmueblePreview.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/InmueblePreview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/InmueblePreview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/PreReserva.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/PreReserva.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Inmuebles/Reserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/JavaBnB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/DatosBancarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/DatosBancarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/Home.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/Home.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/Login.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/Registro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/Registro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Anfitrion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Anfitrion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/ClienteParticular.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/ClienteParticular.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/TarjetaCredito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/Usuarios/TarjetaCredito.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DataChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DataChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DataHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DatosPrueba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DatosPrueba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/clientes.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/inmuebles.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,21 +79,32 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Rober &lt;121724164+robeertosv@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;KatiaN14&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN"
+    }
+  ],
+  "lastFilter": {
+    "state": "OPEN"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/robeertosv/ProyectoJava.git&quot;,
-    &quot;accountId&quot;: &quot;9e7333c6-ff77-4ef9-8f8f-9ce5fa283963&quot;
-  }
-}</component>
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="335b6db6-56e1-4806-ae8d-60c8ed2272e1" />
+        <option name="url" value="https://github.com/robeertosv/ProyectoJava.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -142,31 +120,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DatosBancarios.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Home.executor&quot;: &quot;Run&quot;,
-    &quot;Application.JavaBnB.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MenuAdmin.executor&quot;: &quot;Run&quot;,
-    &quot;Application.PerfilParticular.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;297&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/admin/Desktop/ProyectoJava/ProyectoJava nuevo funcional&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DatosBancarios.executor": "Run",
+    "Application.Home.executor": "Run",
+    "Application.JavaBnB.executor": "Run",
+    "Application.Login.executor": "Run",
+    "Application.MenuAdmin.executor": "Run",
+    "Application.PerfilParticular.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "297",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/admin/Desktop/ProyectoJava/ProyectoJava nuevo funcional",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "inlay.hints",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -177,6 +155,42 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="docs" factoryName="Docutils task">
+      <module name="ProyectoJava editable" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Sphinx task">
+      <module name="ProyectoJava editable" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType">
       <module name="ProyectoJava editable" />
       <option name="ENV_FILES" value="" />
@@ -261,42 +275,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="ProyectoJava editable" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="ProyectoJava editable" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -307,6 +285,9 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Roberto\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="" />
@@ -515,13 +496,63 @@
       <option name="project" value="LOCAL" />
       <updated>1713535005858</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Generar factura">
+      <option name="closed" value="true" />
+      <created>1714400358847</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1714400358847</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Buscar por tipo de inmueble">
+      <option name="closed" value="true" />
+      <created>1714401205438</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1714401205438</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Test PR">
+      <option name="closed" value="true" />
+      <created>1714401313980</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1714401313980</updated>
+    </task>
+    <task id="LOCAL-00023" summary="PR TEST">
+      <option name="closed" value="true" />
+      <created>1714401406593</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1714401406593</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Quitar linea innecesaria">
+      <option name="closed" value="true" />
+      <created>1714401838738</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1714401838738</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Quitar warnings">
+      <option name="closed" value="true" />
+      <created>1714402703902</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1714402703902</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Arreglar fallos de compilación" />
     <MESSAGE value="add files" />
     <MESSAGE value="cambios en constructor del cliente y la clase de DataHabdler" />
@@ -535,7 +566,13 @@
     <MESSAGE value="Registro" />
     <MESSAGE value="Registro Completado" />
     <MESSAGE value="Validacion de tarjeta" />
+    <MESSAGE value="Generar factura" />
+    <MESSAGE value="Buscar por tipo de inmueble" />
+    <MESSAGE value="Test PR" />
+    <MESSAGE value="PR TEST" />
+    <MESSAGE value="Quitar linea innecesaria" />
     <MESSAGE value="Arreglar el destrozo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglar el destrozo" />
+    <MESSAGE value="Quitar warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Quitar warnings" />
   </component>
 </project>

@@ -1,7 +1,4 @@
 package com.rk.javabnb.db;
-
-import java.time.LocalDate;
-
 public class DataChecker {
 
     public DataChecker() {}
@@ -12,7 +9,7 @@ public class DataChecker {
         boolean numeros = false;
         if(tfn.length()==9) {longitud = true;}
         try{
-            int tfno = Integer.parseInt(tfn);
+            Integer.parseInt(tfn);
             numeros = true;
         }catch(NumberFormatException e){
             System.out.println(e.getMessage());
@@ -30,15 +27,14 @@ public class DataChecker {
             int index = numeros % 23;
             if(DNI.charAt(DNI.length()-1) == letras[index]) { correctDigit = true; }
             if(DNI.length() == 9) { correctLenght = true; }
-            return correctDigit&&correctLenght? true : false;
+            return correctDigit&&correctLenght;
         }catch (Exception e) {
             return false;
         }
     }
 
     public static  boolean checkPass(char[] pass) {
-        //todo anadir que hace esta funcion y como funcionan los passwords
-        return pass.length >8 ? true : false;
+        return pass.length > 8;
     }
 
     public static boolean checkFecha(String[] fecha) {
@@ -47,8 +43,8 @@ public class DataChecker {
         int ano = Integer.parseInt(fecha[2]);
         int mes = Integer.parseInt(fecha[1]);
         int dia = Integer.parseInt(fecha[0]);
-        boolean anobisiesto = false;
-        if(ano%4==0) {anobisiesto = true;}
+        boolean anobisiesto = ano%4==0;
+
         if(ano%100==0&&!(ano%400==0)) {anobisiesto = false;}
         if(2023<ano&&ano<3000){contador+=1;}
         if(0<mes&&mes<13){contador+=1;}
