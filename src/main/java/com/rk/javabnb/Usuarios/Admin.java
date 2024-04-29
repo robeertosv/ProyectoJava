@@ -5,26 +5,30 @@
 package com.rk.javabnb.Usuarios;
 
 import com.rk.javabnb.Inmuebles.Inmueble;
+import com.rk.javabnb.db.Database;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Admin implements Serializable{
-    private String clave;
+    private static final String clave = "clave";
     private static final String correo = "admin@javabnb.com";
 
     public Admin() {
+        Database.save();
     }
 
     public static String getEmail() {
         return correo;
     }
 
-    public boolean claveCorrecta(String clave) {
-        return true ? clave == this.clave : false;
+    public static boolean checkPassword(char[] pass) {
+        String passwd = String.valueOf(pass);
+        return passwd.equals(clave);
+        //verifica si la contraseña es correcta
     }
 
-    public void setFirstPass(String clave) {
+    /*public void setFirstPass(String clave) {
         if (this.clave == null) {
             this.clave = clave;
         }
@@ -43,17 +47,5 @@ public class Admin implements Serializable{
         System.out.println("Clave actualizada");
         this.clave = nuevaClave;
 
-    }
-
-    public ArrayList<Inmueble> getInmuebles(ArrayList<Inmueble> inmuebles) {
-        return inmuebles;
-    }
-
-    //public void getReservas(){} //Y SI HACEMOS UNA CLASE RESERVA?
-
-    public ArrayList<Cliente> getClientes(ArrayList<Cliente> clientes){
-        return clientes;
-        //hacer que se visualicen bonito?
-    }
-
+    }*/
 }

@@ -4,7 +4,10 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Usuarios.Admin;
+import com.rk.javabnb.Usuarios.Anfitrion;
 import com.rk.javabnb.Usuarios.Cliente;
+import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
@@ -22,6 +25,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -45,8 +49,9 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         register = new javax.swing.JLabel();
         loginBtn = new javax.swing.JButton();
+        reestablecerLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Login");
         setBackground(java.awt.Color.white);
         setMinimumSize(new java.awt.Dimension(800, 500));
@@ -76,6 +81,8 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Email:");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         formPanel.add(jLabel3, gridBagConstraints);
@@ -83,9 +90,10 @@ public class Login extends javax.swing.JFrame {
         email.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         formPanel.add(email, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -100,9 +108,10 @@ public class Login extends javax.swing.JFrame {
         password.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         formPanel.add(password, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -149,22 +158,43 @@ public class Login extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         formPanel.add(loginBtn, gridBagConstraints);
 
+        reestablecerLabel.setText("Contraseña olvidada? Reestablécela");
+        reestablecerLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reestablecerLabelMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        formPanel.add(reestablecerLabel, gridBagConstraints);
+
         getContentPane().add(formPanel, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void reestablecerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reestablecerLabelMouseClicked
+        new ReestablecerContrasena();
+        this.dispose();
+        this.setVisible(false);
+    }//GEN-LAST:event_reestablecerLabelMouseClicked
+
     private void registerMouseClicked(java.awt.event.MouseEvent evt) {
         // Lógica de abrir la pantalla de registro
+        this.dispose();
         this.setVisible(false);
         new Registro();
     }
 
     //Lógica del login
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        ArrayList<Cliente> clientes = Database.getPersonas();
+        /*ArrayList<Cliente> clientes = Database.getPersonas();
         Cliente inLogin = null;
         boolean encontrado = false;
+        boolean admin = false;
         for(Cliente c : clientes ) {
             if(c.getEmail().equals(this.email.getText())) {
                 inLogin = c;
@@ -173,20 +203,76 @@ public class Login extends javax.swing.JFrame {
             }
         }
 
-        if(encontrado) {
+        if(this.email.getText().equals(Admin.getEmail())&&Admin.checkPassword(password.getPassword())){
+            new MenuAdmin();
+            encontrado = true;
+            admin = true;
+            this.dispose();
+        }
+
+        if(encontrado&&!admin) {
             if(inLogin.checkPassword(password.getPassword())) {
                 ArrayList loggedUser = new ArrayList();
                 loggedUser.add(inLogin);
                 Database.setCurrentUser(loggedUser);
                 Database.save();
-                new Home();
+                Object user = Database.getCurrentUser().get(0);
+                if(user instanceof ClienteParticular){
+                    new MenuParticular();
+                }else if(user instanceof Anfitrion){
+                    new MenuAnfitrion();
+                }
                 this.dispose();
             }else {
                 JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "Error de registro", JOptionPane.WARNING_MESSAGE);
                 password.setText("");
             }
-        }else {
+        }else if(admin){
+            admin = true;
+        }
+        else {
             JOptionPane.showMessageDialog(this, "Usuario no encontrado", "Error de registro", JOptionPane.WARNING_MESSAGE);
+        }*/
+        boolean logged = false;
+        if(Database.getAllEmail().contains(this.email.getText())) { //mira si el email existe en la base de datos
+            ArrayList loggedUser = new ArrayList();
+            for(Cliente c:Database.getPersonas()){ //mira si es email de algun  cliente, verifica la contraseña y si esta bien, lo deja entrar y lo guarda como usuario loggeado
+                if(c.getEmail().equals(this.email.getText())) {
+                    if(c.checkPassword(password.getPassword())){
+                        loggedUser.add(c);
+                        Database.setCurrentUser(loggedUser);
+                        logged = true;
+                        Database.save();
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "Error de registro", JOptionPane.WARNING_MESSAGE);
+                        password.setText("");
+                    }
+                }
+            }
+            if(this.email.getText().equals("admin@javabnb.com")&&Admin.checkPassword(password.getPassword())) {
+                Admin admin = new Admin(); //mira si es el admin, con la contraseña correcta y lo guarda como usuario loggeado
+                loggedUser.add(admin);
+                Database.setCurrentUser(loggedUser);
+                logged = true;
+                Database.save();
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Usuario no encontrado", "Error de registro", JOptionPane.WARNING_MESSAGE);
+        }
+        if(logged) { //si el email y la contraseña han sido introducido correctamente, se mira que menu hay que abrir, segun el tipo de usuario que acaba de entrar
+            if(Database.getCurrentUser().getFirst() instanceof Admin){
+                new MenuAdmin();
+                this.dispose();
+                this.setVisible(false);
+            }else if(Database.getCurrentUser().getFirst() instanceof ClienteParticular){
+                new Home("particular");
+                this.dispose();
+                this.setVisible(false);
+            }else if(Database.getCurrentUser().getFirst() instanceof Anfitrion){
+                new MenuAnfitrion();
+                this.dispose();
+                this.setVisible(false);
+            }
         }
     }
 
@@ -201,6 +287,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginBtn;
     private javax.swing.JPasswordField password;
+    private javax.swing.JLabel reestablecerLabel;
     private javax.swing.JLabel register;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,13 +4,14 @@ package com.rk.javabnb.db;
 import com.rk.javabnb.Inmuebles.*;
 import com.rk.javabnb.Usuarios.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class DatosPrueba {
 
     public DatosPrueba()  {
         this.createData();
-        return;
+        //carga datos creados artificialmente para probar el funcionamiento de la app, no los eliminamos luego?
     }
 
     public void createData() {
@@ -18,15 +19,19 @@ public class DatosPrueba {
         ClienteParticular roberto = new ClienteParticular("clave", "098547422A", "resvolkava@gmail.com", "Roberto", 640721423);
         Anfitrion katia = new Anfitrion("clave", "Z48540189A", "katia@katia.com", "Katia", 680997055);
         TarjetaCredito card = new TarjetaCredito(LocalDate.now(), 874, "Roberto");
-        Inmueble casa1 = new Inmueble("Casa Roberto", 'c', new ArrayList<>(), 1000, new ArrayList<>(), new Direccion("Alcalá" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"));
-        Inmueble casa2 = new Inmueble("Casa Katia", 'c', new ArrayList<>(), 800, new ArrayList<>(), new Direccion("Madrid" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"));
-        Inmueble casa3 = new Inmueble("Casa Pepe", 'c', new ArrayList<>(), 900, new ArrayList<>(), new Direccion("Cuenca" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"));
-        Inmueble casa4 = new Inmueble("Casa Luis", 'c', new ArrayList<>(), 825, new ArrayList<>(), new Direccion("Madrid", "Bel", 3, 28805), new DatosInmueble(2,2,2,2,"Casa coquette"));
+        Inmueble casa1 = new Inmueble("Casa Roberto", 'c', "aire acondicionado, wifi", 1000, "foto", new Direccion("Alcalá" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"),katia);
+        Inmueble casa2 = new Inmueble("Casa Katia", 'c', "piscina", 800, "foto", new Direccion("Madrid" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"),katia);
+        Inmueble casa3 = new Inmueble("Casa Pepe", 'c', "wifi", 900, "foto", new Direccion("Cuenca" ,"Belvis", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa bonita"),katia);
+        Inmueble casa4 = new Inmueble("Casa Luis", 'c', "cocina", 825, "foto", new Direccion("Madrid", "Bel", 3, 28805), new DatosInmueble(2,2,2,2,"Casa coquette"),katia);
+        Admin admin = new Admin();
+        //Reserva r1 = new Reserva(casa1,roberto,"comentario",LocalDate.parse("10/05/2024", DateTimeFormatter.ofPattern("dd/MM/yyyy")),LocalDate.parse("15/05/2024", DateTimeFormatter.ofPattern("dd/MM/yyyy")),2);
 
-        casa1.setCalificacion(2.63);
-        casa2.setCalificacion(5);
-        casa3.setCalificacion(1.8);
-        casa4.setCalificacion(4.8);
+
+
+        casa1.addResena(2);
+        casa2.addResena(5);
+        casa3.addResena(1);
+        casa4.addResena(4);
         Database.save();
 
     }

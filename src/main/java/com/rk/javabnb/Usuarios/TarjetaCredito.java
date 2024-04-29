@@ -14,6 +14,7 @@ public class TarjetaCredito implements Serializable {
         this.caducidad = caducidad;
         this.numero = numero;
         this.titular = titular;
+        Database.save();
     }
 
     public LocalDate getCaducidad() {return caducidad;}
@@ -22,5 +23,9 @@ public class TarjetaCredito implements Serializable {
     public void setTitular(String titular) {this.titular = titular;}
     public void setCaducidad(LocalDate caducidad) {this.caducidad = caducidad;}
     public void setNumero(long numero) {this.numero = numero;}
+    public String getNumeroS(){
+        String num = String.valueOf(this.numero);
+        return num;
+    }
 
 }

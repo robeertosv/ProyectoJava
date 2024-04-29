@@ -9,6 +9,8 @@ public class DatosInmueble implements Serializable {
     private int habitaciones;
     private int maxHuespedes;
     private String descripcion;
+    private String nombre;
+    private static int num = 1; //sirve para diferenciar los distintos datos creados
 
     public DatosInmueble(int banos, int camas, int habitaciones, int maxHuespedes, String descripcion) {
         this.banos = banos;
@@ -16,6 +18,8 @@ public class DatosInmueble implements Serializable {
         this.habitaciones = habitaciones;
         this.maxHuespedes = maxHuespedes;
         this.descripcion = descripcion;
+        nombre = "datosIn"+num;
+        num+=1;
     }
 
     public int getBanos() {return banos;}
@@ -41,6 +45,6 @@ public class DatosInmueble implements Serializable {
     }
 
     public String toString() {
-        return descripcion + "\nDetalles: "+habitaciones+"habitaciones, "+camas+"camas, "+banos+"baños, "+maxHuespedes+"el máximo de huéspedes";
+        return descripcion + "\nDetalles: "+habitaciones+" habitaciones, "+camas+" camas, "+banos+" baños.";
     }
 }

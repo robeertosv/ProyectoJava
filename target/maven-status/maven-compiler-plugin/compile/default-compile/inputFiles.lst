@@ -1,16 +1,35 @@
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\db\DataHandler.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Usuarios\Admin.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\DatosInmueble.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Usuarios\ClienteParticular.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\UI\Registro.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\reservarInmueble.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\Reserva.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Usuarios\Anfitrion.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\Direccion.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\UI\Login.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Usuarios\TarjetaCredito.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Usuarios\Cliente.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\db\Database.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\Inmueble.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\Inmuebles\verInmueble.java
-D:\UAH\PROGRAMACION\ProyectoJava\src\main\java\com\rk\javabnb\JavaBnB.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/InmueblePreviewResena.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/DatosInmueble.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/db/Database.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Usuarios/TarjetaCredito.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/ReservasAnfitrion.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/JavaBnB.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/Reserva.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/UI/MenuParticular.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/DejarResena.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/UI/Registro.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/UI/Home.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/PreReserva.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/UI/Login.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Usuarios/Cliente.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/Direccion.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Usuarios/Anfitrion.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/UI/ReservaPreview.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/UI/MenuAnfitrion.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Usuarios/PerfilAnfitrion.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/ReservasParticular.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/UI/DatosBancarios.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/db/DatosPrueba.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/UI/MenuAdmin.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Usuarios/Admin.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/Inmueble.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/UI/UsuarioPreview.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Usuarios/PerfilParticular.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/MisInmuebles.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/Resena.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/InmueblePreview.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/db/DataHandler.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/UI/HomeAdmin.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Inmuebles/CrearInmueble.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/Usuarios/ClienteParticular.java
+/Users/admin/Desktop/ProyectoJava/ProyectoJava editable/src/main/java/com/rk/javabnb/db/DataChecker.java

@@ -6,6 +6,7 @@ package com.rk.javabnb.UI;
 
 import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.Usuarios.TarjetaCredito;
+import com.rk.javabnb.db.DataChecker;
 import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
@@ -20,9 +21,12 @@ public class DatosBancarios extends javax.swing.JFrame {
     /**
      * Creates new form DatosBancarios
      */
-    public DatosBancarios() {
+    public DatosBancarios(String llegada) {
         initComponents();
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        this.llegada = llegada;
+        //sirve para introducir datos bancarios y dejar al usuario reservar inmuebles, hacerseVIP
     }
 
     /**
@@ -147,62 +151,74 @@ public class DatosBancarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        // TODO add your handling code here:
-        //AÑADIR TARJETA
-
         boolean numCorrecto = false;
         long numero = Long.parseLong(num.getText());
 
         if( String.valueOf(num.getText()).length() == 16) { numCorrecto= true; }
 
         String[] fecha = fechaCaducidad.getText().split("/"); // dd/mm/yyyy
-        LocalDate fechaCaducidad = LocalDate.of(Integer.parseInt(fecha[2]), Integer.parseInt(fecha[1]), Integer.parseInt(fecha[0])); //yy month day
-        LocalDate now = LocalDate.now();
+        if(DataChecker.checkFecha(fecha)) {
+            LocalDate fechaCaducidad = LocalDate.of(Integer.parseInt(fecha[2]), Integer.parseInt(fecha[1]), Integer.parseInt(fecha[0])); //yy month day
+            LocalDate now = LocalDate.now();
 
-        if(fechaCaducidad.isBefore(now)) {
-            JOptionPane.showMessageDialog(this, "La tarjeta está caducada", "Error", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
+            if (fechaCaducidad.isBefore(now)) {
+                JOptionPane.showMessageDialog(this, "La tarjeta está caducada", "Error", JOptionPane.WARNING_MESSAGE);
+                return;
+                //verifica que la tarjeta no está caducada
+            }
 
 
         if(numCorrecto) {
-
-
-            TarjetaCredito tarjeta = new TarjetaCredito(fechaCaducidad, numero, name.getText());
             boolean exiseTarjeta = false;
-
-            for(TarjetaCredito t : Database.getTarjetas()) {
-                if(t.getNumero() == Long.parseLong(num.getText())) {
+            for (TarjetaCredito t : Database.getTarjetas()) {
+                if (t.getNumero() == Long.parseLong(num.getText())) {
                     exiseTarjeta = true;
                     break;
                 }
             }
-
-            if(!exiseTarjeta) {
+            if (!exiseTarjeta) {
+                TarjetaCredito tarjeta = new TarjetaCredito(fechaCaducidad, numero, name.getText());
                 Database.addCard(tarjeta);
                 ClienteParticular cliente = (ClienteParticular) Database.getCurrentUser().get(0);
                 cliente.setTarjeta(tarjeta);
 
                 JOptionPane.showMessageDialog(this, "Tarjeta añadida", "OK", JOptionPane.WARNING_MESSAGE);
+                Database.save();
+                if (llegada.equals("prereserva")) {
+                    new PreReserva2(Database.getCurrentInmueble());
+                } else if (llegada.equals("vip")) {
+                    new VIP();
+                } else if (llegada.equals("perfil")) {
+                    new PerfilParticular();
+                } else {
+                    new MenuParticular();
+                }
             } else {
-                JOptionPane.showMessageDialog(this, "La tarjeta está en uso", "Error", JOptionPane.WARNING_MESSAGE);
-                return;
+                JOptionPane.showMessageDialog(this, "La tarjeta ya está en uso", "Error", JOptionPane.WARNING_MESSAGE);
+                //return;
             }
+        }
 
         }else {
             JOptionPane.showMessageDialog(this, "Comprueba el numero de la tajeta", "Error", JOptionPane.WARNING_MESSAGE);
-            return;
+            if(llegada.equals("prereserva")){
+                new PreReserva2(Database.getCurrentInmueble());
+            }else if(llegada.equals("vip")){
+                new VIP();
+            }else if(llegada.equals("perfil")){
+                new PerfilParticular();
+            }else{new MenuParticular();}
+            //return;
         }
     }//GEN-LAST:event_addBtnActionPerformed
 
-    public static void main(String args[]) {
+    //public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+        /*try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -217,17 +233,18 @@ public class DatosBancarios extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DatosBancarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DatosBancarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }*/
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DatosBancarios().setVisible(true);
             }
         });
-    }
+    }*/
 
+    private String llegada;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
     private javax.swing.JFormattedTextField fechaCaducidad;

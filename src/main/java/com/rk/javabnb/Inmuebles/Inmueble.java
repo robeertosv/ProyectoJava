@@ -2,24 +2,28 @@ package com.rk.javabnb.Inmuebles;
 
 import com.rk.javabnb.db.Database;
 
-import javax.swing.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
-//import com.rk.javabnb.Usuarios.Anfitrion;
+import com.rk.javabnb.Usuarios.Anfitrion;
 
 public class Inmueble implements Serializable {
     private double calificacion = 0;
+    private int vecesValorado = 0;
+    private int sumaCalificaciones = 0;
     private DatosInmueble datos;
     private Direccion direccion;
-    private ArrayList<String> fotografias;
+    private String fotografias;
     private double precio;
-    private ArrayList<String> servicios;
+    private String servicios;
     private char tipo;
     public String titulo;
-    public String desc;
-    //todo anadir anfitrion
+    private ArrayList<Reserva> reservas = new ArrayList<>();
+    private Anfitrion anfitrion;
+    private String nombre;
+    private static int num = 1; //diferencia los distintos inmuebles creados
 
-    public Inmueble(String titulo, char tipo, ArrayList<String> servicios, int precio, ArrayList<String> fotografias, Direccion direccion, DatosInmueble datos){
+    public Inmueble(String titulo, char tipo, String servicios, double precio, String fotografias, Direccion direccion, DatosInmueble datos, Anfitrion anfitrion){
         this.titulo = titulo;
         this.tipo = tipo;
         this.servicios = servicios;
@@ -27,15 +31,93 @@ public class Inmueble implements Serializable {
         this.fotografias = fotografias;
         this.direccion = direccion;
         this.datos = datos;
+        this.anfitrion = anfitrion;
+        anfitrion.addInmueble(this);
         Database.addInmueble(this);
+        nombre = "inmueble"+num;
+        num += 1;
+        Database.save();
     }
 
     public String getNombre() { return this.titulo; }
-    public String getDesc() { return this.desc; }
-
+    public double getDesc() {
+        double precioDesc = this.precio*0.9;
+        return precioDesc;
+        //calcula el precio por una noche para los clientes VIP y devuelve 90% del precio
+    }
+    public int getMHuespedes(){return this.datos.getMaxHuespedes();}
+    public ArrayList<Reserva> getReservas(){return this.reservas;}
     public double getPrecio() { return this.precio;}
     public double getCalificacion() { return this.calificacion;}
-    public void setCalificacion(double nota) {
+    public String getCiudad() { return this.direccion.getCiudad(); }
+    public String getDireccion() {
+        Direccion d = this.direccion;
+        return  d.getCalle() + ", " + d.getNumero() + ", " + d.getNumero() + ", "+ d.getCiudad();
+    }
+    public String getServicios() {
+        return this.servicios;
+    }
+    public DatosInmueble getDatos() {
+        return this.datos;
+    }
+    public String getTipo() {
+        if(this.tipo == 'c') {
+            return "Casa";
+        } else {
+            return "Apartamento";
+        }
+    }
+    public Anfitrion getAnfitrion() {return this.anfitrion;}
+    public String getTitulo(){return this.titulo;}
+    public String getAnfitrionNombre(){
+        Anfitrion a = this.anfitrion;
+        return a.getNombre();
+    }
+    public int getVecesValorado() {return this.vecesValorado;}
+    public int getSumaCalificaciones() {return this.sumaCalificaciones;}
+
+    public void addResena(int x){
+        vecesValorado +=1;
+        sumaCalificaciones+=x;
+        this.calificacion = sumaCalificaciones/ vecesValorado;
+        if(this.calificacion>4){
+            this.anfitrion.setSuper(true);
+        }else{this.anfitrion.setSuper(false);}
+        Database.save();
+        //calcula una nueva media de reseñas, actualiza la calificacion y mira si el anfitrion se ha vuelto superanfitrion o ha dejado de serlo
+    }
+
+    public boolean verDisponibilidad(LocalDate fechaEntrada, LocalDate fechaSalida){
+        boolean disponible = false;
+        int nreservas = this.getReservas().size();
+        boolean futuro = false;
+        boolean orden = false;
+        LocalDate today = LocalDate.now();
+        if(today.isBefore(fechaEntrada)&&today.isBefore(fechaSalida)){
+            futuro = true;
+        }
+        for(Reserva reserva:this.getReservas()){
+            LocalDate entrada = reserva.getEntrada();
+            LocalDate salida = reserva.getSalida();
+            if((entrada.isAfter(fechaEntrada)&&entrada.isBefore(fechaSalida))&&(salida.isAfter(fechaEntrada)&&salida.isBefore(fechaSalida))){
+                nreservas += (-1);
+            }
+        }
+        if(nreservas==0){disponible=true;}//ve si el número de las reservas coincide con el número de las reservas que no intervendrían con la nueva, si es cero, entonces se puede hacer la reserva, ya que todas las reservas no intervienen
+        if(fechaEntrada.isBefore(fechaSalida)){orden = true;}
+        return disponible&&futuro&&orden;
+        //verifica que no haya ningún inicio o fin de otra reserva hecha previamente en las fechas de la nueva reserva
+        //tambien verifica si las fechas introducidas se encuentran en el futuro
+        //tambien mira que la fecha de entrada es antes de la fecha de salida
+    }
+
+    //todo metodo que calcula el precio total dependiendo de la cantidad de personas y de noches
+
+    public String toString(){
+        return datos.toString()+this.direccion.toStringShort()+this.precio+this.servicios;
+    }
+
+    /*public void setCalificacion(double nota) {
         this.calificacion = nota;
         for(InmueblePreview i : Database.inmueblePreviews) {
             if(i.getNombre().equals(this.titulo)) {
@@ -46,45 +128,6 @@ public class Inmueble implements Serializable {
                 System.out.println(Database.getInmueblePreview());
             }
         }
-    }
-
-    public String getCiudad() { return this.direccion.getCiudad(); }
-
-
-    public String serviciosToString(){
-        String text = "";
-        for (String servicio : servicios) {
-            text+=servicio + ", ";
-        }
-        String textoSinComa = text.substring(0, text.length()-2);
-        return textoSinComa;
-    }
-
-    public String getDireccion() {
-        Direccion d = this.direccion;
-        return  d.getCalle() + ", " + d.getNumero() + ", " + d.getNumero() + ", "+ d.getCiudad();
-    }
-
-    public ArrayList<String> getServicios() {
-        return  this.servicios;
-    }
-
-    public ArrayList<String> getDatos() {
-        return this.datos.getDatos();
-    }
-
-    public String getTipo() {
-        if(this.tipo == 'c') {
-            return "Chalet";
-        } else {
-            return "Piso";
-        }
-    }
-    //metodo que calcula el precio total dependiendo de la cantidad de personas y de noches
-
-    /*public String toString(){
-        return datos.toString()+"\n"+"Direccion: "+this.direccion.toStringShort()+"\nPrecio mínimo por noche: "+this.precio+"\nServicios: "+this.serviciosToString()+"\nCalificacion: "+this.calificacion;
     }*/
-
 
 }

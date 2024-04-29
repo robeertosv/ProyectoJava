@@ -1,5 +1,7 @@
-package com.rk.javabnb.Inmuebles;
+package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Inmuebles.Inmueble;
+import com.rk.javabnb.Usuarios.Anfitrion;
 import com.rk.javabnb.db.Database;
 
 public class InmueblePreview extends javax.swing.JPanel {
@@ -7,20 +9,23 @@ public class InmueblePreview extends javax.swing.JPanel {
         this.inmueble = i;
         initComponents();
         this.nombre.setText(i.getNombre());
-        this.desc.setText(i.getDesc());
+        this.desc.setText(String.valueOf(i.getDesc()));
         this.rating.setText(i.getCalificacion() + "/5");
-        this.precio.setText(String.valueOf(i.getPrecio()) + "€");
+        this.precio.setText((i.getPrecio()) + "€");
 
         this.ratingD = i.getCalificacion();
         this.precioD = i.getPrecio();
         this.ciudad = i.getCiudad();
+        this.anfitrion = i.getAnfitrion();
         Database.save();
+        //crea un rectangulo con la informacion mas necesaria sobre el inmueble
     }
 
     public String getNombre() { return this.nombre.getText(); }
     public String getCiudad() { return this.ciudad; }
     public double getPrecio() { return this.precioD; }
     public double getRating() { return  this.ratingD; }
+    public Anfitrion getAnfitrion() { return this.anfitrion; }
     public void setRating(double nota) {
         this.ratingD = nota;
         this.rating.setText(nota + "/5");
@@ -97,14 +102,15 @@ public class InmueblePreview extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void showMoreActionPerformed(java.awt.event.ActionEvent evt) {
-        //Crear la página del Inmueble y poder gestionar la reserva desde ahí
-        new PreReserva(this.inmueble);
+        //Aparece una pagina con mas detalles sobre el inmueble y la opcion de reservarlo
+        new PreReserva2(this.inmueble);
     }
 
 
     private double ratingD;
     private double precioD;
     private String ciudad;
+    private Anfitrion anfitrion;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel desc;
     private javax.swing.JLabel jLabel5;
