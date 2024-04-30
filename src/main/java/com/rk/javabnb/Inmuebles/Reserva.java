@@ -66,6 +66,17 @@ public class Reserva implements Serializable {
     public double calcularPrecio() {
         long dias = DAYS.between(fechaEntrada, fechaSalida);
         double precio = this.inmueble.getPrecio()*dias;
+        if(this.cliente.isVIP){
+            precio = precio*0.9;
+        }
+        precio=precio*100;
+        if(precio%1>=0.5){
+            precio = Math.ceil(precio);
+        }else{
+            precio = Math.floor(precio);
+        }
+        precio = precio/100;
+        this.precio = precio;
         return precio;
     }
 
@@ -97,13 +108,13 @@ public class Reserva implements Serializable {
             String numero = numeroTarjeta.substring(numeroTarjeta.length()-4);
             salida.println("Nº: **** **** **** " + numero);
             salida.println("Titular: " + this.cliente.getTarjeta().getTitular() );
-            salida.println("Subtotal: " + this.calcularPrecio());
+            salida.println("Subtotal: " + this.precio);
             if(this.cliente.isVIP) {
                 salida.println("Descuentos: " +"Sí");
-                salida.println("TOTAL: " + this.calcularPrecio()*0.9);
+                salida.println("TOTAL: " + this.precio);
             }else {
                 salida.println("Descuentos: " +"NO");
-                salida.println("TOTAL: " + this.calcularPrecio());
+                salida.println("TOTAL: " + this.precio);
             }
             salida.println();
             salida.println("*****************************************");
