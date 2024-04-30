@@ -39,7 +39,8 @@ public class VIP extends javax.swing.JFrame {
         volverButton = new javax.swing.JButton();
         vipButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        //jTextArea1 = new javax.swing.JTextArea();
+        jTextArea1 = new JLabel();
 
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -83,10 +84,10 @@ public class VIP extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(24, 24, 24, 24);
         getContentPane().add(vipButton, gridBagConstraints);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
+        //jTextArea1.setEditable(false);
+        //jTextArea1.setColumns(20);
+        //jTextArea1.setLineWrap(true);
+        //jTextArea1.setRows(5);
         jTextArea1.setText("Los clientes VIP pagan 50 euros al año y obtienen un descuento de 10% para todas sus reservas.");
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -164,7 +165,8 @@ public class VIP extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    //private javax.swing.JTextArea jTextArea1;
+    private JLabel jTextArea1;
     private javax.swing.JButton vipButton;
     private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
