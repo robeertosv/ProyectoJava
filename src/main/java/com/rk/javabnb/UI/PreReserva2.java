@@ -215,17 +215,23 @@ public class PreReserva2 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 37, 5, 30);
         getContentPane().add(datosLabel, gridBagConstraints);
 
-        serVIPButton.setText("ser VIP");
-        serVIPButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                serVIPButtonActionPerformed(evt);
+        try {
+            ClienteParticular cli = (ClienteParticular) Database.getCurrentUser().getFirst();
+            if(!cli.isVIP()) {
+                serVIPButton.setText("ser VIP");
+                serVIPButton.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        serVIPButtonActionPerformed(evt);
+                    }
+                });
+                gridBagConstraints = new java.awt.GridBagConstraints();
+                gridBagConstraints.gridx = 2;
+                gridBagConstraints.gridy = 7;
+                gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+                getContentPane().add(serVIPButton, gridBagConstraints);
             }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        getContentPane().add(serVIPButton, gridBagConstraints);
+        }catch(Exception e) { JOptionPane.showMessageDialog(this, "Error al cargar la página", "ERROR", JOptionPane.WARNING_MESSAGE); }
+
 
         jLabel12.setText("Fecha de la llegada:");
         gridBagConstraints = new java.awt.GridBagConstraints();
