@@ -7,6 +7,7 @@ package com.rk.javabnb.UI;
 import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.Inmuebles.Reserva;
 import com.rk.javabnb.Usuarios.Anfitrion;
+import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.db.Database;
 
@@ -61,18 +62,17 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         jLabel11 = new javax.swing.JLabel();
         huespedesLabel = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        comentariosLabel = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         fechaCreacionLabel = new javax.swing.JLabel();
         verInmuebleButton = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         dejarResenaButton = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        cancelBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Montserrat", 3, 24)); // NOI18N
         jLabel1.setText("Inmueble:");
         jLabel1.setMaximumSize(new java.awt.Dimension(126, 17));
         jLabel1.setMinimumSize(new java.awt.Dimension(126, 17));
@@ -80,7 +80,6 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         add(jLabel1, new java.awt.GridBagConstraints());
 
         inmuebleLabel.setText(" ");
-        inmuebleLabel.setFont(new java.awt.Font("Montserrat", 3, 24));
         add(inmuebleLabel, new java.awt.GridBagConstraints());
 
         jLabel3.setText("Anfitrión:");
@@ -158,6 +157,21 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         gridBagConstraints.gridy = 5;
         add(huespedesLabel, gridBagConstraints);
 
+        jLabel13.setText("Comentario:");
+        jLabel13.setMaximumSize(new java.awt.Dimension(126, 17));
+        jLabel13.setMinimumSize(new java.awt.Dimension(126, 17));
+        jLabel13.setPreferredSize(new java.awt.Dimension(126, 17));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        add(jLabel13, gridBagConstraints);
+
+        comentariosLabel.setText(" ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        add(comentariosLabel, gridBagConstraints);
+
         jLabel15.setText("La reserva fue hecha:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -179,6 +193,7 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(verInmuebleButton, gridBagConstraints);
 
         jLabel17.setText("                      ");
@@ -199,6 +214,7 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(dejarResenaButton, gridBagConstraints);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "4", "3", "2", "1", "0" }));
@@ -209,6 +225,18 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         add(jComboBox1, gridBagConstraints);
+
+        cancelBtn.setText("CANCELAR RESERVA");
+        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        add(cancelBtn, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void verInmuebleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verInmuebleButtonActionPerformed
@@ -233,6 +261,13 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
 
     }//GEN-LAST:event_dejarResenaButtonActionPerformed
 
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+        int result = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres cancelar tu reserva?", "CANCELACIÓN DE RESERVA", JOptionPane.OK_CANCEL_OPTION);
+        if(result == JOptionPane.OK_OPTION) {
+            Database.popReserva(this.reserva);
+        }
+    }//GEN-LAST:event_cancelBtnActionPerformed
+
     public Anfitrion getAnfitrion(){return this.inmueble.getAnfitrion();}
     public ClienteParticular getParticular(){return this.reserva.getParticular();}
     public String toString(){return this.reserva.toString();}
@@ -246,6 +281,8 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
     private Inmueble inmueble;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel anfitrionLabel;
+    private javax.swing.JButton cancelBtn;
+    private javax.swing.JLabel comentariosLabel;
     private javax.swing.JButton dejarResenaButton;
     private javax.swing.JLabel entradaLabel;
     private javax.swing.JLabel fechaCreacionLabel;

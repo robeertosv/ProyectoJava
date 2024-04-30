@@ -115,7 +115,8 @@ public class Database implements Serializable{
     public static void addAnfitrion(Anfitrion anf) {
         Database.anfitriones.add(anf);
     }
-    public static void addReserva(Reserva reserva) {Database.reservas.add(reserva);}
+    public static void addReserva(Reserva reserva) {Database.reservas.add(reserva); Database.save();}
+    public static void popReserva(Reserva reserva) { Database.reservas.remove(reserva); Database.save(); }
     public static void addCard(TarjetaCredito t) {
         Database.tarjetas.add(t);
     }
