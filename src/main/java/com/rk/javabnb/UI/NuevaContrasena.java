@@ -40,8 +40,9 @@ public class NuevaContrasena extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         claveTextField1 = new javax.swing.JTextField();
         claveTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        cambiarButton = new javax.swing.JButton();
         nombreClienteLabel = new javax.swing.JLabel();
+        volverButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -53,6 +54,9 @@ public class NuevaContrasena extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/small_logo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 80, 0, 80);
         getContentPane().add(jLabel1, gridBagConstraints);
 
@@ -61,6 +65,7 @@ public class NuevaContrasena extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(18, 0, 7, 0);
         getContentPane().add(claveTextField1, gridBagConstraints);
 
@@ -68,31 +73,48 @@ public class NuevaContrasena extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         getContentPane().add(claveTextField2, gridBagConstraints);
 
-        jButton1.setText("Cambiar la contraseña");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cambiarButton.setText("Cambiar la contraseña");
+        cambiarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cambiarButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(32, 0, 45, 0);
-        getContentPane().add(jButton1, gridBagConstraints);
+        getContentPane().add(cambiarButton, gridBagConstraints);
 
         nombreClienteLabel.setText("jLabel2");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         getContentPane().add(nombreClienteLabel, gridBagConstraints);
+
+        volverButton.setText("Volver");
+        volverButton.setMaximumSize(new java.awt.Dimension(165, 27));
+        volverButton.setMinimumSize(new java.awt.Dimension(165, 27));
+        volverButton.setPreferredSize(new java.awt.Dimension(165, 27));
+        volverButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(32, 7, 45, 7);
+        getContentPane().add(volverButton, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cambiarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarButtonActionPerformed
         boolean corta = true;
         if(claveTextField1.getText().length()<4){
             JOptionPane.showMessageDialog(this,"La contraseña es demasiado corta","Error",JOptionPane.ERROR_MESSAGE);
@@ -107,13 +129,19 @@ public class NuevaContrasena extends javax.swing.JFrame {
             }
         }
         //verifica si la contraseña tiene por lo menos cinco caracteres y si el loggeado es un cliente, le cambia la contraseña
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cambiarButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         Cliente c = (Cliente) Database.getCurrentUser().getFirst();
         new Home(c.getClass().getSimpleName());
         this.dispose();
     }//GEN-LAST:event_formWindowClosing
+
+    private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
+        Cliente c = (Cliente) Database.getCurrentUser().get(0);
+        new Home(c.getClass().getSimpleName());
+        this.dispose();
+    }//GEN-LAST:event_volverButtonActionPerformed
 
 
     /**
@@ -152,10 +180,11 @@ public class NuevaContrasena extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cambiarButton;
     private javax.swing.JTextField claveTextField1;
     private javax.swing.JTextField claveTextField2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nombreClienteLabel;
+    private javax.swing.JButton volverButton;
     // End of variables declaration//GEN-END:variables
 }

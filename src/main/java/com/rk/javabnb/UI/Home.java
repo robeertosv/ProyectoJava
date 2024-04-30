@@ -128,13 +128,11 @@ public class Home extends javax.swing.JFrame {
                     new MenuAnfitrion();
                 }else{new MenuParticular();}
                 this.dispose();
-                this.setVisible(false);
                 break;
             case 2: //cierra la sesión
                 Database.cerrarSesion();
                 new Login();
                 this.dispose();
-                this.setVisible(false);
                 break;
         }
     }//GEN-LAST:event_menuOpcionesActionPerformed

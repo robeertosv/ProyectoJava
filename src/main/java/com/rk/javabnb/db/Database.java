@@ -118,6 +118,7 @@ public class Database implements Serializable{
         Database.tarjetas.add(t);
     }
     public static void addInmueble(Inmueble i) { Database.inmuebles.add(i); }
+    public static void removeInmueble(Inmueble i) { Database.inmuebles.remove(i); }
 
     public static void cerrarSesion() {
         ArrayList usr = new ArrayList();

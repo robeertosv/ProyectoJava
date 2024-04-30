@@ -41,11 +41,6 @@ public class Inmueble implements Serializable {
     }
 
     public String getNombre() { return this.titulo; }
-    public double getDesc() {
-        double precioDesc = this.precio*0.9;
-        return precioDesc;
-        //calcula el precio por una noche para los clientes VIP y devuelve 90% del precio
-    }
     public int getMHuespedes(){return this.datos.getMaxHuespedes();}
     public ArrayList<Reserva> getReservas(){return this.reservas;}
     public void addReserva(Reserva reserva){this.reservas.add(reserva);}
@@ -56,6 +51,7 @@ public class Inmueble implements Serializable {
         Direccion d = this.direccion;
         return  d.getCalle() + ", " + d.getNumero() + ", " + d.getNumero() + ", "+ d.getCiudad();
     }
+    public Direccion getDireccion2() {return this.direccion;}
     public String getServicios() {
         return this.servicios;
     }
@@ -122,6 +118,20 @@ public class Inmueble implements Serializable {
 
     public String toString(){
         return datos.toString()+this.direccion.toStringShort()+this.precio+this.servicios;
+    }
+
+    public int borrarInmueble(){
+        int reservas = 0;
+        LocalDate now = LocalDate.now();
+        for(Reserva reserva:this.getReservas()){
+            if(reserva.getSalida().isAfter(now)){
+                reservas+=1;
+            }
+        }
+        if(reservas==0){
+            Database.removeInmueble(this);
+        }
+        return reservas;
     }
 
     /*public void setCalificacion(double nota) {

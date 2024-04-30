@@ -9,7 +9,7 @@ public class InmueblePreview extends javax.swing.JPanel {
         this.inmueble = i;
         initComponents();
         this.nombre.setText(i.getNombre());
-        this.desc.setText(String.valueOf(i.getDesc()));
+        this.desc.setText(i.getDatos().getDescripcion());
         this.rating.setText(i.getCalificacion() + "/5");
         this.precio.setText((i.getPrecio()) + "€");
 
@@ -104,7 +104,11 @@ public class InmueblePreview extends javax.swing.JPanel {
 
     private void showMoreActionPerformed(java.awt.event.ActionEvent evt) {
         //Aparece una pagina con mas detalles sobre el inmueble y la opcion de reservarlo
-        new PreReserva2(this.inmueble);
+        if(Database.getCurrentUser().getFirst() instanceof Anfitrion){
+            new EditarInmueble(this.inmueble);
+        }else{
+            new PreReserva2(this.inmueble);
+        }
     }
 
 
