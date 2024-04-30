@@ -6,6 +6,8 @@ package com.rk.javabnb.UI;
 
 import com.rk.javabnb.db.Database;
 
+import javax.swing.*;
+
 /**
  *
  * @author admin
@@ -18,8 +20,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     public MenuAdmin() {
         initComponents();
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 1000);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //menu desde donde el admin puede elegir ver todos los inmuebles, usuarios, reservas o cerrar la sesion
     }
 

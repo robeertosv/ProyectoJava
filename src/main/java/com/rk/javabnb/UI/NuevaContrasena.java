@@ -23,7 +23,7 @@ public class NuevaContrasena extends javax.swing.JFrame {
      */
     public NuevaContrasena() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
     }
 

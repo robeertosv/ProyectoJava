@@ -23,8 +23,7 @@ public class PerfilAnfitrion extends javax.swing.JFrame {
         setVisible(true);
         this.anfitrion = Database.getCurrentAnfitrion();
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 1000);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //aqui anfitrion puede ver y modificar sus datos
     }
 

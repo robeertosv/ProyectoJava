@@ -28,9 +28,8 @@ public class PreReserva2 extends javax.swing.JFrame {
      */
     public PreReserva2(Inmueble inmueble) {
         initComponents();
-        this.setSize(1000, 1000);
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.inmueble = inmueble;
 
         tituloLabel.setText(inmueble.getTitulo());
@@ -393,8 +392,6 @@ public class PreReserva2 extends javax.swing.JFrame {
     }//GEN-LAST:event_reservarButtonActionPerformed
 
     public void formClosing(){
-        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
-        new Home(c.getClass().getSimpleName());
         this.dispose();
     }
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed

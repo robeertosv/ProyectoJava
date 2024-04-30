@@ -23,8 +23,7 @@ public class HomeUsuarios extends javax.swing.JFrame {
     public HomeUsuarios() {
         initComponents();
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 1000);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //le muestra todos los usuarios de la app y sus datos al Admin
     }
 
@@ -199,9 +198,14 @@ public class HomeUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarButtonActionPerformed
 
     private void formClosing() {
-        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
-        new Home(c.getClass().getSimpleName());
-        this.dispose();
+        try {
+            Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+            new Home(c.getClass().getSimpleName());
+            this.dispose();
+        }catch(Exception e) {
+            new Home("admin");
+            this.dispose();
+        }
     }
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         switch(jComboBox1.getSelectedIndex()) {

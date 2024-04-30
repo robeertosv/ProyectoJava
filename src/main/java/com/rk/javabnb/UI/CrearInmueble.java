@@ -23,9 +23,8 @@ public class CrearInmueble extends javax.swing.JFrame {
      */
     public CrearInmueble() {
         initComponents();
-        this.setSize(1000, 1000);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -20,7 +20,7 @@ public class ReestablecerContrasena extends javax.swing.JFrame {
      */
     public ReestablecerContrasena() {
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
         //esta pagina permite reestablecer la contraseña en el casi ficticio de que podriamos mandar correos a los usuarios, le llegaria un correo que iria a la pagina de Nueva contraseña y el usuario cambiaria su contraseña
     }

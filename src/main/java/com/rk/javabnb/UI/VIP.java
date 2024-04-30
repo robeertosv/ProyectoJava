@@ -20,10 +20,9 @@ public class VIP extends javax.swing.JFrame {
      * Creates new form VIP
      */
     public VIP() {
-        this.setLocationRelativeTo(null);
         setVisible(true);
         initComponents();
-        this.setSize(1000, 1000);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**

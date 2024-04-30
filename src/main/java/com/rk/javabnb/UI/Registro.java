@@ -25,7 +25,7 @@ public class Registro extends javax.swing.JFrame {
     public Registro() {
         initComponents();
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //permite crear un nuevo perfil de anfitrion o cliente particular con un email nuevo
     }
     
