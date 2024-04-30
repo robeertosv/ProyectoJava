@@ -25,8 +25,7 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.persona = persona; //una variable que sirve para diferenciar que tipo de home hay que abrir y que inmuebles enseñar, dependiendo del usuario loggeado y de si el admin quiere ver todos los inmuebles o detalles de algun anfitrion
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 1000);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //abre la ventana de inmuebles cogiendo como parámetro el tipo del usuario - admin puede ver todos los inmuebles sin reservarlos, clientes particulares pueden hacer reservas y los anfitriones pueden ver solamente sus inmuebles
     }
 

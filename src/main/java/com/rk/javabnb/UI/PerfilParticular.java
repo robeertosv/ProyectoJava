@@ -24,8 +24,7 @@ public class PerfilParticular extends javax.swing.JFrame {
         setVisible(true);
         this.particular = Database.getCurrentParticular();
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 1000);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //aqui el cliente puede ver y modificar sus datos
     }
 

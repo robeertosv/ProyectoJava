@@ -26,6 +26,8 @@ public class DatosBancarios extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        /*GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.getDefaultScreenDevice().setFullScreenWindow(ventana);*/
         this.llegada = llegada;
         //sirve para introducir datos bancarios y dejar al usuario reservar inmuebles, hacerseVIP
     }
