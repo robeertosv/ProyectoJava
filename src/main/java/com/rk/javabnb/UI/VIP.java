@@ -84,10 +84,6 @@ public class VIP extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(24, 24, 24, 24);
         getContentPane().add(vipButton, gridBagConstraints);
 
-        //jTextArea1.setEditable(false);
-        //jTextArea1.setColumns(20);
-        //jTextArea1.setLineWrap(true);
-        //jTextArea1.setRows(5);
         jTextArea1.setText("Los clientes VIP pagan 50 euros al año y obtienen un descuento de 10% para todas sus reservas.");
         jScrollPane1.setViewportView(jTextArea1);
 
