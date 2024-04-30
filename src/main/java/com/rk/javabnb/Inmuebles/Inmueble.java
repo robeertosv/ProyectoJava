@@ -17,13 +17,15 @@ public class Inmueble implements Serializable {
     private double precio;
     private String servicios;
     private char tipo;
+
+    private String fotoURL;
     public String titulo;
     private ArrayList<Reserva> reservas = new ArrayList<>();
     private Anfitrion anfitrion;
     private String nombre;
     private static int num = 1; //diferencia los distintos inmuebles creados
 
-    public Inmueble(String titulo, char tipo, String servicios, double precio, Direccion direccion, DatosInmueble datos, Anfitrion anfitrion){
+    public Inmueble(String titulo, char tipo, String servicios, double precio, String fotoURL, Direccion direccion, DatosInmueble datos, Anfitrion anfitrion){
         this.titulo = titulo;
         this.tipo = tipo;
         this.servicios = servicios;
@@ -31,6 +33,7 @@ public class Inmueble implements Serializable {
         this.direccion = direccion;
         this.datos = datos;
         this.anfitrion = anfitrion;
+        this.fotoURL = fotoURL;
         anfitrion.addInmueble(this);
         Database.addInmueble(this);
         nombre = "inmueble"+num;
@@ -44,6 +47,9 @@ public class Inmueble implements Serializable {
         return precioDesc;
         //calcula el precio por una noche para los clientes VIP y devuelve 90% del precio
     }
+
+    public String getFotoURL() { return this.fotoURL; }
+    public void setFotoURL(String url) { this.fotoURL = url; }
     public int getMHuespedes(){return this.datos.getMaxHuespedes();}
     public ArrayList<Reserva> getReservas(){return this.reservas;}
     public void addReserva(Reserva reserva){this.reservas.add(reserva);}

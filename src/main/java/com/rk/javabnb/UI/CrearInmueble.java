@@ -6,6 +6,8 @@ package com.rk.javabnb.UI;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.imageio.stream.FileImageOutputStream;
 import javax.imageio.stream.ImageOutputStream;
@@ -465,7 +467,7 @@ public class CrearInmueble extends javax.swing.JFrame implements Serializable {
             DatosInmueble datos = new DatosInmueble((int)banosSpinner.getValue(),(int)camasSpinner.getValue(),(int)habitacionesSpinner.getValue(),(int)huespedesSpinner.getValue(),descripcionTextPane.getText());
             char tipo = 'a';
             if(tipoComboBox.getSelectedItem().equals("Casa")){tipo = 'c';}
-            Inmueble inmueble = new Inmueble(titulo,tipo,serviciosTextPane.getText(),precioDouble,dir,datos,Database.getCurrentAnfitrion());
+            Inmueble inmueble = new Inmueble(titulo,tipo,serviciosTextPane.getText(),precioDouble,fotoURL,dir,datos,Database.getCurrentAnfitrion());
             new MenuAnfitrion();
             this.dispose();
             this.setVisible(false);
@@ -491,14 +493,17 @@ public class CrearInmueble extends javax.swing.JFrame implements Serializable {
         if(seleccion == JFileChooser.APPROVE_OPTION) {
             try{
                 String url = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator;
-                File targetFile = new File(url, this.tituloTextField.getText() + ".png");
+
+                int idx = fileChooser.getSelectedFile().getAbsolutePath().lastIndexOf(".");
+                String ext = fileChooser.getSelectedFile().getAbsolutePath().substring(idx+1);
+                File targetFile = new File(url, this.tituloTextField.getText() + "." + ext);
                 Files.copy(fileChooser.getSelectedFile().toPath(), targetFile.toPath());
+                this.fotoURL = url + this.tituloTextField.getText() + "."+ext;
             }catch (Exception e) {
                 System.out.println(e);
             }
         }
     }//GEN-LAST:event_selectFileActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -571,4 +576,5 @@ public class CrearInmueble extends javax.swing.JFrame implements Serializable {
     private javax.swing.JComboBox<String> tipoComboBox;
     private javax.swing.JTextField tituloTextField;
     // End of variables declaration//GEN-END:variables
+    private String fotoURL;
 }
