@@ -381,7 +381,6 @@ public class PreReserva2 extends javax.swing.JFrame {
                         new Reserva(this.inmueble, Database.getCurrentParticular(), fEntradaFormat, fSalidaFormat, (int) this.huespedesSpinner.getValue());
                         new MenuParticular();
                         this.dispose();
-                        this.setVisible(false);
                     }else{
                         JOptionPane.showMessageDialog(this,"Lo sentimos mucho, pero el inmueble no está disponible en las fechas elegidas","No disponible",JOptionPane.WARNING_MESSAGE);
                     }

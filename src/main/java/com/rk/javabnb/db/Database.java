@@ -51,6 +51,7 @@ public class Database implements Serializable{
             Database.anfitriones = Database.datos.get("anfitriones");
             Database.tarjetas = Database.datos.get("tarjetas");
             Database.inmuebles = Database.datos.get("inmuebles");
+            Database.reservas = Database.datos.get("reservas");
 
             ois.close();
             fis.close();
@@ -83,6 +84,7 @@ public class Database implements Serializable{
             datos.put("anfitriones", Database.anfitriones);
             //datos.put("inmueblesPreview", Database.inmueblePreviews);
             datos.put("inmuebles", Database.inmuebles);
+            datos.put("reservas", Database.reservas);
 
             FileOutputStream fos = new FileOutputStream("db.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -176,6 +178,8 @@ public class Database implements Serializable{
         }
         return Database.usuarioPreviews;
     }
+
+    public static ArrayList<Reserva> getReservas() { return Database.reservas; }
     public static ArrayList<ReservaPreview> getReservaPreviews(){
         //crea y devuelve un arraylist de previews de reservas creadas a partir de todas las reservas almacenadas en el sistema
         Database.reservaPreviews = new ArrayList<>();

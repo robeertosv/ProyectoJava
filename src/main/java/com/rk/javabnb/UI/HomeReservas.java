@@ -4,6 +4,7 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Inmuebles.Reserva;
 import com.rk.javabnb.Usuarios.Admin;
 import com.rk.javabnb.Usuarios.Anfitrion;
 import com.rk.javabnb.Usuarios.Cliente;
@@ -53,8 +54,22 @@ public class HomeReservas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         containerPanel = new JPanel(new GridLayout(0, 1));
 
-        for(ReservaPreview panel : Database.getReservaPreviews()) {
-            containerPanel.add(panel);
+        for(Reserva reserva : Database.getReservas()) {
+            String tipo = Database.getCurrentUser().getFirst().getClass().getSimpleName();
+
+            if(tipo.equals("Admin")) {
+                containerPanel.add(new ReservaPreview(reserva, reserva.getAnfitrion().getNombre()));
+            }else if (tipo.equals("Anfitrion")) {
+                Anfitrion anf = (Anfitrion) Database.getCurrentUser().getFirst();
+                if(reserva.getAnfitrion().getEmail().equals(anf.getEmail())) {
+                    containerPanel.add(new ReservaPreview(reserva, reserva.getAnfitrion().getNombre()));
+                }
+            }else if(tipo.equals("ClienteParticular")) {
+                ClienteParticular cli = (ClienteParticular) Database.getCurrentUser().getFirst();;
+                if(reserva.getParticular().getEmail().equals(cli.getEmail())) {
+                    containerPanel.add(new ReservaPreview(reserva, reserva.getAnfitrion().getNombre()));
+                }
+            }
         }
 
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
