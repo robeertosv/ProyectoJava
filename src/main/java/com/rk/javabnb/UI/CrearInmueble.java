@@ -460,8 +460,8 @@ public class CrearInmueble extends javax.swing.JFrame implements Serializable {
             if(numero>0){spinnersInt += 1;}
         }
         if(spinnersInt<4){JOptionPane.showMessageDialog(this, "Tiene que haber por lo menos un huéspes, una habitación, una cama y un baño.", "Error", JOptionPane.WARNING_MESSAGE);}
-        
-        if(tituloB&&ciudadB&&calleB&&numeroB&&cpB&&precioB&&(spinnersInt>3)){
+        if(!fotoAnadida){JOptionPane.showMessageDialog(this,"La foto es obligatoria","Error", JOptionPane.WARNING_MESSAGE);}
+        if(fotoAnadida&&tituloB&&ciudadB&&calleB&&numeroB&&cpB&&precioB&&(spinnersInt>3)){
             String titulo = tituloTextField.getText();
             Direccion dir = new Direccion(ciudadTextField.getText(),calleTextField.getText(),numeroInt,cpInt);//se pueden llamar asi todas las direcciones?
             DatosInmueble datos = new DatosInmueble((int)banosSpinner.getValue(),(int)camasSpinner.getValue(),(int)habitacionesSpinner.getValue(),(int)huespedesSpinner.getValue(),descripcionTextPane.getText());
@@ -499,6 +499,7 @@ public class CrearInmueble extends javax.swing.JFrame implements Serializable {
                 File targetFile = new File(url, this.tituloTextField.getText() + "." + ext);
                 Files.copy(fileChooser.getSelectedFile().toPath(), targetFile.toPath());
                 this.fotoURL = url + this.tituloTextField.getText() + "."+ext;
+                fotoAnadida = true;
             }catch (Exception e) {
                 System.out.println(e);
             }
@@ -577,4 +578,5 @@ public class CrearInmueble extends javax.swing.JFrame implements Serializable {
     private javax.swing.JTextField tituloTextField;
     // End of variables declaration//GEN-END:variables
     private String fotoURL;
+    private boolean fotoAnadida = false;
 }
