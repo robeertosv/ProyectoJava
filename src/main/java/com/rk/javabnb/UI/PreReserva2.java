@@ -47,7 +47,7 @@ public class PreReserva2 extends javax.swing.JFrame {
         datosLabel.setText(inmueble.getDatos().toString());
         jLabel6.setText("Descripción: " + inmueble.getDatos().getDescripcion());
         jLabel7.setText("Precio por noche: "+String.valueOf(inmueble.getPrecio()));
-        jLabel8.setText("Precio con descuento (para los clientes VIP): "+String.valueOf(inmueble.getDesc()));
+        jLabel8.setText("Precio con descuento (para los clientes VIP): "+String.valueOf(inmueble.getPrecio()*0.9));
         jLabel9.setText("Servicios: "+inmueble.getServicios());
         jLabel10.setText("Número máximo de huéspedes: "+String.valueOf(inmueble.getDatos().getMaxHuespedes()));
         String rating = inmueble.getCalificacion()+"/5";

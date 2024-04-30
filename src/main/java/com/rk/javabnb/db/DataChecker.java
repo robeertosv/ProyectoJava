@@ -61,4 +61,8 @@ public class DataChecker {
         return correcto;
     }
 
+    public static boolean checkCP(String cp){
+        if(cp.length()==5){return true;}else{return false;}
+    }
+
 }
