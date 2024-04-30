@@ -20,8 +20,7 @@ public class MenuAnfitrion extends javax.swing.JFrame {
     public MenuAnfitrion() {
         initComponents();
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 1000);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**

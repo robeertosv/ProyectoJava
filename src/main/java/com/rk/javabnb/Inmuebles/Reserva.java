@@ -33,9 +33,9 @@ public class Reserva implements Serializable {
         //this.cliente.addReserva(this);
         //this.getAnfitrion().addReserva(this);
         Database.addReserva(this);
-        Database.save();
         inmueble.addReserva(this);
         this.generarFactura();
+        Database.save();
     }
     
     public LocalDate getEntrada(){return this.fechaEntrada;}

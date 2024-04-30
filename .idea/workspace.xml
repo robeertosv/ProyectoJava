@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="Arreglar el destrozo">
+    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="Bugfix: Ventanas en cambio de contrasña">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DataChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DataChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DatosPrueba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/db/DatosPrueba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/VIP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/VIP.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,16 +86,16 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN"
+      &quot;state&quot;: &quot;OPEN&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -120,31 +119,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DatosBancarios.executor": "Run",
-    "Application.Home.executor": "Run",
-    "Application.JavaBnB.executor": "Run",
-    "Application.Login.executor": "Run",
-    "Application.MenuAdmin.executor": "Run",
-    "Application.PerfilParticular.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "297",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/admin/Desktop/ProyectoJava/ProyectoJava nuevo funcional",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "inlay.hints",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DatosBancarios.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Home.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JavaBnB.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MenuAdmin.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PerfilParticular.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;297&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/admin/Desktop/ProyectoJava/ProyectoJava nuevo funcional&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -279,8 +278,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -343,6 +341,10 @@
       <workItem from="1714386572208" duration="30000" />
       <workItem from="1714386624923" duration="17000" />
       <workItem from="1714391397378" duration="19000" />
+      <workItem from="1714403610227" duration="2495000" />
+      <workItem from="1714413148269" duration="1059000" />
+      <workItem from="1714414228618" duration="3591000" />
+      <workItem from="1714457186700" duration="6599000" />
     </task>
     <task id="LOCAL-00001" summary="add files">
       <option name="closed" value="true" />
@@ -544,7 +546,87 @@
       <option name="project" value="LOCAL" />
       <updated>1714402703902</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Debugging">
+      <option name="closed" value="true" />
+      <created>1714403786436</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1714403786436</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Restringir numero de valoraciones">
+      <option name="closed" value="true" />
+      <created>1714405537053</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1714405537053</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Añadir datos de prueba">
+      <option name="closed" value="true" />
+      <created>1714414568135</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1714414568135</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Bugfix: Ventanas en cambio de contrasña">
+      <option name="closed" value="true" />
+      <created>1714415517094</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1714415517094</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Bugfix: Ventanas en reserva">
+      <option name="closed" value="true" />
+      <created>1714416660054</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1714416660054</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Bugfix: Cierres de ventanas">
+      <option name="closed" value="true" />
+      <created>1714417807656</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1714417807656</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Ventanas en pantalla completa">
+      <option name="closed" value="true" />
+      <created>1714458568113</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1714458568113</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Arreglar guardado y renderizado de reservas">
+      <option name="closed" value="true" />
+      <created>1714461676019</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1714461676019</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Poder dejar de ser VIP">
+      <option name="closed" value="true" />
+      <created>1714462623967</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1714462623967</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Cambiar textArea a label en VIP">
+      <option name="closed" value="true" />
+      <created>1714463067834</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1714463067834</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,11 +635,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Arreglar fallos de compilación" />
-    <MESSAGE value="add files" />
-    <MESSAGE value="cambios en constructor del cliente y la clase de DataHabdler" />
-    <MESSAGE value="empezndo a cambiar la logico de handler, por ahora sin borrar nada de lo que ya esta escrito" />
-    <MESSAGE value="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes" />
     <MESSAGE value="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes, al terminar se guardan, pero creo que todavia no funciona" />
     <MESSAGE value="He añadido una clase Reserva y los paneles de ver y reservar un inmueble, pero todavia no estan terminados, ni de lejos, dejame terminarlos luego" />
     <MESSAGE value="Pequeños cambios en verInmueble y una prueba de anfitriones en main, pero es que los anfitriones no funcionan!!! y no entiendo por que" />
@@ -571,8 +648,18 @@
     <MESSAGE value="Test PR" />
     <MESSAGE value="PR TEST" />
     <MESSAGE value="Quitar linea innecesaria" />
-    <MESSAGE value="Arreglar el destrozo" />
     <MESSAGE value="Quitar warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Quitar warnings" />
+    <MESSAGE value="Arreglar el destrozo" />
+    <MESSAGE value="Debugging" />
+    <MESSAGE value="Restringir numero de valoraciones" />
+    <MESSAGE value="Añadir datos de prueba" />
+    <MESSAGE value="Bugfix: Ventanas en reserva" />
+    <MESSAGE value="Bugfix: Cierres de ventanas" />
+    <MESSAGE value="Ventanas en pantalla completa" />
+    <MESSAGE value="Arreglar guardado y renderizado de reservas" />
+    <MESSAGE value="Poder dejar de ser VIP" />
+    <MESSAGE value="Bugfix: Ventanas en cambio de contrasña" />
+    <MESSAGE value="Cambiar textArea a label en VIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambiar textArea a label en VIP" />
   </component>
 </project>

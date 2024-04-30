@@ -15,6 +15,7 @@ import com.rk.javabnb.db.DataChecker;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.time.LocalDate;
 
 /**
@@ -63,7 +64,9 @@ public class PreReserva2 extends javax.swing.JFrame {
         }
         String valorado = "Calificado "+inmueble.getVecesValorado()+" veces";
         vecesVisitadoLabel.setText(valorado);
-        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/"+inmueble.getTitulo()+".png"));
+        //ImageIcon imageIcon = new ImageIcon(getClass().getResource("/"+inmueble.getTitulo()+".png"));
+        String url = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + inmueble.getTitulo()+".png";
+        ImageIcon imageIcon = new ImageIcon(url);
         Image scaledImage = imageIcon.getImage().getScaledInstance(fotoLabel.getWidth(), fotoLabel.getHeight(), Image.SCALE_SMOOTH);
         this.fotoLabel.setIcon(new javax.swing.ImageIcon(scaledImage));
         //setTexts añaden toda la informacion sobre el inmueble a la pantalla
@@ -215,17 +218,23 @@ public class PreReserva2 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 37, 5, 30);
         getContentPane().add(datosLabel, gridBagConstraints);
 
-        serVIPButton.setText("ser VIP");
-        serVIPButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                serVIPButtonActionPerformed(evt);
+        try {
+            ClienteParticular cli = (ClienteParticular) Database.getCurrentUser().getFirst();
+            if(!cli.isVIP()) {
+                serVIPButton.setText("ser VIP");
+                serVIPButton.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        serVIPButtonActionPerformed(evt);
+                    }
+                });
+                gridBagConstraints = new java.awt.GridBagConstraints();
+                gridBagConstraints.gridx = 2;
+                gridBagConstraints.gridy = 7;
+                gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+                getContentPane().add(serVIPButton, gridBagConstraints);
             }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        getContentPane().add(serVIPButton, gridBagConstraints);
+        }catch(Exception e) { JOptionPane.showMessageDialog(this, "Error al cargar la página", "ERROR", JOptionPane.WARNING_MESSAGE); }
+
 
         jLabel12.setText("Fecha de la llegada:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -381,7 +390,6 @@ public class PreReserva2 extends javax.swing.JFrame {
                         new Reserva(this.inmueble, Database.getCurrentParticular(), fEntradaFormat, fSalidaFormat, (int) this.huespedesSpinner.getValue());
                         new MenuParticular();
                         this.dispose();
-                        this.setVisible(false);
                     }else{
                         JOptionPane.showMessageDialog(this,"Lo sentimos mucho, pero el inmueble no está disponible en las fechas elegidas","No disponible",JOptionPane.WARNING_MESSAGE);
                     }

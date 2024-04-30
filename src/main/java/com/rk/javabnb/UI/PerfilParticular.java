@@ -146,20 +146,42 @@ public class PerfilParticular extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
         getContentPane().add(dniTextField, gridBagConstraints);
 
-        hacerseVIPButton.setText("Quiero ser VIP");
-        hacerseVIPButton.setMaximumSize(new java.awt.Dimension(151, 27));
-        hacerseVIPButton.setMinimumSize(new java.awt.Dimension(151, 27));
-        hacerseVIPButton.setPreferredSize(new java.awt.Dimension(151, 27));
-        hacerseVIPButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hacerseVIPButtonActionPerformed(evt);
+        try {
+            ClienteParticular cli = (ClienteParticular) Database.getCurrentUser().getFirst();
+            if(cli.isVIP()) {
+                hacerseVIPButton.setText("Dejar de ser VIP");
+                hacerseVIPButton.setMaximumSize(new java.awt.Dimension(151, 27));
+                hacerseVIPButton.setMinimumSize(new java.awt.Dimension(151, 27));
+                hacerseVIPButton.setPreferredSize(new java.awt.Dimension(151, 27));
+                hacerseVIPButton.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        dejarDeSerVIP();
+                    }
+                });
+                gridBagConstraints = new java.awt.GridBagConstraints();
+                gridBagConstraints.gridx = 0;
+                gridBagConstraints.gridy = 6;
+                gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
+                getContentPane().add(hacerseVIPButton, gridBagConstraints);
+            }else {
+                hacerseVIPButton.setText("Quiero ser VIP");
+                hacerseVIPButton.setMaximumSize(new java.awt.Dimension(151, 27));
+                hacerseVIPButton.setMinimumSize(new java.awt.Dimension(151, 27));
+                hacerseVIPButton.setPreferredSize(new java.awt.Dimension(151, 27));
+                hacerseVIPButton.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        hacerseVIPButtonActionPerformed(evt);
+                    }
+                });
+                gridBagConstraints = new java.awt.GridBagConstraints();
+                gridBagConstraints.gridx = 0;
+                gridBagConstraints.gridy = 6;
+                gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
+                getContentPane().add(hacerseVIPButton, gridBagConstraints);
             }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.insets = new java.awt.Insets(18, 0, 0, 0);
-        getContentPane().add(hacerseVIPButton, gridBagConstraints);
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrió un error", "ERROR", JOptionPane.WARNING_MESSAGE);
+        }
 
         cambiarContrasenaButton.setText("Cambiar contraseña");
         cambiarContrasenaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -218,6 +240,11 @@ public class PerfilParticular extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void dejarDeSerVIP() {
+        ClienteParticular cli = (ClienteParticular) Database.getCurrentUser().getFirst();
+        cli.noVIP();
+        JOptionPane.showMessageDialog(this, "Ya no eres VIP", "Success", JOptionPane.WARNING_MESSAGE);
+    }
     private void cambiarTarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarTarjetaButtonActionPerformed
         new DatosBancarios("perfil");
         this.dispose();

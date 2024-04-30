@@ -27,13 +27,13 @@ public class DatosPrueba {
         TarjetaCredito cardLuis = new TarjetaCredito(LocalDate.now(), 8765432187654321l, "Luis Fernández");
         luis.setTarjeta(cardLuis);
 
-        Inmueble casa1 = new Inmueble("Casa Alcalá", 'c', "aire acondicionado, wifi", 100, "foto", new Direccion("Alcalá" ,"Rosales", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa acogedora en el centro de Alcalá de Henares, podrás pasarlo super bien"),katia);
-        Inmueble casa2 = new Inmueble("Casa Madrileña", 'c', "piscina", 80, "foto", new Direccion("Madrid" ,"Margaritas", 3, 28005), new DatosInmueble(2, 3, 3, 3,"Casa bonita perfecta para pasar un finde semana con amigos"),katia);
-        Inmueble casa3 = new Inmueble("Casa Fiestas", 'c', "wifi", 90, "foto", new Direccion("Cuenca" ,"Pantanos", 5, 28006), new DatosInmueble(2, 3, 3, 3,"Casa con un ambiente familiar en el que poder descansar"),katia);
+        Inmueble casa1 = new Inmueble("Casa Alcalá", 'c', "aire acondicionado, wifi", 100,  new Direccion("Alcalá" ,"Rosales", 3, 28806), new DatosInmueble(2, 3, 3, 3,"Casa acogedora en el centro de Alcalá de Henares, podrás pasarlo super bien"),katia);
+        Inmueble casa2 = new Inmueble("Casa Madrileña", 'c', "piscina", 80,  new Direccion("Madrid" ,"Margaritas", 3, 28005), new DatosInmueble(2, 3, 3, 3,"Casa bonita perfecta para pasar un finde semana con amigos"),katia);
+        Inmueble casa3 = new Inmueble("Casa Fiestas", 'c', "wifi", 90,  new Direccion("Cuenca" ,"Pantanos", 5, 28006), new DatosInmueble(2, 3, 3, 3,"Casa con un ambiente familiar en el que poder descansar"),katia);
 
-        Inmueble apartamento1 = new Inmueble("Apartamento Centro", 'a', "cocina, discoteca", 99, "foto", new Direccion("Madrid", "Callao", 3, 28803), new DatosInmueble(2,2,2,2,"Apartamento bien ubicado, restaurantes y zonas de ocio cercanas"),lucas);
-        Inmueble apartamento2 = new Inmueble("Apartamento Gran Vía", 'a', "limpieza", 102, "foto", new Direccion("Madrid", "Gran Vía", 180, 28805), new DatosInmueble(2,2,2,2,"Apartamento bien ubicado, en pleno corazón de Madrid"),lucas);
-        Inmueble apartamento3 = new Inmueble("Apartamento Campanadas", 'a', "WiFi", 200, "foto", new Direccion("Madrid", "Puerta del Sol", 7, 28001), new DatosInmueble(2,2,2,2,"Apartamento perfecto para ver las uvas"),katia);
+        Inmueble apartamento1 = new Inmueble("Apartamento Centro", 'a', "cocina, discoteca", 99,  new Direccion("Madrid", "Callao", 3, 28803), new DatosInmueble(2,2,2,2,"Apartamento bien ubicado, restaurantes y zonas de ocio cercanas"),lucas);
+        Inmueble apartamento2 = new Inmueble("Apartamento Gran Vía", 'a', "limpieza", 102,  new Direccion("Madrid", "Gran Vía", 180, 28805), new DatosInmueble(2,2,2,2,"Apartamento bien ubicado, en pleno corazón de Madrid"),lucas);
+        Inmueble apartamento3 = new Inmueble("Apartamento Campanadas", 'a', "WiFi", 200,  new Direccion("Madrid", "Puerta del Sol", 7, 28001), new DatosInmueble(2,2,2,2,"Apartamento perfecto para ver las uvas"),katia);
 
         new Reserva(casa1, roberto, LocalDate.of(2024, 4, 29), LocalDate.of(2024, 5, 2), 2);
         new Reserva(apartamento2, luis, LocalDate.of(2024, 5, 1), LocalDate.of(2024, 6, 3), 1);

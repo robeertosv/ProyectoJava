@@ -41,4 +41,9 @@ public class ClienteParticular extends Cliente implements Serializable {
         this.isVIP = true;
         Database.save();
     }
+
+    public void noVIP() {
+        this.isVIP = false;
+        Database.save();
+    }
 }

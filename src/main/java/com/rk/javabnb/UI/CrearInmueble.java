@@ -4,8 +4,14 @@
  */
 package com.rk.javabnb.UI;
 
+import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
+import javax.imageio.stream.FileImageOutputStream;
+import javax.imageio.stream.ImageOutputStream;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.rk.javabnb.Inmuebles.DatosInmueble;
 import com.rk.javabnb.Inmuebles.Direccion;
@@ -16,7 +22,7 @@ import com.rk.javabnb.db.Database;
  *
  * @author admin
  */
-public class CrearInmueble extends javax.swing.JFrame {
+public class CrearInmueble extends javax.swing.JFrame implements Serializable {
 
     /**
      * Creates new form CrearInmueble
@@ -37,6 +43,7 @@ public class CrearInmueble extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jFileChooser1 = new javax.swing.JFileChooser();
         tituloTextField = new javax.swing.JTextField();
         calleTextField = new javax.swing.JTextField();
         tipoComboBox = new javax.swing.JComboBox<>();
@@ -70,21 +77,16 @@ public class CrearInmueble extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         menuButton = new javax.swing.JButton();
+        selectFile = new javax.swing.JButton();
 
-        this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formClosing();
-            }
-        });
-        this.setBackground(new java.awt.Color(255, 255, 255));
-        this.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
-        this.setPreferredSize(new java.awt.Dimension(1000, 1000));
-        this.getContentPane().setLayout(new java.awt.GridBagLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setFont(new java.awt.Font(".AppleSystemUIFont", 0, 18)); // NOI18N
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         tituloTextField.setMinimumSize(new java.awt.Dimension(113, 27));
         tituloTextField.setPreferredSize(new java.awt.Dimension(113, 27));
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -133,17 +135,11 @@ public class CrearInmueble extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
         getContentPane().add(ciudadTextField, gridBagConstraints);
-
-        numeroTextField.setMinimumSize(new java.awt.Dimension(113, 27));
-        numeroTextField.setPreferredSize(new java.awt.Dimension(113, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
         getContentPane().add(numeroTextField, gridBagConstraints);
-
-        cpTextField.setMinimumSize(new java.awt.Dimension(113, 27));
-        cpTextField.setPreferredSize(new java.awt.Dimension(113, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
@@ -265,11 +261,12 @@ public class CrearInmueble extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 7, 0, 15);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(0, 4, 0, 15);
         getContentPane().add(jScrollPane1, gridBagConstraints);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel10.setText("Fotografía:?");
+        jLabel10.setText("Fotografía:");
         jLabel10.setMaximumSize(new java.awt.Dimension(138, 17));
         jLabel10.setMinimumSize(new java.awt.Dimension(138, 17));
         jLabel10.setPreferredSize(new java.awt.Dimension(138, 17));
@@ -371,6 +368,21 @@ public class CrearInmueble extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(13, 0, 13, 0);
         getContentPane().add(menuButton, gridBagConstraints);
 
+        selectFile.setLabel("Seleccionar archivo");
+        selectFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectFileActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 5;
+        gridBagConstraints.ipady = 5;
+        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
+        getContentPane().add(selectFile, gridBagConstraints);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -453,7 +465,7 @@ public class CrearInmueble extends javax.swing.JFrame {
             DatosInmueble datos = new DatosInmueble((int)banosSpinner.getValue(),(int)camasSpinner.getValue(),(int)habitacionesSpinner.getValue(),(int)huespedesSpinner.getValue(),descripcionTextPane.getText());
             char tipo = 'a';
             if(tipoComboBox.getSelectedItem().equals("Casa")){tipo = 'c';}
-            Inmueble inmueble = new Inmueble(titulo,tipo,serviciosTextPane.getText(),precioDouble,"foto.png",dir,datos,Database.getCurrentAnfitrion());
+            Inmueble inmueble = new Inmueble(titulo,tipo,serviciosTextPane.getText(),precioDouble,dir,datos,Database.getCurrentAnfitrion());
             new MenuAnfitrion();
             this.dispose();
             this.setVisible(false);
@@ -467,6 +479,25 @@ public class CrearInmueble extends javax.swing.JFrame {
         this.setVisible(false);
         //vuelve al menú
     }//GEN-LAST:event_menuButtonActionPerformed
+
+    private void selectFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFileActionPerformed
+        //Poder elegir foto
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de Imágen", "png", "jpg", "jpeg", "webp");
+        fileChooser.setFileFilter(filter);
+        int seleccion = fileChooser.showOpenDialog(this.getParent());
+
+        if(seleccion == JFileChooser.APPROVE_OPTION) {
+            try{
+                String url = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator;
+                File targetFile = new File(url, this.tituloTextField.getText() + ".png");
+                Files.copy(fileChooser.getSelectedFile().toPath(), targetFile.toPath());
+            }catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }//GEN-LAST:event_selectFileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -513,6 +544,7 @@ public class CrearInmueble extends javax.swing.JFrame {
     private javax.swing.JTextPane descripcionTextPane;
     private javax.swing.JSpinner habitacionesSpinner;
     private javax.swing.JSpinner huespedesSpinner;
+    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -534,6 +566,7 @@ public class CrearInmueble extends javax.swing.JFrame {
     private javax.swing.JButton menuButton;
     private javax.swing.JTextField numeroTextField;
     private javax.swing.JTextField precioTextField;
+    private javax.swing.JButton selectFile;
     private javax.swing.JTextPane serviciosTextPane;
     private javax.swing.JComboBox<String> tipoComboBox;
     private javax.swing.JTextField tituloTextField;
