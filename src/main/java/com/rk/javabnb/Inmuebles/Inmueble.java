@@ -14,7 +14,6 @@ public class Inmueble implements Serializable {
     private int sumaCalificaciones = 0;
     private DatosInmueble datos;
     private Direccion direccion;
-    private String fotografias;
     private double precio;
     private String servicios;
     private char tipo;
@@ -24,12 +23,11 @@ public class Inmueble implements Serializable {
     private String nombre;
     private static int num = 1; //diferencia los distintos inmuebles creados
 
-    public Inmueble(String titulo, char tipo, String servicios, double precio, String fotografias, Direccion direccion, DatosInmueble datos, Anfitrion anfitrion){
+    public Inmueble(String titulo, char tipo, String servicios, double precio, Direccion direccion, DatosInmueble datos, Anfitrion anfitrion){
         this.titulo = titulo;
         this.tipo = tipo;
         this.servicios = servicios;
         this.precio = precio;
-        this.fotografias = fotografias;
         this.direccion = direccion;
         this.datos = datos;
         this.anfitrion = anfitrion;

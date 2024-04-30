@@ -15,6 +15,7 @@ import com.rk.javabnb.db.DataChecker;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.time.LocalDate;
 
 /**
@@ -63,7 +64,9 @@ public class PreReserva2 extends javax.swing.JFrame {
         }
         String valorado = "Calificado "+inmueble.getVecesValorado()+" veces";
         vecesVisitadoLabel.setText(valorado);
-        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/"+inmueble.getTitulo()+".png"));
+        //ImageIcon imageIcon = new ImageIcon(getClass().getResource("/"+inmueble.getTitulo()+".png"));
+        String url = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + inmueble.getTitulo()+".png";
+        ImageIcon imageIcon = new ImageIcon(url);
         Image scaledImage = imageIcon.getImage().getScaledInstance(fotoLabel.getWidth(), fotoLabel.getHeight(), Image.SCALE_SMOOTH);
         this.fotoLabel.setIcon(new javax.swing.ImageIcon(scaledImage));
         //setTexts añaden toda la informacion sobre el inmueble a la pantalla
