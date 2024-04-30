@@ -53,6 +53,7 @@ public class Reserva implements Serializable {
         String huespedesString = String.valueOf(huespedes);
         return huespedesString;
     }
+    public int getHuespedes(){return this.huespedes;}
     public Inmueble getInmueble() {
         return this.inmueble;
     }

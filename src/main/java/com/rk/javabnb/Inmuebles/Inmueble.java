@@ -74,6 +74,26 @@ public class Inmueble implements Serializable {
     public int getVecesValorado() {return this.vecesValorado;}
     public int getSumaCalificaciones() {return this.sumaCalificaciones;}
 
+    public void setTipo(String tipo) {
+        char tipoChar = 'x';
+        if(tipo.equals("Apartamento")){
+            tipoChar = 'a';
+        }else if(tipo.equals("Casa")){
+            tipoChar = 'c';
+        }
+        this.tipo = tipoChar;
+    }
+    public void setTitulo(String titulo) {this.titulo = titulo;}
+    public void setDireccion(String ciudad, String calle, int numero, int cp){
+        this.direccion = new Direccion(ciudad,calle,numero,cp);
+    }
+    public void setDatos(int banos, int camas, int habitaciones, int maxHuespedes, String descripcion){
+        this.datos = new DatosInmueble(banos, camas, habitaciones, maxHuespedes, descripcion);
+    }
+    public void setPrecio(double precio) {this.precio = precio;}
+    public void setServicios(String servicios) {this.servicios = servicios;}
+
+
     public void addResena(int x){
         vecesValorado +=1;
         sumaCalificaciones+=x;
@@ -91,7 +111,6 @@ public class Inmueble implements Serializable {
         }
         //calcula una nueva media de reseñas, actualiza la calificacion y mira si el anfitrion se ha vuelto superanfitrion o ha dejado de serlo
     }
-
     public boolean verDisponibilidad(LocalDate fechaEntrada, LocalDate fechaSalida){
         boolean disponible = false;
         int nreservas = this.getReservas().size();
@@ -115,11 +134,6 @@ public class Inmueble implements Serializable {
         //tambien verifica si las fechas introducidas se encuentran en el futuro
         //tambien mira que la fecha de entrada es antes de la fecha de salida
     }
-
-    public String toString(){
-        return datos.toString()+this.direccion.toStringShort()+this.precio+this.servicios;
-    }
-
     public int borrarInmueble(){
         int reservas = 0;
         LocalDate now = LocalDate.now();
@@ -130,8 +144,13 @@ public class Inmueble implements Serializable {
         }
         if(reservas==0){
             Database.removeInmueble(this);
+            Database.save();
         }
         return reservas;
+    }
+
+    public String toString(){
+        return datos.toString()+this.direccion.toStringShort()+this.precio+this.servicios;
     }
 
     /*public void setCalificacion(double nota) {
