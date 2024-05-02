@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="Bugfix: Ventanas en cambio de contrasña">
+    <list default="true" id="04cdbb80-110a-4658-b22a-b523fb8c5b4a" name="Changes" comment="Poder añadir imagen al Inmueble">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/VIP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/VIP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rk/javabnb/UI/Home.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +121,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.CrearInmueble.executor&quot;: &quot;Run&quot;,
     &quot;Application.DatosBancarios.executor&quot;: &quot;Run&quot;,
     &quot;Application.Home.executor&quot;: &quot;Run&quot;,
     &quot;Application.JavaBnB.executor&quot;: &quot;Run&quot;,
@@ -344,7 +345,12 @@
       <workItem from="1714403610227" duration="2495000" />
       <workItem from="1714413148269" duration="1059000" />
       <workItem from="1714414228618" duration="3591000" />
-      <workItem from="1714457186700" duration="6599000" />
+      <workItem from="1714457186700" duration="7204000" />
+      <workItem from="1714468425703" duration="1039000" />
+      <workItem from="1714476887086" duration="634000" />
+      <workItem from="1714482558578" duration="7692000" />
+      <workItem from="1714490427824" duration="1569000" />
+      <workItem from="1714661307739" duration="1161000" />
     </task>
     <task id="LOCAL-00001" summary="add files">
       <option name="closed" value="true" />
@@ -626,7 +632,63 @@
       <option name="project" value="LOCAL" />
       <updated>1714463067834</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Quitar código inutil">
+      <option name="closed" value="true" />
+      <created>1714463826702</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1714463826702</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Refactorizar">
+      <option name="closed" value="true" />
+      <created>1714463898883</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1714463898883</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Posibilidad de eliminar reservas">
+      <option name="closed" value="true" />
+      <created>1714483630639</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1714483630639</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Poder añadir imagen al Inmueble">
+      <option name="closed" value="true" />
+      <created>1714490070496</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1714490070496</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Poder usar cualquier extensión de imagen">
+      <option name="closed" value="true" />
+      <created>1714491835202</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1714491835202</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Poner texto alternativo si no hay valoraciones">
+      <option name="closed" value="true" />
+      <created>1714661927537</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1714661927537</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Bugfix: Se abrían 2 ventanas de reserva">
+      <option name="closed" value="true" />
+      <created>1714662234372</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1714662234372</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,13 +697,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Handler - al empezar el programa, se leen los datos de los archivos inmuebles y clientes, al terminar se guardan, pero creo que todavia no funciona" />
-    <MESSAGE value="He añadido una clase Reserva y los paneles de ver y reservar un inmueble, pero todavia no estan terminados, ni de lejos, dejame terminarlos luego" />
-    <MESSAGE value="Pequeños cambios en verInmueble y una prueba de anfitriones en main, pero es que los anfitriones no funcionan!!! y no entiendo por que" />
-    <MESSAGE value="Fix images, Fix persistent login" />
-    <MESSAGE value="Katia ver inmuebles" />
-    <MESSAGE value="Registro" />
-    <MESSAGE value="Registro Completado" />
     <MESSAGE value="Validacion de tarjeta" />
     <MESSAGE value="Generar factura" />
     <MESSAGE value="Buscar por tipo de inmueble" />
@@ -658,8 +713,15 @@
     <MESSAGE value="Ventanas en pantalla completa" />
     <MESSAGE value="Arreglar guardado y renderizado de reservas" />
     <MESSAGE value="Poder dejar de ser VIP" />
-    <MESSAGE value="Bugfix: Ventanas en cambio de contrasña" />
     <MESSAGE value="Cambiar textArea a label en VIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambiar textArea a label en VIP" />
+    <MESSAGE value="Bugfix: Ventanas en cambio de contrasña" />
+    <MESSAGE value="Quitar código inutil" />
+    <MESSAGE value="Posibilidad de eliminar reservas" />
+    <MESSAGE value="Refactorizar" />
+    <MESSAGE value="Poder usar cualquier extensión de imagen" />
+    <MESSAGE value="Poner texto alternativo si no hay valoraciones" />
+    <MESSAGE value="Poder añadir imagen al Inmueble" />
+    <MESSAGE value="Bugfix: Se abrían 2 ventanas de reserva" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugfix: Se abrían 2 ventanas de reserva" />
   </component>
 </project>
