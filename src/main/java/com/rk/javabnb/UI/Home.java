@@ -154,7 +154,7 @@ public class Home extends javax.swing.JFrame {
                 //Buscar por ciudad
                 case 1:
                     for (InmueblePreview i : Database.getInmueblePreview()) {
-                        if (i.getCiudad().equals(this.search.getText())) {
+                        if (i.getCiudad().equalsIgnoreCase(this.search.getText())) {
                             resultado.add(i);
                             huboResultados = true;
                         }
@@ -180,14 +180,14 @@ public class Home extends javax.swing.JFrame {
                     break;
                 //Busqueda por casa o apartamento
                 case 4:
-                    if(this.search.getText().equals("casa")) {
+                    if(this.search.getText().equalsIgnoreCase("casa")) {
                         for(InmueblePreview i : Database.getInmueblePreview()) {
                             if(i.getTipo().equals("Casa")) {
                                 resultado.add(i);
                                 huboResultados = true;
                             }
                         }
-                    }else if(this.search.getText().equals("apartamento")) {
+                    }else if(this.search.getText().equalsIgnoreCase("apartamento")) {
                         for(InmueblePreview i : Database.getInmueblePreview()) {
                             if(i.getTipo().equals("Apartamento")) {
                                 resultado.add(i);
