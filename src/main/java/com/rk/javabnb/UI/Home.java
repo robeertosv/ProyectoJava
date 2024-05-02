@@ -6,6 +6,7 @@ package com.rk.javabnb.UI;
 
 import com.rk.javabnb.Usuarios.Admin;
 import com.rk.javabnb.Usuarios.Anfitrion;
+import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.db.Database;
 
@@ -24,7 +25,7 @@ public class Home extends javax.swing.JFrame {
     public Home(String persona) {
         initComponents();
         this.setVisible(true);
-        this.persona = persona; //una variable que sirve para diferenciar que tipo de home hay que abrir y que inmuebles enseñar, dependiendo del usuario loggeado y de si el admin quiere ver todos los inmuebles o detalles de algun anfitrion
+        //this.persona = persona; //una variable que sirve para diferenciar que tipo de home hay que abrir y que inmuebles enseñar, dependiendo del usuario loggeado y de si el admin quiere ver todos los inmuebles o detalles de algun anfitrion
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //abre la ventana de inmuebles cogiendo como parámetro el tipo del usuario - admin puede ver todos los inmuebles sin reservarlos, clientes particulares pueden hacer reservas y los anfitriones pueden ver solamente sus inmuebles
     }
@@ -89,11 +90,12 @@ public class Home extends javax.swing.JFrame {
         jPanel1.add(search, gridBagConstraints);
 
         String nombreCurrent = "Admin";
-        if(Database.getCurrentUser().get(0) instanceof ClienteParticular){
-            nombreCurrent = Database.getNombreParticular();
-        }else if(Database.getCurrentUser().get(0) instanceof Anfitrion){
-            nombreCurrent = Database.getNombreAnfitrion();
-        } //mira quien está loggeado y muestra su nombre o Admin
+        if(!Database.getCurrentUser().getFirst().getClass().getSimpleName().equals("Admin")) {
+            Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+            nombreCurrent = c.getNombre();
+        }
+
+        //mira quien está loggeado y muestra su nombre o Admin
         menuOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { nombreCurrent,"Menú", "Cerrar Sesión" }));
         menuOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

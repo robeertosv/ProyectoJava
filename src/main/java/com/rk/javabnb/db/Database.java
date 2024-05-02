@@ -198,6 +198,7 @@ public class Database implements Serializable{
 
     public static void setCurrentUser(ArrayList c) {
         Database.currentUser = c;
+        Database.save();
         //almacena usuario loggeado
     }
     public static void setAdmin(Admin a) {

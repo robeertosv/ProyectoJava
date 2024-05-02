@@ -4,7 +4,9 @@
  */
 package com.rk.javabnb.UI;
 
+import com.rk.javabnb.Usuarios.Anfitrion;
 import com.rk.javabnb.Usuarios.Cliente;
+import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
@@ -47,9 +49,21 @@ public class HomeUsuarios extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         containerPanel = new JPanel(new GridLayout(0, 1));
 
-        for(UsuarioPreview panel : Database.getUsuarioPreviews()) {
+        /*for(UsuarioPreview panel : Database.getUsuarioPreviews()) {
             containerPanel.add(panel);
+        }*/
+
+        this.containerPanel.removeAll();
+        for(ClienteParticular c : Database.getClientes()) {
+            UsuarioPreview u = new UsuarioPreview(c);
+            containerPanel.add(u);
         }
+        for(Anfitrion a : Database.getAnfitriones()) {
+            UsuarioPreview u = new UsuarioPreview(a);
+            containerPanel.add(u);
+        }
+
+
 
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -181,6 +195,7 @@ public class HomeUsuarios extends javax.swing.JFrame {
                 }
                 break;
         }
+
         if(huboResultados) {
             this.containerPanel.removeAll();
             for(UsuarioPreview i : resultadoUsuarios) {

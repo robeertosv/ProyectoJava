@@ -16,6 +16,7 @@ public class ClienteParticular extends Cliente implements Serializable {
         super(clave, DNI, email, nombre, tfno);
         this.isVIP = false;
         Database.addCliente(this);
+        System.out.println("Se acaba de añadir un cliente a la DB" + this.getNombre());
         Database.save();
     }
 

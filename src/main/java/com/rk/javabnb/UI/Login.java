@@ -233,9 +233,9 @@ public class Login extends javax.swing.JFrame {
         else {
             JOptionPane.showMessageDialog(this, "Usuario no encontrado", "Error de registro", JOptionPane.WARNING_MESSAGE);
         }*/
-        boolean logged = false;
+        /*boolean logged = false;
         if(Database.getAllEmail().contains(this.email.getText())) { //mira si el email existe en la base de datos
-            ArrayList loggedUser = new ArrayList();
+            ArrayList loggedUser = new ArrayList<>();
             for(Cliente c:Database.getPersonas()){ //mira si es email de algun  cliente, verifica la contraseña y si esta bien, lo deja entrar y lo guarda como usuario loggeado
                 if(c.getEmail().equals(this.email.getText())) {
                     if(c.checkPassword(password.getPassword())){
@@ -273,7 +273,43 @@ public class Login extends javax.swing.JFrame {
                 this.dispose();
                 this.setVisible(false);
             }
+        }*/
+
+        if(!this.email.getText().isBlank() || this.password.getPassword().length != 0) {
+            //Caso especial de que se trate del admin
+            if(this.email.getText().equalsIgnoreCase("admin@javabnb.com") && Admin.checkPassword(this.password.getPassword())) {
+                ArrayList c = new ArrayList();
+                c.add(new Admin());
+                Database.setCurrentUser(c);
+                new MenuAdmin();
+                this.dispose();
+                return;
+            }
+
+            //Si no es admin es cliente
+            Cliente clienteTryLogin = null;
+            if(Database.getAllEmail().contains(this.email.getText())) {
+                for(Cliente c : Database.getPersonas()) {
+                    ArrayList userLoginIn = new ArrayList<>();
+                    if(c.getEmail().equalsIgnoreCase(this.email.getText()) && c.checkPassword(this.password.getPassword())) {
+                        userLoginIn.add(c);
+                        Database.setCurrentUser(userLoginIn);
+                        break;
+                    }
+                }
+            }else {
+                JOptionPane.showMessageDialog(this, "No exsite un usuario con ese correo", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+
+            if(Database.getCurrentUser().getFirst() instanceof ClienteParticular) {
+                new Home(Database.getCurrentUser().getFirst().getClass().getSimpleName());
+                this.dispose();
+            } else if(Database.getCurrentUser().getFirst() instanceof Anfitrion) {
+                new MenuAnfitrion();
+                this.dispose();
+            }
         }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

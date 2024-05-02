@@ -25,7 +25,7 @@ public class Cliente extends Component implements Serializable{
             this.email = email;
             this.nombre = nombre;
             this.tfno = tfno;
-            Database.save();
+            //Database.save();
     }
 
     public boolean checkPassword(char[] pass) {

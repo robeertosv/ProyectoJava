@@ -202,20 +202,22 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         gridBagConstraints.gridy = 7;
         add(jLabel17, gridBagConstraints);
 
-        dejarResenaButton.setText("Dejar reseña");
-        dejarResenaButton.setMaximumSize(new java.awt.Dimension(124, 27));
-        dejarResenaButton.setMinimumSize(new java.awt.Dimension(124, 27));
-        dejarResenaButton.setPreferredSize(new java.awt.Dimension(124, 27));
-        dejarResenaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dejarResenaButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        add(dejarResenaButton, gridBagConstraints);
+        if(Database.getCurrentUser().getFirst() instanceof ClienteParticular) {
+            dejarResenaButton.setText("Dejar reseña");
+            dejarResenaButton.setMaximumSize(new java.awt.Dimension(124, 27));
+            dejarResenaButton.setMinimumSize(new java.awt.Dimension(124, 27));
+            dejarResenaButton.setPreferredSize(new java.awt.Dimension(124, 27));
+            dejarResenaButton.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    dejarResenaButtonActionPerformed(evt);
+                }
+            });
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 3;
+            gridBagConstraints.gridy = 6;
+            gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+            add(dejarResenaButton, gridBagConstraints);
+        }
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "4", "3", "2", "1", "0" }));
         jComboBox1.setMaximumSize(new java.awt.Dimension(124, 27));
