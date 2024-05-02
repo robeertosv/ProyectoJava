@@ -471,6 +471,7 @@ public class CrearInmueble extends javax.swing.JFrame implements Serializable {
             char tipo = 'a';
             if(tipoComboBox.getSelectedItem().equals("Casa")){tipo = 'c';}
             Inmueble inmueble = new Inmueble(titulo,tipo,serviciosTextPane.getText(),precioDouble,fotoURL,dir,datos,Database.getCurrentAnfitrion());
+            JOptionPane.showMessageDialog(this, "Éxito al crear inmueble", "EXITO", JOptionPane.INFORMATION_MESSAGE);
             new MenuAnfitrion();
             this.dispose();
             this.setVisible(false);
