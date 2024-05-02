@@ -96,7 +96,6 @@ public class InmueblePreview extends javax.swing.JPanel {
         showMore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showMoreActionPerformed(evt);
-                showMoreActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -109,6 +108,7 @@ public class InmueblePreview extends javax.swing.JPanel {
 
     private void showMoreActionPerformed(java.awt.event.ActionEvent evt) {
         //Aparece una pagina con mas detalles sobre el inmueble y la opcion de reservarlo
+
         if(Database.getCurrentUser().getFirst() instanceof Anfitrion){
             new EditarInmueble(this.inmueble);
         }else{
