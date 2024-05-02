@@ -10,7 +10,11 @@ public class InmueblePreview extends javax.swing.JPanel {
         initComponents();
         this.nombre.setText(i.getNombre());
         this.desc.setText(i.getDatos().getDescripcion());
-        this.rating.setText(i.getCalificacion() + "/5");
+        if(i.getVecesValorado() == 0) {
+            this.rating.setText("Sin valoraciones");
+        }else {
+            this.rating.setText(i.getCalificacion() + "/5");
+        }
         this.precio.setText((i.getPrecio()) + "€");
 
         this.ratingD = i.getCalificacion();
@@ -91,6 +95,7 @@ public class InmueblePreview extends javax.swing.JPanel {
         showMore.setText("Ver más");
         showMore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showMoreActionPerformed(evt);
                 showMoreActionPerformed(evt);
             }
         });
