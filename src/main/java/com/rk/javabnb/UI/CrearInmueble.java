@@ -147,7 +147,7 @@ public class CrearInmueble extends javax.swing.JFrame implements Serializable {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         getContentPane().add(cpTextField, gridBagConstraints);
 
