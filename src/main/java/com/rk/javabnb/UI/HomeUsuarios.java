@@ -12,6 +12,7 @@ import com.rk.javabnb.db.Database;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  *
@@ -152,7 +153,7 @@ public class HomeUsuarios extends javax.swing.JFrame {
             //buscar por nombre
             case 0:
                 for (UsuarioPreview u:Database.getUsuarioPreviews()){
-                    if (u.getNombre().contains(this.searchTextField.getText())) {
+                    if (u.getNombre().toLowerCase().contains(this.searchTextField.getText().toLowerCase())) {
                         resultadoUsuarios.add(u);
                         huboResultados = true;
                     }

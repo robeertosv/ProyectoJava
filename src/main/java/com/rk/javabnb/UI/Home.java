@@ -258,7 +258,7 @@ public class Home extends javax.swing.JFrame {
             switch (this.filtros.getSelectedIndex()){
                 case 0: //por nombre
                     for (InmueblePreview i : Database.getMisInmueblesPreview()) {
-                        if (i.getNombre().contains(this.search.getText())) {
+                        if (i.getNombre().toLowerCase().contains(this.search.getText().toLowerCase())) {
                             resultado.add(i);
                             huboResultados = true;
                         }
@@ -266,7 +266,7 @@ public class Home extends javax.swing.JFrame {
                     break;
                 case 1: //mis inmuebles por ciudad
                     for(InmueblePreview i : Database.getMisInmueblesPreview()) {
-                        if (i.getNombre().contains(this.search.getText())) {
+                        if (i.getNombre().toLowerCase().contains(this.search.getText().toLowerCase())) {
                             resultado.add(i);
                             huboResultados = true;
                         }
@@ -311,7 +311,7 @@ public class Home extends javax.swing.JFrame {
                 case 0: //por nombre
                     for (InmueblePreview i : Database.getInmueblePreview()) {
                         if(i.getAnfitrion().equals(anf)) {
-                            if (i.getNombre().contains(this.search.getText())) {
+                            if (i.getNombre().toLowerCase().contains(this.search.getText().toLowerCase())) {
                                 resultado.add(i);
                                 huboResultados = true;
                             }
@@ -321,7 +321,7 @@ public class Home extends javax.swing.JFrame {
                 case 1: //mis inmuebles por ciudad
                     for (InmueblePreview i : Database.getInmueblePreview()) {
                         if(i.getAnfitrion().equals(anf)) {
-                            if (i.getNombre().contains(this.search.getText())) {
+                            if (i.getNombre().toLowerCase().contains(this.search.getText().toLowerCase())) {
                                 resultado.add(i);
                                 huboResultados = true;
                             }
