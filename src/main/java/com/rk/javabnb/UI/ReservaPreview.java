@@ -217,16 +217,16 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
             gridBagConstraints.gridy = 6;
             gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
             add(dejarResenaButton, gridBagConstraints);
-        }
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "4", "3", "2", "1", "0" }));
-        jComboBox1.setMaximumSize(new java.awt.Dimension(124, 27));
-        jComboBox1.setMinimumSize(new java.awt.Dimension(124, 27));
-        jComboBox1.setPreferredSize(new java.awt.Dimension(124, 27));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        add(jComboBox1, gridBagConstraints);
+            jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "4", "3", "2", "1", "0" }));
+            jComboBox1.setMaximumSize(new java.awt.Dimension(124, 27));
+            jComboBox1.setMinimumSize(new java.awt.Dimension(124, 27));
+            jComboBox1.setPreferredSize(new java.awt.Dimension(124, 27));
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 3;
+            gridBagConstraints.gridy = 5;
+            add(jComboBox1, gridBagConstraints);
+        }
 
         cancelBtn.setText("CANCELAR RESERVA");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -264,7 +264,7 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
     }//GEN-LAST:event_dejarResenaButtonActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        int result = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres cancelar tu reserva?", "CANCELACIÓN DE RESERVA", JOptionPane.OK_CANCEL_OPTION);
+        int result = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres cancelar la reserva?", "CANCELACIÓN DE RESERVA", JOptionPane.OK_CANCEL_OPTION);
         if(result == JOptionPane.OK_OPTION) {
             Database.popReserva(this.reserva);
         }

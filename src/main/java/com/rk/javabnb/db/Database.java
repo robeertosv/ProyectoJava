@@ -206,11 +206,12 @@ public class Database implements Serializable{
     }
     public static ArrayList getCurrentUser() { return Database.currentUser; /*devuelve un arraylist, cuyo primer elemento es el usuario loggeado en el sistema*/}
     public static ClienteParticular getCurrentParticular(){
-        //devuelve al cliente particular que está loggeado
-        Object user = Database.getCurrentUser().get(0);
-        ClienteParticular cliente = new ClienteParticular("","","","",1);
-        if(user instanceof ClienteParticular){cliente = (ClienteParticular) user;}
-        return cliente;
+        Object user = Database.getCurrentUser().getFirst();
+        if(user instanceof ClienteParticular) {
+            return (ClienteParticular) user;
+        }else {
+            return null;
+        }
     }
     public static String getNombreParticular(){
         //devuelve el nombre del cliente particular que está loggeado
@@ -220,10 +221,12 @@ public class Database implements Serializable{
     }
     public static Anfitrion getCurrentAnfitrion(){
         //devuelve al anfitrion que está loggeado
-        Object user = Database.getCurrentUser().get(0);
-        Anfitrion anfitrion = new Anfitrion("","","","",1);
-        if(user instanceof Anfitrion){anfitrion = (Anfitrion)user;}
-        return anfitrion;
+        Object user = Database.getCurrentUser().getFirst();
+        if(user instanceof Anfitrion) {
+            return (Anfitrion) user;
+        }else {
+            return null;
+        }
     }
     public static String getNombreAnfitrion(){
         //devuelve el nombre del anfitrión que está loggeado
