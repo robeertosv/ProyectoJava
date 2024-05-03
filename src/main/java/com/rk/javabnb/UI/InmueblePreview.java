@@ -4,6 +4,9 @@ import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.Usuarios.Anfitrion;
 import com.rk.javabnb.db.Database;
 
+import javax.swing.*;
+import java.time.LocalDate;
+
 public class InmueblePreview extends javax.swing.JPanel {
     public InmueblePreview(Inmueble i) {
         this.inmueble = i;
@@ -114,6 +117,23 @@ public class InmueblePreview extends javax.swing.JPanel {
         }else{
             new PreReserva2(this.inmueble);
         }
+    }
+
+    public boolean disponible(String fechaEntrada, String fechaSalida) {
+        try {
+            String[] fEntrada = fechaEntrada.split("/");
+            LocalDate fechaE = LocalDate.of(Integer.parseInt(fEntrada[2]), Integer.parseInt(fEntrada[1]),Integer.parseInt(fEntrada[0]));
+
+            String[] fSalida = fechaSalida.split("/");
+            LocalDate fechaS = LocalDate.of(Integer.parseInt(fSalida[2]), Integer.parseInt(fSalida[1]),Integer.parseInt(fSalida[0]));
+
+            return this.inmueble.verDisponibilidad(fechaE, fechaS);
+        }catch(Exception e) {
+            return false;
+        }
+    }
+    public Inmueble getInmueble() {
+        return this.inmueble;
     }
 
 

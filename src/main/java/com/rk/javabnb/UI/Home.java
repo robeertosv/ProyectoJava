@@ -15,6 +15,7 @@ import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.ArrayList;
 
@@ -231,8 +232,15 @@ public class Home extends javax.swing.JFrame {
 
             if (huboResultados) {
                 this.containerPanel.removeAll();
+                String[] fEntrada = fechaEntrada.getText().split("/");
+                LocalDate fechaE = LocalDate.of(Integer.parseInt(fEntrada[2]), Integer.parseInt(fEntrada[1]),Integer.parseInt(fEntrada[0]));
+
+                String[] fSalida = fechaSalida.getText().split("/");
+                LocalDate fechaS = LocalDate.of(Integer.parseInt(fSalida[2]), Integer.parseInt(fSalida[1]),Integer.parseInt(fSalida[0]));
                 for (InmueblePreview i : resultado) {
-                    this.containerPanel.add(i);
+                    if(i.getInmueble().verDisponibilidad(fechaE, fechaS)) {
+                        this.containerPanel.add(i);
+                    }
                 }
                 this.scrollPane.setViewportView(containerPanel);
             } else { //si no hubo resultados muestra todos los inmuebles
