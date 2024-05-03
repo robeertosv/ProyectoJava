@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Admin implements Serializable{
-    private static final String clave = "clave";
+    private static final String clave = "admin";
     private static final String correo = "admin@javabnb.com";
 
     public Admin() {

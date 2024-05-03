@@ -294,6 +294,7 @@ public class Login extends javax.swing.JFrame {
                     if(c.getEmail().equalsIgnoreCase(this.email.getText()) && c.checkPassword(this.password.getPassword())) {
                         userLoginIn.add(c);
                         Database.setCurrentUser(userLoginIn);
+                        Database.save();
                         break;
                     }
                 }
