@@ -233,55 +233,73 @@ public class PreReserva2 extends javax.swing.JFrame {
                 gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
                 getContentPane().add(serVIPButton, gridBagConstraints);
             }
-        }catch(Exception e) { JOptionPane.showMessageDialog(this, "Error al cargar la página", "ERROR", JOptionPane.WARNING_MESSAGE); }
 
+            jLabel12.setText("Fecha de la llegada:");
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 0;
+            gridBagConstraints.gridy = 11;
+            gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+            gridBagConstraints.insets = new java.awt.Insets(30, 36, 5, 36);
+            getContentPane().add(jLabel12, gridBagConstraints);
 
-        jLabel12.setText("Fecha de la llegada:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 36, 5, 36);
-        getContentPane().add(jLabel12, gridBagConstraints);
+            jLabel18.setText("Fecha de la salida:");
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 1;
+            gridBagConstraints.gridy = 11;
+            gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+            gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+            getContentPane().add(jLabel18, gridBagConstraints);
 
-        jLabel18.setText("Fecha de la salida:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
-        getContentPane().add(jLabel18, gridBagConstraints);
+            jLabel19.setText("Huéspedes:");
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 2;
+            gridBagConstraints.gridy = 11;
+            gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
+            getContentPane().add(jLabel19, gridBagConstraints);
 
-        jLabel19.setText("Huéspedes:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.insets = new java.awt.Insets(30, 0, 0, 0);
-        getContentPane().add(jLabel19, gridBagConstraints);
+            ratingLabel.setText("jLabel20");
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 4;
+            gridBagConstraints.gridy = 7;
+            gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+            getContentPane().add(ratingLabel, gridBagConstraints);
 
-        ratingLabel.setText("jLabel20");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        getContentPane().add(ratingLabel, gridBagConstraints);
+            fechaLlegada.setText("jFormattedTextField1");
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 0;
+            gridBagConstraints.gridy = 12;
+            gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+            gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+            gridBagConstraints.insets = new java.awt.Insets(5, 34, 5, 34);
+            getContentPane().add(fechaLlegada, gridBagConstraints);
 
-        fechaLlegada.setText("jFormattedTextField1");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 34, 5, 34);
-        getContentPane().add(fechaLlegada, gridBagConstraints);
+            fechaSalida.setText("jFormattedTextField2");
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 1;
+            gridBagConstraints.gridy = 12;
+            gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+            gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+            getContentPane().add(fechaSalida, gridBagConstraints);
 
-        fechaSalida.setText("jFormattedTextField2");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        getContentPane().add(fechaSalida, gridBagConstraints);
+            reservarButton.setText("Reservar");
+            reservarButton.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    reservarButtonActionPerformed(evt);
+                }
+            });
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 4;
+            gridBagConstraints.gridy = 13;
+            gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 20);
+            getContentPane().add(reservarButton, gridBagConstraints);
+
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 2;
+            gridBagConstraints.gridy = 12;
+            getContentPane().add(huespedesSpinner, gridBagConstraints);
+
+        }catch(Exception e) {}
+
 
         jLabel21.setText("Rating:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -300,17 +318,7 @@ public class PreReserva2 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 24, 0, 0);
         getContentPane().add(vecesVisitadoLabel, gridBagConstraints);
 
-        reservarButton.setText("Reservar");
-        reservarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reservarButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 20);
-        getContentPane().add(reservarButton, gridBagConstraints);
+
 
         fotoLabel.setText("");
         fotoLabel.setMaximumSize(new java.awt.Dimension(400, 300));
@@ -336,10 +344,7 @@ public class PreReserva2 extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(26, 34, 26, 44);
         getContentPane().add(volverButton, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
-        getContentPane().add(huespedesSpinner, gridBagConstraints);
+
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

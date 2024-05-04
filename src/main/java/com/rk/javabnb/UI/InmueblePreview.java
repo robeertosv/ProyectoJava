@@ -113,25 +113,17 @@ public class InmueblePreview extends javax.swing.JPanel {
         //Aparece una pagina con mas detalles sobre el inmueble y la opcion de reservarlo
 
         if(Database.getCurrentUser().getFirst() instanceof Anfitrion){
-            new EditarInmueble(this.inmueble);
+            Anfitrion anf = (Anfitrion) Database.getCurrentUser().getFirst();
+            if(this.inmueble.getAnfitrion().getEmail().equals(anf.getEmail())) {
+                new EditarInmueble(this.inmueble);
+            }else {
+                new PreReserva2(this.inmueble);
+            }
         }else{
             new PreReserva2(this.inmueble);
         }
     }
 
-    public boolean disponible(String fechaEntrada, String fechaSalida) {
-        try {
-            String[] fEntrada = fechaEntrada.split("/");
-            LocalDate fechaE = LocalDate.of(Integer.parseInt(fEntrada[2]), Integer.parseInt(fEntrada[1]),Integer.parseInt(fEntrada[0]));
-
-            String[] fSalida = fechaSalida.split("/");
-            LocalDate fechaS = LocalDate.of(Integer.parseInt(fSalida[2]), Integer.parseInt(fSalida[1]),Integer.parseInt(fSalida[0]));
-
-            return this.inmueble.verDisponibilidad(fechaE, fechaS);
-        }catch(Exception e) {
-            return false;
-        }
-    }
     public Inmueble getInmueble() {
         return this.inmueble;
     }
