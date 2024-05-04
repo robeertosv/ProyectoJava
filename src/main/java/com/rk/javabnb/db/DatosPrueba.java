@@ -15,7 +15,6 @@ public class DatosPrueba {
 
     public void createData() {
         new Admin();
-
         ClienteParticular luis = new ClienteParticular("clave", "87654321A", "luis@gmail.com", "Luis Fernández", 653111000);
         ClienteParticular roberto = new ClienteParticular("clave", "098547422A", "resvolkava@gmail.com", "Roberto", 640000111);
 

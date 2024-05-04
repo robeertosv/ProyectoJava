@@ -36,7 +36,7 @@ public class ClienteParticular extends Cliente implements Serializable {
         Database.save();
     }
 
-    public void addInmuebleValorado(Inmueble i) { this.inmueblesValorados.add(i); }
+    public void addInmuebleValorado(Inmueble i) { this.inmueblesValorados.add(i); Database.save(); }
     public ArrayList<Inmueble> getInmueblesValorados() { return this.inmueblesValorados; }
     public void hacerVIP(){
         this.isVIP = true;

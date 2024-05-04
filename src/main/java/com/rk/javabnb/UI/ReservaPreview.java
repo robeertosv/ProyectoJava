@@ -248,14 +248,17 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
     private void dejarResenaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dejarResenaButtonActionPerformed
         try {
             ClienteParticular cliente = (ClienteParticular) Database.getCurrentUser().getFirst();
-            if(cliente.getInmueblesValorados().contains(this.inmueble)) {
-                JOptionPane.showMessageDialog(this, "Ya has valorado este inmueble", "ERROR", JOptionPane.WARNING_MESSAGE);
-            } else {
-                String elegido = jComboBox1.getSelectedItem().toString();
-                int valoracion = Integer.parseInt(elegido);
-                this.inmueble.addResena(valoracion);
-                JOptionPane.showMessageDialog(this,"Ha valorado el inmueble "+inmueble.getNombre()+" con un "+valoracion,"Reseña",JOptionPane.INFORMATION_MESSAGE);
+            for(Inmueble i : cliente.getInmueblesValorados()) {
+                if(cliente.getInmueblesValorados().contains(i)) {
+                    JOptionPane.showMessageDialog(this, "Ya has valorado este inmueble", "ERROR", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
             }
+            String elegido = jComboBox1.getSelectedItem().toString();
+            int valoracion = Integer.parseInt(elegido);
+            this.inmueble.addResena(valoracion);
+            JOptionPane.showMessageDialog(this,"Ha valorado el inmueble "+inmueble.getNombre()+" con un "+valoracion,"Reseña",JOptionPane.INFORMATION_MESSAGE);
+
         }catch(Exception e) {
             JOptionPane.showMessageDialog(this,"Sólo los clientes particulares pueden dejar reseñas","Error",JOptionPane.ERROR_MESSAGE);
         }
