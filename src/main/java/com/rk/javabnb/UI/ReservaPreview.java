@@ -166,7 +166,7 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         gridBagConstraints.gridy = 6;
         add(jLabel13, gridBagConstraints);
 
-        precioLabel.setText(String.valueOf(this.reserva.getPrecio()));
+        precioLabel.setText(String.valueOf(inmueble.getPrecio()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
