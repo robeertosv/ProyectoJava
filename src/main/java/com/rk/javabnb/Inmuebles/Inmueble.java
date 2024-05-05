@@ -51,7 +51,7 @@ public class Inmueble implements Serializable {
     public String getFotoURL() { return this.fotoURL; }
     public void setFotoURL(String url) { this.fotoURL = url; }
     public int getMHuespedes(){return this.datos.getMaxHuespedes();}
-    public ArrayList<Reserva> getReservas(){return this.reservas;}
+    public ArrayList<Reserva> getReservas(){return Database.getReservas();}
     public void addReserva(Reserva reserva){this.reservas.add(reserva);}
     public double getPrecio() { return this.precio;}
     public double getCalificacion() { return this.calificacion;}
@@ -156,6 +156,9 @@ public class Inmueble implements Serializable {
             Database.save();
         }
         return reservas;
+    }
+    public void cancelarReserva(Reserva reserva){
+        this.reservas.remove(reserva);
     }
 
     public String toString(){

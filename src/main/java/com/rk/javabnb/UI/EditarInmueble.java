@@ -454,13 +454,13 @@ public class EditarInmueble extends javax.swing.JFrame {
 
     private void borrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarButtonActionPerformed
         int quedanReservas = inmueble.borrarInmueble();
+        new MenuAnfitrion();
+        this.dispose();
         if(quedanReservas > 0){
             JOptionPane.showMessageDialog(this, "Este inmueble tiene "+quedanReservas+" reservas para el futuro, no se puede eliminar","Error",JOptionPane.ERROR_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(this,"El inmueble ha sido eliminado","Eliminado",JOptionPane.INFORMATION_MESSAGE);
         }
-        new MenuAnfitrion();
-        this.dispose();
     }//GEN-LAST:event_borrarButtonActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed

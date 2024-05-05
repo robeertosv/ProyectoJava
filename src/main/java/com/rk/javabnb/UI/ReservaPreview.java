@@ -264,9 +264,14 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
     }//GEN-LAST:event_dejarResenaButtonActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        int result = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres cancelar tu reserva?", "CANCELACIÓN DE RESERVA", JOptionPane.OK_CANCEL_OPTION);
-        if(result == JOptionPane.OK_OPTION) {
-            Database.popReserva(this.reserva);
+        try {
+            ClienteParticular cliente = (ClienteParticular) Database.getCurrentUser().getFirst();
+            int result = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres cancelar tu reserva?", "CANCELACIÓN DE RESERVA", JOptionPane.OK_CANCEL_OPTION);
+            if(result == JOptionPane.OK_OPTION) {
+                Database.popReserva(this.reserva);
+                }
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(this,"Sólo los clientes particulares pueden cancelar sus reservas","Error",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_cancelBtnActionPerformed
 
