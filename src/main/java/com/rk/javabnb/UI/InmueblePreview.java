@@ -4,6 +4,9 @@ import com.rk.javabnb.Inmuebles.Inmueble;
 import com.rk.javabnb.Usuarios.Anfitrion;
 import com.rk.javabnb.db.Database;
 
+import javax.swing.*;
+import java.time.LocalDate;
+
 public class InmueblePreview extends javax.swing.JPanel {
     public InmueblePreview(Inmueble i) {
         this.inmueble = i;
@@ -110,10 +113,19 @@ public class InmueblePreview extends javax.swing.JPanel {
         //Aparece una pagina con mas detalles sobre el inmueble y la opcion de reservarlo
 
         if(Database.getCurrentUser().getFirst() instanceof Anfitrion){
-            new EditarInmueble(this.inmueble);
+            Anfitrion anf = (Anfitrion) Database.getCurrentUser().getFirst();
+            if(this.inmueble.getAnfitrion().getEmail().equals(anf.getEmail())) {
+                new EditarInmueble(this.inmueble);
+            }else {
+                new PreReserva2(this.inmueble);
+            }
         }else{
             new PreReserva2(this.inmueble);
         }
+    }
+
+    public Inmueble getInmueble() {
+        return this.inmueble;
     }
 
 

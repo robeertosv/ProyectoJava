@@ -217,16 +217,16 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
             gridBagConstraints.gridy = 6;
             gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
             add(dejarResenaButton, gridBagConstraints);
-        }
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "4", "3", "2", "1", "0" }));
-        jComboBox1.setMaximumSize(new java.awt.Dimension(124, 27));
-        jComboBox1.setMinimumSize(new java.awt.Dimension(124, 27));
-        jComboBox1.setPreferredSize(new java.awt.Dimension(124, 27));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        add(jComboBox1, gridBagConstraints);
+            jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "4", "3", "2", "1", "0" }));
+            jComboBox1.setMaximumSize(new java.awt.Dimension(124, 27));
+            jComboBox1.setMinimumSize(new java.awt.Dimension(124, 27));
+            jComboBox1.setPreferredSize(new java.awt.Dimension(124, 27));
+            gridBagConstraints = new java.awt.GridBagConstraints();
+            gridBagConstraints.gridx = 3;
+            gridBagConstraints.gridy = 5;
+            add(jComboBox1, gridBagConstraints);
+        }
 
         cancelBtn.setText("CANCELAR RESERVA");
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -248,14 +248,17 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
     private void dejarResenaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dejarResenaButtonActionPerformed
         try {
             ClienteParticular cliente = (ClienteParticular) Database.getCurrentUser().getFirst();
-            if(cliente.getInmueblesValorados().contains(this.inmueble)) {
-                JOptionPane.showMessageDialog(this, "Ya has valorado este inmueble", "ERROR", JOptionPane.WARNING_MESSAGE);
-            } else {
-                String elegido = jComboBox1.getSelectedItem().toString();
-                int valoracion = Integer.parseInt(elegido);
-                this.inmueble.addResena(valoracion);
-                JOptionPane.showMessageDialog(this,"Ha valorado el inmueble "+inmueble.getNombre()+" con un "+valoracion,"Reseña",JOptionPane.INFORMATION_MESSAGE);
+            for(Inmueble i : cliente.getInmueblesValorados()) {
+                if(cliente.getInmueblesValorados().contains(i)) {
+                    JOptionPane.showMessageDialog(this, "Ya has valorado este inmueble", "ERROR", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
             }
+            String elegido = jComboBox1.getSelectedItem().toString();
+            int valoracion = Integer.parseInt(elegido);
+            this.inmueble.addResena(valoracion);
+            JOptionPane.showMessageDialog(this,"Ha valorado el inmueble "+inmueble.getNombre()+" con un "+valoracion,"Reseña",JOptionPane.INFORMATION_MESSAGE);
+
         }catch(Exception e) {
             JOptionPane.showMessageDialog(this,"Sólo los clientes particulares pueden dejar reseñas","Error",JOptionPane.ERROR_MESSAGE);
         }
@@ -264,14 +267,9 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
     }//GEN-LAST:event_dejarResenaButtonActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        try {
-            ClienteParticular cliente = (ClienteParticular) Database.getCurrentUser().getFirst();
-            int result = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres cancelar tu reserva?", "CANCELACIÓN DE RESERVA", JOptionPane.OK_CANCEL_OPTION);
-            if(result == JOptionPane.OK_OPTION) {
-                Database.popReserva(this.reserva);
-                }
-        }catch(Exception e) {
-            JOptionPane.showMessageDialog(this,"Sólo los clientes particulares pueden cancelar sus reservas","Error",JOptionPane.ERROR_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres cancelar la reserva?", "CANCELACIÓN DE RESERVA", JOptionPane.OK_CANCEL_OPTION);
+        if(result == JOptionPane.OK_OPTION) {
+            Database.popReserva(this.reserva);
         }
     }//GEN-LAST:event_cancelBtnActionPerformed
 

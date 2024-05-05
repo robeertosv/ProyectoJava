@@ -11,7 +11,11 @@ import com.rk.javabnb.Usuarios.ClienteParticular;
 import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
+import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.ArrayList;
 
@@ -25,7 +29,7 @@ public class Home extends javax.swing.JFrame {
     public Home(String persona) {
         initComponents();
         this.setVisible(true);
-        //this.persona = persona; //una variable que sirve para diferenciar que tipo de home hay que abrir y que inmuebles enseñar, dependiendo del usuario loggeado y de si el admin quiere ver todos los inmuebles o detalles de algun anfitrion
+        this.persona = persona; //una variable que sirve para diferenciar que tipo de home hay que abrir y que inmuebles enseñar, dependiendo del usuario loggeado y de si el admin quiere ver todos los inmuebles o detalles de algun anfitrion
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //abre la ventana de inmuebles cogiendo como parámetro el tipo del usuario - admin puede ver todos los inmuebles sin reservarlos, clientes particulares pueden hacer reservas y los anfitriones pueden ver solamente sus inmuebles
     }
@@ -42,7 +46,10 @@ public class Home extends javax.swing.JFrame {
         search = new javax.swing.JTextField();
         menuOpciones = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        fechaEntrada = new javax.swing.JFormattedTextField();
+        fechaSalida = new javax.swing.JFormattedTextField();
         scrollPane = new javax.swing.JScrollPane();
+
         containerPanel = new JPanel(new GridLayout(0, 1)); //Crear el contenedor donde se añadirán las casas
 
         for(InmueblePreview panel : Database.getInmueblePreview()) {
@@ -67,27 +74,47 @@ public class Home extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         jPanel1.add(searchInmueble, gridBagConstraints);
 
         filtros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Ciudad", "Menores precios", "Mejor rating", "Tipo"}));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(11, 11, 11, 11);
         jPanel1.add(filtros, gridBagConstraints);
 
-        search.setText("");//o mejor poner "busca por ..."?
-        search.setMinimumSize(new java.awt.Dimension(130, 17));
-        search.setPreferredSize(new java.awt.Dimension(130, 17));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        search.setText("");
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 26;
-        gridBagConstraints.insets = new java.awt.Insets(11, 11, 11, 11);
+        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
         jPanel1.add(search, gridBagConstraints);
+
+        try {
+            fechaEntrada.setFormatterFactory(new DefaultFormatterFactory(new MaskFormatter("##/##/####")));
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        jPanel1.add(fechaEntrada, gridBagConstraints);
+
+        try {
+            fechaSalida.setFormatterFactory(new DefaultFormatterFactory(new MaskFormatter("##/##/####")));
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridx= 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        jPanel1.add(fechaSalida, gridBagConstraints);
 
         String nombreCurrent = "Admin";
         if(!Database.getCurrentUser().getFirst().getClass().getSimpleName().equals("Admin")) {
@@ -103,14 +130,14 @@ public class Home extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 9, 0, 9);
         jPanel1.add(menuOpciones, gridBagConstraints);
 
         jLabel2.setText("                           ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         jPanel1.add(jLabel2, gridBagConstraints);
 
@@ -147,7 +174,8 @@ public class Home extends javax.swing.JFrame {
                 //Buscar por nombre
                 case 0:
                     for (InmueblePreview i : Database.getInmueblePreview()) {
-                        if (i.getNombre().contains(this.search.getText())) {
+                        String nombre = i.getNombre().toLowerCase();
+                        if (nombre.contains(this.search.getText().toLowerCase())) {
                             resultado.add(i);
                             huboResultados = true;
                         }
@@ -204,8 +232,15 @@ public class Home extends javax.swing.JFrame {
 
             if (huboResultados) {
                 this.containerPanel.removeAll();
+                String[] fEntrada = fechaEntrada.getText().split("/");
+                LocalDate fechaE = LocalDate.of(Integer.parseInt(fEntrada[2]), Integer.parseInt(fEntrada[1]),Integer.parseInt(fEntrada[0]));
+
+                String[] fSalida = fechaSalida.getText().split("/");
+                LocalDate fechaS = LocalDate.of(Integer.parseInt(fSalida[2]), Integer.parseInt(fSalida[1]),Integer.parseInt(fSalida[0]));
                 for (InmueblePreview i : resultado) {
-                    this.containerPanel.add(i);
+                    if(i.getInmueble().verDisponibilidad(fechaE, fechaS)) {
+                        this.containerPanel.add(i);
+                    }
                 }
                 this.scrollPane.setViewportView(containerPanel);
             } else { //si no hubo resultados muestra todos los inmuebles
@@ -223,7 +258,7 @@ public class Home extends javax.swing.JFrame {
             switch (this.filtros.getSelectedIndex()){
                 case 0: //por nombre
                     for (InmueblePreview i : Database.getMisInmueblesPreview()) {
-                        if (i.getNombre().contains(this.search.getText())) {
+                        if (i.getNombre().toLowerCase().contains(this.search.getText().toLowerCase())) {
                             resultado.add(i);
                             huboResultados = true;
                         }
@@ -231,7 +266,7 @@ public class Home extends javax.swing.JFrame {
                     break;
                 case 1: //mis inmuebles por ciudad
                     for(InmueblePreview i : Database.getMisInmueblesPreview()) {
-                        if (i.getNombre().contains(this.search.getText())) {
+                        if (i.getNombre().toLowerCase().contains(this.search.getText().toLowerCase())) {
                             resultado.add(i);
                             huboResultados = true;
                         }
@@ -276,7 +311,7 @@ public class Home extends javax.swing.JFrame {
                 case 0: //por nombre
                     for (InmueblePreview i : Database.getInmueblePreview()) {
                         if(i.getAnfitrion().equals(anf)) {
-                            if (i.getNombre().contains(this.search.getText())) {
+                            if (i.getNombre().toLowerCase().contains(this.search.getText().toLowerCase())) {
                                 resultado.add(i);
                                 huboResultados = true;
                             }
@@ -286,7 +321,7 @@ public class Home extends javax.swing.JFrame {
                 case 1: //mis inmuebles por ciudad
                     for (InmueblePreview i : Database.getInmueblePreview()) {
                         if(i.getAnfitrion().equals(anf)) {
-                            if (i.getNombre().contains(this.search.getText())) {
+                            if (i.getNombre().toLowerCase().contains(this.search.getText().toLowerCase())) {
                                 resultado.add(i);
                                 huboResultados = true;
                             }
@@ -381,4 +416,6 @@ public class Home extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private String persona;
+    private javax.swing.JFormattedTextField fechaEntrada;
+    private javax.swing.JFormattedTextField fechaSalida;
 }

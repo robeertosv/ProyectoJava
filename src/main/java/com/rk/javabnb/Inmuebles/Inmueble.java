@@ -113,7 +113,7 @@ public class Inmueble implements Serializable {
         try {
             ClienteParticular cliente = (ClienteParticular) Database.getCurrentUser().getFirst();
             cliente.addInmuebleValorado(this);
-            Database.save();
+
         }catch(Exception e) {
             System.out.println(e);
 

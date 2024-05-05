@@ -5,7 +5,6 @@
 package com.rk.javabnb.UI;
 
 import javax.swing.*;
-
 /**
  *
  * @author admin

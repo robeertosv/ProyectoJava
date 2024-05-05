@@ -156,7 +156,7 @@ public class HomeReservas extends javax.swing.JFrame {
                 case 0: //nombre
                     for (ReservaPreview r: Database.getReservaPreviews()){
                         if(r.getAnfitrion().equals(Database.getCurrentAnfitrion())){
-                            if(r.toString().contains(this.jTextField1.getText())) {
+                            if(r.toString().toLowerCase().contains(this.jTextField1.getText().toLowerCase())) {
                                 resultado.add(r);
                                 huboResultados = true;
                             }
@@ -207,7 +207,7 @@ public class HomeReservas extends javax.swing.JFrame {
                 case 0: //nombre
                     for (ReservaPreview r: Database.getReservaPreviews()){
                         if(r.getParticular().equals(Database.getCurrentParticular())){
-                            if(r.toString().contains(this.jTextField1.getText())) {
+                            if(r.toString().toLowerCase().contains(this.jTextField1.getText().toLowerCase())) {
                                 resultado.add(r);
                                 huboResultados = true;
                             }
@@ -258,7 +258,7 @@ public class HomeReservas extends javax.swing.JFrame {
                 case 0: //nombre
                     for (ReservaPreview r: Database.getReservaPreviews()){
                         if(r.getParticular().equals(Database.getClienteVerMas())){
-                            if(r.toString().contains(this.jTextField1.getText())) {
+                            if(r.toString().toLowerCase().contains(this.jTextField1.getText().toLowerCase())) {
                                 resultado.add(r);
                                 huboResultados = true;
                             }
@@ -308,7 +308,7 @@ public class HomeReservas extends javax.swing.JFrame {
             switch (this.filtrosComboBox.getSelectedIndex()) {
                 case 0: //nombre
                     for (ReservaPreview r: Database.getReservaPreviews()){
-                        if(r.toString().contains(this.jTextField1.getText())) {
+                        if(r.toString().toLowerCase().contains(this.jTextField1.getText().toLowerCase())) {
                             resultado.add(r);
                             huboResultados = true;
                         }
