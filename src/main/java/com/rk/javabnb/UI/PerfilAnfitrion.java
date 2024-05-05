@@ -219,21 +219,25 @@ public class PerfilAnfitrion extends javax.swing.JFrame {
                     anfitrion.setNombre(nombreTextField.getText());
                 }else{
                     JOptionPane.showMessageDialog(this, "El nombre no puede estar vacio", "Nombre vacío", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
                 if(emailTextField.getText().length()>0){
                     anfitrion.setEmail(emailTextField.getText());
                 }else{
                     JOptionPane.showMessageDialog(this, "El email no puede estar vacio", "Email vacío", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
                 if(DataChecker.checkTfn(telefonoTextField.getText())){
                     this.anfitrion.setTelefono(Integer.parseInt(telefonoTextField.getText()));
                 }else{
                     JOptionPane.showMessageDialog(this,"El número de teléfono tiene que tener nueve dígitos","Teléfono incorrecto",JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
                 if(DataChecker.checkDNI(dniTextField.getText())){
                     anfitrion.setDni(dniTextField.getText());
                 }else{
                     JOptionPane.showMessageDialog(this,"Introduzca un DNI válido","DNI incorrecto",JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
                 Database.save();
                 new MenuAnfitrion();

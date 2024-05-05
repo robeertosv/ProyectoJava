@@ -159,9 +159,14 @@ public class DatosBancarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formClosing() {
-        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
-        new Home(c.getClass().getSimpleName());
-        this.dispose();
+        try {
+            Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+            new Home(c.getClass().getSimpleName());
+            this.dispose();
+        }catch(Exception e) {
+            new MenuAdmin();
+            this.dispose();
+        }
     }
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         boolean numCorrecto = false;
