@@ -62,7 +62,7 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         jLabel11 = new javax.swing.JLabel();
         huespedesLabel = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        comentariosLabel = new javax.swing.JLabel();
+        precioLabel = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         fechaCreacionLabel = new javax.swing.JLabel();
         verInmuebleButton = new javax.swing.JButton();
@@ -157,7 +157,7 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         gridBagConstraints.gridy = 5;
         add(huespedesLabel, gridBagConstraints);
 
-        jLabel13.setText("Comentario:");
+        jLabel13.setText("Precio:");
         jLabel13.setMaximumSize(new java.awt.Dimension(126, 17));
         jLabel13.setMinimumSize(new java.awt.Dimension(126, 17));
         jLabel13.setPreferredSize(new java.awt.Dimension(126, 17));
@@ -166,11 +166,11 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
         gridBagConstraints.gridy = 6;
         add(jLabel13, gridBagConstraints);
 
-        comentariosLabel.setText(" ");
+        precioLabel.setText(String.valueOf(this.reserva.getPrecio()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        add(comentariosLabel, gridBagConstraints);
+        add(precioLabel, gridBagConstraints);
 
         jLabel15.setText("La reserva fue hecha:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -287,7 +287,7 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel anfitrionLabel;
     private javax.swing.JButton cancelBtn;
-    private javax.swing.JLabel comentariosLabel;
+    private javax.swing.JLabel precioLabel;
     private javax.swing.JButton dejarResenaButton;
     private javax.swing.JLabel entradaLabel;
     private javax.swing.JLabel fechaCreacionLabel;

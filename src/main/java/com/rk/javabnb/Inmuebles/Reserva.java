@@ -128,6 +128,8 @@ public class Reserva implements Serializable {
         }
 
     }
+
+    public double getPrecio() { return this.precio; }
     public String toString(){
         return this.inmueble.toString()+this.cliente.getNombre();
     }
