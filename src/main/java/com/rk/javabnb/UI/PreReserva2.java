@@ -391,7 +391,10 @@ public class PreReserva2 extends javax.swing.JFrame {
                 if(DataChecker.checkFecha(fSalida)) {
                     LocalDate fSalidaFormat = LocalDate.of(Integer.parseInt(fSalida[2]), Integer.parseInt(fSalida[1]), Integer.parseInt(fSalida[0]));
                     if(inmueble.verDisponibilidad(fEntradaFormat, fSalidaFormat)&&huespedes&&tarjeta){
-                        //todo verificar que no se ha sobrepasado el límite de huéspedes, hacer que funcionen las fechas, que tenga tarjeta etc
+                        //verifica que no se ha sobrepasado el límite de huéspedes, hacer que funcionen las fechas, que tenga tarjeta etc
+                        for(Reserva r:inmueble.getReservas()){
+                            System.out.println(r.getSalida());
+                        }
                         new Reserva(this.inmueble, Database.getCurrentParticular(), fEntradaFormat, fSalidaFormat, (int) this.huespedesSpinner.getValue());
                         new MenuParticular();
                         this.dispose();

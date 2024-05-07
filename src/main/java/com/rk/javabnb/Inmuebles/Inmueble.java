@@ -158,6 +158,10 @@ public class Inmueble implements Serializable {
         return reservas;
     }
 
+    public void cancelarReserva(Reserva reserva){
+        this.reservas.remove(reserva);
+    }
+
     public String toString(){
         return datos.toString()+this.direccion.toStringShort()+this.precio+this.servicios;
     }
