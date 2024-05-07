@@ -8,7 +8,6 @@ import com.rk.javabnb.Usuarios.Admin;
 import com.rk.javabnb.Usuarios.Anfitrion;
 import com.rk.javabnb.Usuarios.Cliente;
 import com.rk.javabnb.Usuarios.ClienteParticular;
-import com.rk.javabnb.db.DataChecker;
 import com.rk.javabnb.db.Database;
 
 import javax.swing.*;
@@ -235,22 +234,21 @@ public class Home extends javax.swing.JFrame {
                 this.containerPanel.removeAll();
                 try {
                     String[] fEntrada = fechaEntrada.getText().split("/");
+                    LocalDate fechaE = LocalDate.of(Integer.parseInt(fEntrada[2]), Integer.parseInt(fEntrada[1]),Integer.parseInt(fEntrada[0]));
+
                     String[] fSalida = fechaSalida.getText().split("/");
-                    if(DataChecker.checkFecha(fEntrada)&&DataChecker.checkFecha(fSalida)) {
-                        LocalDate fechaE = LocalDate.of(Integer.parseInt(fEntrada[2]), Integer.parseInt(fEntrada[1]), Integer.parseInt(fEntrada[0]));
-                        LocalDate fechaS = LocalDate.of(Integer.parseInt(fSalida[2]), Integer.parseInt(fSalida[1]), Integer.parseInt(fSalida[0]));
-                        for (InmueblePreview i : resultado) {
-                            if(i.getInmueble().verDisponibilidad(fechaE, fechaS)) {
-                                this.containerPanel.add(i);
-                            }
+                    LocalDate fechaS = LocalDate.of(Integer.parseInt(fSalida[2]), Integer.parseInt(fSalida[1]),Integer.parseInt(fSalida[0]));
+
+                    for (InmueblePreview i : resultado) {
+                        if(i.getInmueble().verDisponibilidad(fechaE, fechaS)) {
+                            this.containerPanel.add(i);
+                        }else{
+                            System.out.println("El inmueble - " + i.getNombre() + "No está disponible");
                         }
-                    }else{
-                        JOptionPane.showMessageDialog(this, "Fecha incorrecta", "ERROR", JOptionPane.WARNING_MESSAGE);
-                        return;
                     }
                 }catch (Exception e) {
                     for (InmueblePreview i : resultado) {
-                            this.containerPanel.add(i);
+                        this.containerPanel.add(i);
                     }
                 }
 
