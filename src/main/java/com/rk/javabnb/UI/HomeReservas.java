@@ -53,23 +53,43 @@ public class HomeReservas extends javax.swing.JFrame {
         menuComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         containerPanel = new JPanel(new GridLayout(0, 1));
+        hayReservas = false;
 
         for(Reserva reserva : Database.getReservas()) {
             String tipo = Database.getCurrentUser().getFirst().getClass().getSimpleName();
 
+
             if(tipo.equals("Admin")) {
                 containerPanel.add(new ReservaPreview(reserva, reserva.getAnfitrion().getNombre()));
+                this.hayReservas = true;
             }else if (tipo.equals("Anfitrion")) {
                 Anfitrion anf = (Anfitrion) Database.getCurrentUser().getFirst();
                 if(reserva.getAnfitrion().getEmail().equals(anf.getEmail())) {
                     containerPanel.add(new ReservaPreview(reserva, reserva.getAnfitrion().getNombre()));
+                    this.hayReservas = true;
                 }
             }else if(tipo.equals("ClienteParticular")) {
                 ClienteParticular cli = (ClienteParticular) Database.getCurrentUser().getFirst();;
                 if(reserva.getParticular().getEmail().equals(cli.getEmail())) {
                     containerPanel.add(new ReservaPreview(reserva, reserva.getAnfitrion().getNombre()));
+                    this.hayReservas = true;
                 }
             }
+        }
+
+        if(!this.hayReservas) {
+            JPanel panel = new JPanel();
+            panel.setLayout(new GridBagLayout());
+
+            JLabel sinReservas = new JLabel();
+            sinReservas.setText("Todavía no hay reservas");
+            sinReservas.setFont(new java.awt.Font("Montserrat", 3, 24)); // NOI18N
+            gridBagConstraints = new GridBagConstraints();
+            gridBagConstraints.fill = MAXIMIZED_HORIZ;
+
+            panel.add(sinReservas, gridBagConstraints);
+            containerPanel.add(panel, gridBagConstraints);
+
         }
 
         this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -368,9 +388,14 @@ public class HomeReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_menuComboBoxActionPerformed
 
     private void formClosing() {
-        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
-        new Home(c.getClass().getSimpleName());
-        this.dispose();
+        try {
+            Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+            new Home(c.getClass().getSimpleName());
+            this.dispose();
+        }catch(Exception e ) {
+            new Home("Anfitron");
+            this.dispose();
+        }
     }
     /**
      * @param args the command line arguments
@@ -419,4 +444,5 @@ public class HomeReservas extends javax.swing.JFrame {
     private JPanel containerPanel;
     // End of variables declaration//GEN-END:variables
     private String persona;
+    private boolean hayReservas;
 }
