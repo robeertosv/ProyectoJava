@@ -133,7 +133,9 @@ public class Inmueble implements Serializable {
             LocalDate entrada = reserva.getEntrada();
             LocalDate salida = reserva.getSalida();
             if(!((entrada.isAfter(fechaEntrada)&&entrada.isBefore(fechaSalida))||(salida.isAfter(fechaEntrada)&&salida.isBefore(fechaSalida)))){
-                nreservas = nreservas - 1;
+                if(!((fechaEntrada.isAfter(entrada)&&fechaEntrada.isBefore(salida))||(fechaSalida.isAfter(entrada)&&fechaSalida.isBefore(salida)))) {
+                    nreservas = nreservas - 1;
+                }
             }
         }
         if(nreservas==0){disponible=true;}//ve si el número de las reservas coincide con el número de las reservas que no intervendrían con la nueva, si es cero, entonces se puede hacer la reserva, ya que todas las reservas no intervienen
