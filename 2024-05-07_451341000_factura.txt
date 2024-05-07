@@ -1,0 +1,31 @@
+-------- CONFIRMACIÓN DE RESERVA --------
+JAVABNB                        2024-05-07
+*****************************************
+Datos del cliente
+
+Nombre: Roberto
+Correo: resvolkava@gmail.com
+
+*****************************************
+Datos del inmueble
+Nombre: Casa Alcalá
+Habitaciones: 3
+Camas: 3
+Huéspedes reservados: 2
+Fecha de entrada: 2024-04-29
+Fecha de salida: 2024-05-02
+
+*****************************************
+Datos bancarios
+
+Método de pago: Tarjeta
+Nº: **** **** **** 5678
+Titular: Roberto
+Subtotal: 300.0
+Descuentos: NO
+TOTAL: 300.0
+
+*****************************************
+Por favor, conserve este documento hasta
+la finalización de su estancia
+
