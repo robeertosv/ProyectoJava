@@ -49,10 +49,11 @@ public class EditarInmueble extends javax.swing.JFrame {
         banosField.setText(String.valueOf(inmueble.getDatos().getBanos()));
         camasField.setText(String.valueOf(inmueble.getDatos().getCamas()));
         try {
-            ImageIcon imageIcon = new ImageIcon(getClass().getResource("/" + inmueble.getTitulo() + ".png"));
+            ImageIcon imageIcon = new ImageIcon(inmueble.getFotoURL());
             Image scaledImage = imageIcon.getImage().getScaledInstance(fotoLabel.getWidth(), fotoLabel.getHeight(), Image.SCALE_SMOOTH);
             this.fotoLabel.setIcon(new javax.swing.ImageIcon(scaledImage));
         }catch(NullPointerException e){
+            System.out.println(e);
             this.fotoLabel.setText("todavía no hay foto");
         }
         jLabel3.setText("Tipo (Casa/Apartamento):");

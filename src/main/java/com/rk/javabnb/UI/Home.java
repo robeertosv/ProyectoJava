@@ -242,8 +242,6 @@ public class Home extends javax.swing.JFrame {
                     for (InmueblePreview i : resultado) {
                         if(i.getInmueble().verDisponibilidad(fechaE, fechaS)) {
                             this.containerPanel.add(i);
-                        }else{
-                            System.out.println("El inmueble - " + i.getNombre() + "No está disponible");
                         }
                     }
                 }catch (Exception e) {
