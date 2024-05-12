@@ -14,9 +14,10 @@ import java.util.Map;
 
 
 /*
- * La nueva base de datos es así:
+ * La base de datos es así:
  *   - Todas las propiedades deben ser estáticas porque todas las clases necesitan poder acceder a los datos más nuevos, y no a los guardados en las instancias
  *   - Con un solo archivo se pueden guardar todos los elementos de la base de datos, excepto el admin, que por seguridad, debería ir en otro archivo
+ *   - Además del usuario actual, que es para tener una persistencia de sesión
  */
 public class Database implements Serializable{
     private static ArrayList currentUser = new ArrayList();
@@ -30,15 +31,28 @@ public class Database implements Serializable{
     private static ArrayList<InmueblePreview> inmueblePreviews = new ArrayList<>();
     private static ArrayList<UsuarioPreview> usuarioPreviews = new ArrayList<>();
     private static ArrayList<ReservaPreview> reservaPreviews = new ArrayList<>();
+
+    /**
+     * Todos los ArrayList que utiliza la aplicación para guardar datos se almacenan en un HashMap, que será el único objeto guardado en db.dat
+     * */
     private static Map<String, ArrayList> datos = new HashMap<>();
     private static ClienteParticular clienteVerMas;
     private static Anfitrion anfitrionVerMas;
     private static Inmueble currentInmueble;
 
+    /**
+     * - Al iniciar la app se deberá instanciar la base de datos, lo que cargará los ArrayList para tener los datos que ya existían
+     * */
     public Database() {
         this.load();
     }
 
+    /**
+     *  - Método para cargar los datos desde un archivo externo
+     *  - Lee el archivo y obtiene el HashMap con todos los ArrayList, luego carga en el ArrayList correspondiente la información
+     *  - Hace lo mismo para el admin y el usuario activo
+     *  - Si no encuentra los archivos crea unos nuevos
+     * */
     private void load() {
         //convierte todos los datos de ficheros a ArrayLists para trabajar con ellos durante el uso de la app
         //ficheros: datos (HashMap con clientes, anfitriones, tarjetas e inmuebles), admin, currentUser
@@ -76,6 +90,9 @@ public class Database implements Serializable{
             new DatosPrueba(); //en caso de error, cargaba datos de prueba
         }
     }
+    /**
+     *  - Guardar la base de datos en un archivo externo para tener persistencias
+     * */
     public static void save() {
         //guarda todos los datos en ficheros, para el futuro uso de la app
         try{
@@ -151,6 +168,9 @@ public class Database implements Serializable{
         a.removeInmueble(i);
     }
 
+    /**
+     *  - Elimina el usuario actual del archivo que gestiona la persistencia de sesiones, de manera que se cierra la sesión
+     * */
     public static void cerrarSesion() {
         ArrayList usr = new ArrayList();
         Database.setCurrentUser(usr);
@@ -158,6 +178,10 @@ public class Database implements Serializable{
         //guarda en usuarios loggeados un arraylist vacío
     }
 
+    /**
+     * - Obtiene todos los correos registrados, se utiliza para comprobar que no haya duplicidades
+     * @return ArrayList
+     * */
     public static ArrayList<String> getAllEmail() {
         ArrayList<String> emails = new ArrayList<>();
         for(Cliente c : Database.getPersonas()) {
@@ -167,6 +191,10 @@ public class Database implements Serializable{
         return emails;
         //devuelve un arraylist de todos los emails de los anfitriones y clientes particulares
     }
+    /**
+     * Devuelve todos los ClientesParticulares y Anfitriones registrados
+     * @return ArrayList
+     * */
     public static ArrayList<Cliente> getPersonas() {
         //devuelve un arraylist de todos los clientes particulares y anfitriones
         ArrayList<Cliente> temp = new ArrayList<>();
@@ -178,8 +206,18 @@ public class Database implements Serializable{
         }
         return temp;
     }
+
+    /**
+     * Devuelve todos los inmuebles registrados
+     * @return ArrayList
+     * */
     public static ArrayList<Inmueble> getInmuebles() { return Database.inmuebles; }
 
+    /**
+     *  Por cada inmueble crea un InmueblePreview y devuelve un ArrayList con ellos
+     *  De esta manera podemos renderizar la información más nueva
+     * @return ArrayList
+     * */
     public static ArrayList<InmueblePreview> getInmueblePreview() {
         ////crea y devuelve un arraylist de previews de inmuebles creados a partir de todos los inmuebles almacenados en el sistema
         Database.inmueblePreviews = new ArrayList<>();
@@ -234,12 +272,20 @@ public class Database implements Serializable{
     /**@return arraylist de todos los anfitriones almacenados en el sistema*/
     public static ArrayList<Anfitrion> getAnfitriones() { return Database.anfitriones; }
 
+    /**
+     * Método que se utiliza para indicar qué usuario tiene la sesión iniciada
+     * Se utiliza para recuperar los datos de sesión al recargar la app
+     * */
     public static void setCurrentUser(ArrayList c) {
         Database.currentUser = c;
         Database.save();
         //almacena usuario loggeado
     }
 
+    /**
+     * Devuelve el usuario que tiene la sesión iniciada
+     * @return ArrayList
+     * */
     public static ArrayList getCurrentUser() { return Database.currentUser; /*devuelve un arraylist, cuyo primer elemento es el usuario loggeado en el sistema*/}
     /**@return el cliente particular que está loggeado en la app*/
     public static ClienteParticular getCurrentParticular(){
