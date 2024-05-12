@@ -121,6 +121,9 @@ public class Reserva implements Serializable {
         return cancel;
     }
 
+    /**
+     * Genera una factura, que será serializada como archivo de texto
+     * */
     public void generarFactura() {
         try{
             PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(LocalDate.now()+"_"+LocalDateTime.now().getNano()+"_factura.txt")));
