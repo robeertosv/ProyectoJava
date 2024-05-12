@@ -53,10 +53,19 @@ public class Inmueble implements Serializable {
         return precioDesc;
     }
 
+    /**
+     * @return La URL de la foto del inmueble
+     * */
     public String getFotoURL() { return this.fotoURL; }
+
+    /**
+     * @param url Indica la URL de la foto de este inmueble
+     * */
     public void setFotoURL(String url) { this.fotoURL = url; }
     /**@return el máximo del huéspedes que se pueden alojar en el inmueble*/
     public int getMHuespedes(){return this.datos.getMaxHuespedes();}
+
+    /** @return Un ArrayList con las reservas asociadas a este inmueble*/
     public ArrayList<Reserva> getReservas(){return this.reservas;}
     /**añade una reserva a la lista de las reservas del inmueble*/
     public void addReserva(Reserva reserva){this.reservas.add(reserva);}
