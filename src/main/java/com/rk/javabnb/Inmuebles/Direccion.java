@@ -28,5 +28,8 @@ public class Direccion implements Serializable {
     /**@return el código postal del inmueble*/
     public int getCp() {return this.cp;}
 
+    /**
+     * @return La ciudad y la calle separadas por un espacio
+     * */
     public String toStringShort(){return this.ciudad + " " + this.calle;}
 }
