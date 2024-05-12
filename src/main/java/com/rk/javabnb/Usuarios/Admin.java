@@ -18,34 +18,18 @@ public class Admin implements Serializable{
         Database.save();
     }
 
+    /**@return Correo electrónico del Admin*/
     public static String getEmail() {
         return correo;
     }
 
+    /**
+     * Comprueba que la contraseña del Admin sea correcta
+     * @return true si es correcta
+     * */
     public static boolean checkPassword(char[] pass) {
         String passwd = String.valueOf(pass);
         return passwd.equals(clave);
         //verifica si la contraseña es correcta
     }
-
-    /*public void setFirstPass(String clave) {
-        if (this.clave == null) {
-            this.clave = clave;
-        }
-    }
-
-    public void actualizarClave(String claveActual, String nuevaClave) {
-        if (this.clave != claveActual) {
-            System.out.println("Las claves no coinciden");
-            return;
-        }
-
-        if (nuevaClave.length() < 8) {
-            System.out.println("Clave demasiado corta");
-            return;
-        }
-        System.out.println("Clave actualizada");
-        this.clave = nuevaClave;
-
-    }*/
 }
