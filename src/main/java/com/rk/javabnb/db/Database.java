@@ -109,13 +109,26 @@ public class Database implements Serializable{
         }
     }
 
+    /**añade a un cliente particular a la database cuando este se crea
+     * @param cliente es el cliente particular que se acaba de registrar
+     * */
     public static void addCliente(ClienteParticular cliente) {
         Database.clientes.add(cliente);
     }
+    /**añade a un anfitrion a la database cuando este se crea
+     * @param anf es el anfitrion que se acaba de registrar
+     * */
     public static void addAnfitrion(Anfitrion anf) {
         Database.anfitriones.add(anf);
     }
+    /**añade una reserva a la database cuando esta se crea
+     * @param reserva es la reserva que se acaba de crear
+     * */
     public static void addReserva(Reserva reserva) {Database.reservas.add(reserva); Database.save();}
+    /**elimina una reserva de la database cuando un usuario la
+     * elimina y también la elimina del arraylist de reservas del inmueble para actualizar su disponibilidad
+     * @param reserva es la reserva que acaba de ser cancelada
+     * */
     public static void popReserva(Reserva reserva) {
         Database.reservas.remove(reserva); Database.save();
         Inmueble inmueble = reserva.getInmueble();
@@ -125,8 +138,18 @@ public class Database implements Serializable{
     public static void addCard(TarjetaCredito t) {
         Database.tarjetas.add(t);
     }
+    /**añade un inmueble a la database cuando este se crea
+     * @param i es el inmueble que acaba de ser creado
+     * */
     public static void addInmueble(Inmueble i) { Database.inmuebles.add(i); }
-    public static void removeInmueble(Inmueble i) { Database.inmuebles.remove(i); }
+    /**elimina a un inmueble de la database y de AL del anfitrion cuando un anfitrion lo borra
+     * @param i es el inmueble que acaba de ser borrado
+     * */
+    public static void removeInmueble(Inmueble i) {
+        Database.inmuebles.remove(i);
+        Anfitrion a = i.getAnfitrion();
+        a.removeInmueble(i);
+    }
 
     public static void cerrarSesion() {
         ArrayList usr = new ArrayList();
@@ -165,8 +188,10 @@ public class Database implements Serializable{
         }
         return Database.inmueblePreviews;
     }
+    /**crea y devuelve un arraylist de previews de inmuebles existentes del anfitrión loggeado a partir de todos sus inmuebles almacenados en el sistema
+     * @return arraylist de inmueblepreview - una clase de GUI
+     */
     public static ArrayList<InmueblePreview> getMisInmueblesPreview(){
-        //crea y devuelve un arraylist de previews de inmuebles existentes del anfitrión loggeado a partir de todos sus inmuebles almacenados en el sistema
         ArrayList<InmueblePreview> misInmuebles  = new ArrayList<>();
         Anfitrion a = Database.getCurrentAnfitrion();
         for(Inmueble i : a.getMisInmuebles()) {
@@ -174,8 +199,10 @@ public class Database implements Serializable{
         }
         return misInmuebles;
     }
+    /**crea y devuelve un arraylist de previews de usuarios existentes (clientes particulares y anfitriones) a partir de todos los usuarios almacenados en el sistema
+     * @return arraylist de UsuarioPreview - una clase de GUI
+     */
     public static ArrayList<UsuarioPreview> getUsuarioPreviews(){
-        //crea y devuelve un arraylist de previews de usuarios existentes (clientes particulares y anfitriones) a partir de todos los usuarios almacenados en el sistema
         Database.usuarioPreviews = new ArrayList<>();
         for(ClienteParticular particular: Database.clientes){
             Database.usuarioPreviews.add(new UsuarioPreview(particular));
@@ -186,19 +213,25 @@ public class Database implements Serializable{
         return Database.usuarioPreviews;
     }
 
+    /**@return un arraylist de reservas almacenadas en la database*/
     public static ArrayList<Reserva> getReservas() { return Database.reservas; }
+    /**crea y devuelve un arraylist de previews de reservas creadas a partir de todas las reservas almacenadas en el sistema
+     * @return arraylist de ReservaPreview - una clase de GUI
+     */
     public static ArrayList<ReservaPreview> getReservaPreviews(){
-        //crea y devuelve un arraylist de previews de reservas creadas a partir de todas las reservas almacenadas en el sistema
         Database.reservaPreviews = new ArrayList<>();
         for(Reserva reserva:Database.reservas){
             Database.reservaPreviews.add(new ReservaPreview(reserva, reserva.nombreAnfitrion()));
         }
         return Database.reservaPreviews;
     }
+    /**@return arraylist de tarjetas almacenadas en el sistema*/
     public static ArrayList<TarjetaCredito> getTarjetas() { return Database.tarjetas; }
+    /**@return arraylist de todos los clientes particulares almacenados en el sistema*/
     public static ArrayList<ClienteParticular> getClientes() {
         return Database.clientes;
     }
+    /**@return arraylist de todos los anfitriones almacenados en el sistema*/
     public static ArrayList<Anfitrion> getAnfitriones() { return Database.anfitriones; }
 
     public static void setCurrentUser(ArrayList c) {
@@ -206,10 +239,9 @@ public class Database implements Serializable{
         Database.save();
         //almacena usuario loggeado
     }
-    public static void setAdmin(Admin a) {
-        Database.admin = a;
-    }
+
     public static ArrayList getCurrentUser() { return Database.currentUser; /*devuelve un arraylist, cuyo primer elemento es el usuario loggeado en el sistema*/}
+    /**@return el cliente particular que está loggeado en la app*/
     public static ClienteParticular getCurrentParticular(){
         Object user = Database.getCurrentUser().getFirst();
         if(user instanceof ClienteParticular) {
@@ -218,12 +250,14 @@ public class Database implements Serializable{
             return null;
         }
     }
+    /**@return el nombre del cliente particular que está loggeado en la app*/
     public static String getNombreParticular(){
         //devuelve el nombre del cliente particular que está loggeado
         ClienteParticular cliente = Database.getCurrentParticular();
         String nombre = cliente.getNombre();
         return nombre;
     }
+    /**@return el anfitrion que está loggeado en la app*/
     public static Anfitrion getCurrentAnfitrion(){
         //devuelve al anfitrion que está loggeado
         Object user = Database.getCurrentUser().getFirst();
@@ -233,6 +267,7 @@ public class Database implements Serializable{
             return null;
         }
     }
+    /**@return el nombre del anfitrion que está loggeado en la app*/
     public static String getNombreAnfitrion(){
         //devuelve el nombre del anfitrión que está loggeado
         Anfitrion a = Database.getCurrentAnfitrion();
@@ -240,10 +275,25 @@ public class Database implements Serializable{
         return nombre;
     }
 
+    /**el método guarda en clienteVerMas al cliente particular
+     * @param c es el cliente particular cuya información se va a mostrar
+     */
     public static void setClienteVerMas(ClienteParticular c) {clienteVerMas = c;}
+    /**se usa para enseñar la información de un cliente particular por ejemplo al admin
+     * @return el cliente particular cuya información se va a visualizar, como sus reservas
+     */
     public static ClienteParticular getClienteVerMas() {return clienteVerMas;}
+    /**@param a es el anfitiron cuya información se va a visualizar cuando admin haga click en ver más, este método lo guarda en una variable*/
     public static void setAnfitrionVerMas(Anfitrion a) {anfitrionVerMas = a;}
+    /**@return devuelve al anfitrió guardado en ver mas para que admin pueda ver su informacion, como sus inmuebles*/
     public static Anfitrion getAnfitrionVerMas() {return anfitrionVerMas;}
+    /**cuando por alguna razón el usuario está redirigido de la página del inmueble por ejemplo a la página de datos
+     * bancarios porque quiere hacer una reserva y no tiene asociada una tarjeta, este método guarda el inmueble visualizado
+     * para posteriormente poder volver a la misma página
+     * @param i es el inmueble que el usuario estaba visualizando y quería reservar antes de ser redirigido
+     */
     public static void setCurrentInmueble(Inmueble i) {currentInmueble = i;}
+    /** @return devuelve el inmueble que el usuario estaba viendo antes de ser redirigido al VIP o datos bancarios,
+     * para poder volver fácilmente a la misma página del inmueble*/
     public static Inmueble getCurrentInmueble(){return currentInmueble;}
 }

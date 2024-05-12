@@ -37,33 +37,61 @@ public class Reserva implements Serializable {
         this.generarFactura();
         Database.save();
     }
-    
+
+    /**@return la fecha de la entrada de la reserva*/
     public LocalDate getEntrada(){return this.fechaEntrada;}
+    /**@return la fecha de la salida de la reserva*/
     public LocalDate getSalida(){return this.fechaSalida;}
+    /**@return la fecha de la creación de la reserva*/
     public LocalDate getCreacion(){return this.fechaCreacion;}
+    /**@return al anfitrion del inmueble de la reserva*/
     public Anfitrion getAnfitrion(){return this.inmueble.getAnfitrion();}
+    /**@return el nombre del anfitrion del inmueble de la reserva*/
     public String nombreAnfitrion(){return this.getAnfitrion().getNombre();}
+
+    /**
+     * reformatea la fecha a un string para mostrarla
+     * @param fecha es la fecha que hay que reformatear
+     * @return la fecha como un String
+     */
     public String fechaToString(LocalDate fecha){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String fechaString = fecha.format(formatter);
         return fechaString;
-        //reformatea la fecha a un string para mostrarla
     }
+
+    /**
+     * @return los huespedes de la reserva como un string
+     */
     public String getHuespedesString(){
         String huespedesString = String.valueOf(huespedes);
         return huespedesString;
     }
+    /**@return el número de los huéspedes de la reserva*/
     public int getHuespedes(){return this.huespedes;}
+    /**@return el inmueble de la reserva*/
     public Inmueble getInmueble() {
         return this.inmueble;
     }
+    /**@return al cliente particular que ha hecho la reserva*/
     public ClienteParticular getParticular() {return this.cliente;}
+    /**añade la reserva al AL de reservas del cliente particular
+     * @param reserva es la reserva que se ha hecho
+     * */
     public void addReservaParticular(Reserva reserva) {
         this.cliente.addReserva(this);
     }
+    /**añade la reserva al AL de reservas del anfitrion
+     * @param reserva es la reserva que se ha hecho
+     * */
     public void addReservaAnfitrion(Reserva reserva) {
         this.getAnfitrion().addReserva(this);
     }
+
+    /**
+     * calcula el precio de la reserva, mirando cuantos dias hay entre la entrada y la salida, si el cliente es VIP o no
+     * @return el precio de la reserva
+     */
     public double calcularPrecio() {
         long dias = DAYS.between(fechaEntrada, fechaSalida);
         double precio = this.inmueble.getPrecio()*dias;
@@ -80,6 +108,10 @@ public class Reserva implements Serializable {
         this.precio = precio;
         return precio;
     }
+
+    /**mira si la reserva está en el futuro o en el pasado
+     * @return true si la fecha de la entrada está en el futuro
+     */
     public boolean cancelable(){
         boolean cancel = false;
         LocalDate today = LocalDate.now();
@@ -137,7 +169,9 @@ public class Reserva implements Serializable {
 
     }
 
+    /**@return el precio de la reserva*/
     public double getPrecio() { return this.precio; }
+    /**@return el inmueble y el nombre del cliente particular de la reserva como String*/
     public String toString(){
         return this.inmueble.toString()+this.cliente.getNombre();
     }

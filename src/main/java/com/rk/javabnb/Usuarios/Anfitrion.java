@@ -24,6 +24,7 @@ public class Anfitrion extends Cliente implements Serializable {
     }
 
     public void addInmueble(Inmueble inmueble) {this.misInmuebles.add(inmueble);}
+    public void removeInmueble(Inmueble inmueble){this.misInmuebles.remove(inmueble);}
     public ArrayList<Inmueble> getMisInmuebles() {return this.misInmuebles;}
 
     public String getSuperS(){

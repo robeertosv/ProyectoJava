@@ -474,12 +474,13 @@ public class EditarInmueble extends javax.swing.JFrame {
         if(seleccion == JFileChooser.APPROVE_OPTION) {
             try{
                 String url = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator;
+
                 int idx = fileChooser.getSelectedFile().getAbsolutePath().lastIndexOf(".");
                 String ext = fileChooser.getSelectedFile().getAbsolutePath().substring(idx+1);
                 File targetFile = new File(url, this.tituloTextField.getText() + "." + ext);
                 Files.copy(fileChooser.getSelectedFile().toPath(), targetFile.toPath());
-                String fotoURL = url + this.tituloTextField.getText() + "."+ext;
-                inmueble.setFotoURL(fotoURL);
+                this.fotoURL = url + this.tituloTextField.getText() + "."+ext;
+                this.inmueble.setFotoURL(fotoURL);
             }catch (Exception e) {
                 System.out.println(e);
             }
@@ -554,4 +555,5 @@ public class EditarInmueble extends javax.swing.JFrame {
     private javax.swing.JTextField tituloTextField;
     private javax.swing.JLabel vecesValoradoLabel;
     // End of variables declaration//GEN-END:variables
+    private String fotoURL;
 }

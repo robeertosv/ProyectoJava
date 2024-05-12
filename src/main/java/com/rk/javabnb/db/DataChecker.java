@@ -37,6 +37,12 @@ public class DataChecker {
         return pass.length > 8;
     }
 
+    /**
+     * confirma si el año está entre 2023 (no nos sirven fechas pasadas) y 3000, confirma que el més está entre 1 y 12
+     * y que el día está en el rango del respectivo més, teniendo en cuenta los años bisiestos para el mes de febrero
+     * @param fecha es la fecha cuya validez se va a verificar, se pasa como una lista de tres Strings - el dia, el mes y el año
+     * @return devuelve false si la fecha no existe y true si la fecha es válida y existe
+     */
     public static boolean checkFecha(String[] fecha) {
         boolean correcto = false;
         int contador = 0;
@@ -61,6 +67,11 @@ public class DataChecker {
         return correcto;
     }
 
+    /**
+     * los códigos postales de España tienen cinco dígitos, este método valida un CP introducido
+     * @param cp - es el código postal que ha introducido el usuario
+     * @return devuelve true si se ha podido validar el CP
+     */
     public static boolean checkCP(String cp){
         if(cp.length()==5){return true;}else{return false;}
     }

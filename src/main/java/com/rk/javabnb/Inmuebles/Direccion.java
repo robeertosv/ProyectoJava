@@ -19,16 +19,14 @@ public class Direccion implements Serializable {
         num+=1;
     }
 
+    /**@return la calle del inmueble*/
     public String getCalle() {return this.calle;}
+    /**@return la ciudad del inmueble*/
     public String getCiudad() {return this.ciudad;}
+    /**@return el número de la calle del inmueble*/
     public int getNumero() {return this.numero;}
+    /**@return el código postal del inmueble*/
     public int getCp() {return this.cp;}
-    public void setCalle(String calle) {this.calle = calle;}
-    public void setCiudad(String ciudad) {this.ciudad = ciudad;}
-    public void setCp(int cp) {this.cp = cp;}
-    public void setNumero(int numero) {this.numero = numero;}
 
-    public String toStringShort(){
-        return calle+", "+ciudad;
-    }
+    public String toStringShort(){return this.ciudad + " " + this.calle;}
 }
