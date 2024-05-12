@@ -3,6 +3,11 @@ public class DataChecker {
 
     public DataChecker() {}
 
+    /**
+     * Comprueba que un numero de teléfono tenga la longitud apropiada, y que sea un número
+     * @param tfn Telefono a verificar
+     * @return boolean
+     * */
     public static boolean checkTfn(String tfn) {
         //verifica si el número de teléfono tiene nueve dígitos numéricos
         boolean longitud = false;
@@ -17,6 +22,11 @@ public class DataChecker {
         return longitud && numeros;
     }
 
+    /**
+     * Comprueba que un DNI tenga la longitud apropiada y que la letra sea la correcta
+     * @param DNI DNI a verificar
+     * @return boolean
+     * */
     public static boolean checkDNI(String DNI) {
         //verifica si el DNI tiene ocho numeros y el digito correcto detras
         boolean correctLenght = false;
@@ -33,6 +43,11 @@ public class DataChecker {
         }
     }
 
+    /**
+     * Comprueba que la contraseña sea segura
+     * @param pass contraseña a verificar
+     * @return boolean
+     * */
     public static  boolean checkPass(char[] pass) {
         return pass.length > 8;
     }
