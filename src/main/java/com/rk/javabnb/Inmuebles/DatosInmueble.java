@@ -12,6 +12,14 @@ public class DatosInmueble implements Serializable {
     private String nombre;
     private static int num = 1; //sirve para diferenciar los distintos datos creados
 
+    /**
+     * Constructor para los Datos de un Inmueble
+     * @param banos Numero de baños
+     * @param camas Número de camas
+     * @param habitaciones Cantidad de habitaciones
+     * @param maxHuespedes Cantidad máxima de huéspedes admitidos
+     * @param  descripcion Descripcion del inmueble
+     * */
     public DatosInmueble(int banos, int camas, int habitaciones, int maxHuespedes, String descripcion) {
         this.banos = banos;
         this.camas = camas;
@@ -45,17 +53,6 @@ public class DatosInmueble implements Serializable {
     public void setMaxHuespedes(int maxHuespedes) {this.maxHuespedes = maxHuespedes;}
     /**@param descripcion es la descripcion del inmueble*/
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
-
-    //creo que este método no se usa en ningún lado y se puede eliminar
-    /*public ArrayList<String> getDatos() {
-        ArrayList<String> datos = new ArrayList<>();
-        datos.add("Habitaciones: " + this.habitaciones);
-        datos.add("Máx nº huéspedes: " + this.maxHuespedes);
-        datos.add("Camas: "+ this.camas);
-        datos.add("Baños: " + this.banos);
-
-        return  datos;
-    }*/
 
     /**@return los detalles del inmueble para visualizarlos*/
     public String toString() {
