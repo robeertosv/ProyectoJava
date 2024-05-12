@@ -153,6 +153,7 @@ public class Home extends javax.swing.JFrame {
             case 1: //mira quien está loggeado y vuelve a su respectivo menú
                 if(Database.getCurrentUser().get(0) instanceof Admin) {
                     new MenuAdmin();
+                    Database.vaciarAnfitrion();
                 }else if(Database.getCurrentUser().get(0) instanceof Anfitrion) {
                     new MenuAnfitrion();
                 }else{new MenuParticular();}

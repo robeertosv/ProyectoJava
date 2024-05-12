@@ -333,6 +333,8 @@ public class Database implements Serializable{
     public static void setAnfitrionVerMas(Anfitrion a) {anfitrionVerMas = a;}
     /**@return devuelve al anfitrió guardado en ver mas para que admin pueda ver su informacion, como sus inmuebles*/
     public static Anfitrion getAnfitrionVerMas() {return anfitrionVerMas;}
+    /**vacia al anfitrion, para que se pueda cambiar en el futuro*/
+    public static void vaciarAnfitrion(){anfitrionVerMas = null;}
     /**cuando por alguna razón el usuario está redirigido de la página del inmueble por ejemplo a la página de datos
      * bancarios porque quiere hacer una reserva y no tiene asociada una tarjeta, este método guarda el inmueble visualizado
      * para posteriormente poder volver a la misma página
@@ -342,4 +344,6 @@ public class Database implements Serializable{
     /** @return devuelve el inmueble que el usuario estaba viendo antes de ser redirigido al VIP o datos bancarios,
      * para poder volver fácilmente a la misma página del inmueble*/
     public static Inmueble getCurrentInmueble(){return currentInmueble;}
+    /**vacia el currentInmueble cuando ya no hace falta usarlo*/
+    public static void vaciarCurrentInmueble(){currentInmueble = null;}
 }

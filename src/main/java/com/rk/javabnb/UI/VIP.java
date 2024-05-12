@@ -97,7 +97,12 @@ public class VIP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverButtonActionPerformed
-        new MenuParticular();
+        if(Database.getCurrentInmueble()!=null){
+            new PreReserva2(Database.getCurrentInmueble());
+            Database.vaciarCurrentInmueble();
+        }else {
+            new MenuParticular();
+        }
         this.dispose();
         this.setVisible(false);
     }//GEN-LAST:event_volverButtonActionPerformed
@@ -112,10 +117,16 @@ public class VIP extends javax.swing.JFrame {
         }else {
             particular.hacerVIP();
             Database.save();
-            JOptionPane.showMessageDialog(this, "Ahora puede disfrutar de los descuentos de los clientes VIP", "VIP", JOptionPane.INFORMATION_MESSAGE);
-            new MenuParticular();
+            if(Database.getCurrentInmueble()!=null){
+                new PreReserva2(Database.getCurrentInmueble());
+                Database.vaciarCurrentInmueble();
+            }else {
+                new MenuParticular();
+            }
             this.dispose();
             this.setVisible(false);
+            JOptionPane.showMessageDialog(this, "Ahora puede disfrutar de los descuentos de los clientes VIP", "VIP", JOptionPane.INFORMATION_MESSAGE);
+
         }
         //si el particular tiene configurado algun metodo de pago, le permite hacerse VIP
     }//GEN-LAST:event_vipButtonActionPerformed

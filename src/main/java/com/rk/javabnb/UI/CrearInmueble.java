@@ -395,6 +395,8 @@ public class CrearInmueble extends javax.swing.JFrame implements Serializable {
         new Home("anfitrion");
         this.dispose();
     }
+
+
     private void crearButtonActionPerformed(java.awt.event.ActionEvent evt) {//verifica que todos los datos obligatorios fueron introducidos e instancia un nuevo inmueble//GEN-FIRST:event_crearButtonActionPerformed
         boolean tituloB = false;
         if(!tituloTextField.getText().isEmpty()){

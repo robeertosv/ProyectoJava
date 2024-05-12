@@ -88,7 +88,9 @@ public class NuevaContrasena extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(32, 0, 45, 0);
         getContentPane().add(cambiarButton, gridBagConstraints);
 
-        nombreClienteLabel.setText("jLabel2");
+        Cliente c = (Cliente) Database.getCurrentUser().getFirst();
+        String nombreCurrent = c.getNombre();
+        nombreClienteLabel.setText(nombreCurrent);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;

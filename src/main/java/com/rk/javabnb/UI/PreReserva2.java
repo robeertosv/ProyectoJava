@@ -354,6 +354,7 @@ public class PreReserva2 extends javax.swing.JFrame {
             new VIP();
             this.dispose();
             this.setVisible(false);
+            Database.setCurrentInmueble(inmueble);
         }else{
             JOptionPane.showMessageDialog(this, "Sólo cliente particulares pueden ser VIP","Error",JOptionPane.ERROR_MESSAGE);
         }

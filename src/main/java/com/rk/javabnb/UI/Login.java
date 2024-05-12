@@ -291,24 +291,28 @@ public class Login extends javax.swing.JFrame {
             if(Database.getAllEmail().contains(this.email.getText())) {
                 for(Cliente c : Database.getPersonas()) {
                     ArrayList userLoginIn = new ArrayList<>();
-                    if(c.getEmail().equalsIgnoreCase(this.email.getText()) && c.checkPassword(this.password.getPassword())) {
-                        userLoginIn.add(c);
-                        Database.setCurrentUser(userLoginIn);
-                        Database.save();
-                        break;
+                    if(c.getEmail().equalsIgnoreCase(this.email.getText())) {
+                        if(c.checkPassword(this.password.getPassword())) {
+                            userLoginIn.add(c);
+                            Database.setCurrentUser(userLoginIn);
+                            Database.save();
+                            if(Database.getCurrentUser().getFirst() instanceof ClienteParticular) {
+                                new Home(Database.getCurrentUser().getFirst().getClass().getSimpleName());
+                                this.dispose();
+                            } else if(Database.getCurrentUser().getFirst() instanceof Anfitrion) {
+                                new MenuAnfitrion();
+                                this.dispose();
+                            }
+                            break;
+                        }else{
+                            JOptionPane.showMessageDialog(this,"Contraseña incorrecta","Error",JOptionPane.ERROR_MESSAGE);
+                        }
                     }
                 }
             }else {
                 JOptionPane.showMessageDialog(this, "No exsite un usuario con ese correo", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
 
-            if(Database.getCurrentUser().getFirst() instanceof ClienteParticular) {
-                new Home(Database.getCurrentUser().getFirst().getClass().getSimpleName());
-                this.dispose();
-            } else if(Database.getCurrentUser().getFirst() instanceof Anfitrion) {
-                new MenuAnfitrion();
-                this.dispose();
-            }
         }
 
     }
