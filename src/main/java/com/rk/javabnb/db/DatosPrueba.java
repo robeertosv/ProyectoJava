@@ -13,6 +13,9 @@ public class DatosPrueba {
         this.createData();
     }
 
+    /**
+     * Crea los datos de prueba para tener usuarios e inmuebles ya creados, de esta manera es más sencillo hacer el testing de la app
+     * */
     public void createData() {
         new Admin();
         ClienteParticular luis = new ClienteParticular("clave", "87654321A", "luis@gmail.com", "Luis Fernández", 653111000);
