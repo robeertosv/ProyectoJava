@@ -134,7 +134,9 @@ public class Inmueble implements Serializable {
             LocalDate salida = reserva.getSalida();
             if(!((entrada.isAfter(fechaEntrada)&&entrada.isBefore(fechaSalida))||(salida.isAfter(fechaEntrada)&&salida.isBefore(fechaSalida)))){
                 if(!((fechaEntrada.isAfter(entrada)&&fechaEntrada.isBefore(salida))||(fechaSalida.isAfter(entrada)&&fechaSalida.isBefore(salida)))) {
-                    nreservas = nreservas - 1;
+                    if(!(fechaEntrada.isEqual(entrada)&&fechaSalida.isEqual(salida))) {
+                        nreservas = nreservas - 1;
+                    }
                 }
             }
         }

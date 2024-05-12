@@ -267,9 +267,13 @@ public class ReservaPreview extends javax.swing.JPanel implements Comparable<Res
     }//GEN-LAST:event_dejarResenaButtonActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        int result = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres cancelar la reserva?", "CANCELACIÓN DE RESERVA", JOptionPane.OK_CANCEL_OPTION);
-        if(result == JOptionPane.OK_OPTION) {
-            Database.popReserva(this.reserva);
+        if(this.reserva.cancelable()) {
+            int result = JOptionPane.showConfirmDialog(this, "¿Seguro que quieres cancelar la reserva?", "CANCELACIÓN DE RESERVA", JOptionPane.OK_CANCEL_OPTION);
+            if (result == JOptionPane.OK_OPTION) {
+                Database.popReserva(this.reserva);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this,"No se pueden cancelar reservas cuyas fechas ya han pasado","Error",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_cancelBtnActionPerformed
 

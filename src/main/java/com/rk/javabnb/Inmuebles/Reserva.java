@@ -80,6 +80,14 @@ public class Reserva implements Serializable {
         this.precio = precio;
         return precio;
     }
+    public boolean cancelable(){
+        boolean cancel = false;
+        LocalDate today = LocalDate.now();
+        if(!(today.isAfter(this.fechaEntrada))|| today.isEqual(this.fechaEntrada)){
+            cancel = true;
+        }
+        return cancel;
+    }
 
     public void generarFactura() {
         try{
