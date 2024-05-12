@@ -14,6 +14,10 @@ public class JavaBnB implements Serializable {
         new Database();//Cargar los datos desde la db
 
 
+        /**
+         * Si hay un usuario loggeado mira que página se debería abrir
+         * Si no lo hay, inicia el proceso de Login
+         * */
         if(!Database.getCurrentUser().isEmpty()) {
             Object user = Database.getCurrentUser().getFirst();
             if (user instanceof Admin){
