@@ -17,12 +17,17 @@ public class TarjetaCredito implements Serializable {
         Database.save();
     }
 
-    public LocalDate getCaducidad() {return caducidad;}
+    /**@return el numero de la tarjeta*/
     public long getNumero() {return numero;}
+    /**@return el Titular de la tarjeta*/
     public String getTitular() {return titular;}
-    public void setTitular(String titular) {this.titular = titular;}
-    public void setCaducidad(LocalDate caducidad) {this.caducidad = caducidad;}
+
+    /**@param numero de esta tarjeta*/
     public void setNumero(long numero) {this.numero = numero;}
+
+    /**
+     * Sirve para mostrar el numero de la tarjeta como String
+     * @return el numero de la tarjeta como String*/
     public String getNumeroS(){
         String num = String.valueOf(this.numero);
         return num;
