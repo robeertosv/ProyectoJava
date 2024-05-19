@@ -7,13 +7,13 @@
 <li>
 Admin
 <ul>
-<li>admin@javabnb.com  || admin</li>
+<li>user: admin@javabnb.com  || password: admin</li>
 </ul>
 </li>
 <li>
 Clientes particulares
 <ul>
-<li>roberto@roberto.com  || clave</li>
+<li>user: roberto@roberto.com  || password: clave</li>
 <li>luis@luis.com  || clave</li>
 </ul>
 </li>
