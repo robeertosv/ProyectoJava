@@ -18,11 +18,11 @@ public class DatosPrueba {
      * */
     public void createData() {
         new Admin();
-        ClienteParticular luis = new ClienteParticular("clave", "87654321A", "luis@luis.com", "Luis Fernández", 653111000);
-        ClienteParticular roberto = new ClienteParticular("clave", "09854422A", "roberto@roberto.com", "Roberto", 640000111);
+        ClienteParticular luis = new ClienteParticular("clave", "00000000T", "luis@luis.com", "Luis Fernández", 653111000);
+        ClienteParticular roberto = new ClienteParticular("clave", "00000000T", "roberto@roberto.com", "Roberto", 640000111);
 
-        Anfitrion katia = new Anfitrion("clave", "09854422A", "katia@katia.com", "Katia", 680000111);
-        Anfitrion lucas = new Anfitrion("clave", "12345678A", "lucas@lucas.com", "Lucas García", 625000999);
+        Anfitrion katia = new Anfitrion("clave", "00000000T", "katia@katia.com", "Katia", 680000111);
+        Anfitrion lucas = new Anfitrion("clave", "00000000T", "lucas@lucas.com", "Lucas García", 625000999);
 
 
         TarjetaCredito cardRoberto = new TarjetaCredito(LocalDate.now(), 1234567812345678l, "Roberto");
