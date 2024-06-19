@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.rk.javabnb"},{"l":"com.rk.javabnb.db"},{"l":"com.rk.javabnb.Inmuebles"},{"l":"com.rk.javabnb.UI"},{"l":"com.rk.javabnb.Usuarios"}];updateSearchResults();
